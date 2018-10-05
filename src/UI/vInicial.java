@@ -29,12 +29,15 @@ public class vInicial extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Inicio de los tiempos");
 
         jLabel2.setText("Commit 2");
+
+        jLabel3.setText("Commit 3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -46,7 +49,9 @@ public class vInicial extends javax.swing.JFrame {
                 .addGap(140, 140, 140))
             .addGroup(layout.createSequentialGroup()
                 .addGap(178, 178, 178)
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -56,7 +61,9 @@ public class vInicial extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(47, 47, 47)
                 .addComponent(jLabel2)
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(jLabel3)
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         pack();
@@ -100,5 +107,6 @@ public class vInicial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
