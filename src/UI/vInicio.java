@@ -193,11 +193,6 @@ public class vInicio extends javax.swing.JFrame {    /**
     }// </editor-fold>//GEN-END:initComponents
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        switch(evt.getKeyCode()){
-            case KeyEvent.VK_ESCAPE:
-                System.exit(0);
-                break;
-        }
     }//GEN-LAST:event_formKeyPressed
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
@@ -246,13 +241,13 @@ public class vInicio extends javax.swing.JFrame {    /**
         });
     }
     public void Display(){
-        Toolkit tk = Toolkit.getDefaultToolkit();
-        Dimension d= tk.getScreenSize();
+        //Toolkit tk = Toolkit.getDefaultToolkit();
+        //Dimension d= tk.getScreenSize();
         this.setUndecorated(rootPaneCheckingEnabled);
-        this.setSize(d);
+        //this.setSize(d);
         this.setExtendedState(MAXIMIZED_BOTH);
-        a= (int)d.getWidth();
-        h= (int)d.getHeight();
+        //a= (int)d.getWidth();
+        //h= (int)d.getHeight();
         System.out.println(" "+a+" "+h);
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables

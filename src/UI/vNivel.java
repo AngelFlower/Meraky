@@ -18,7 +18,7 @@ public class vNivel extends javax.swing.JFrame {
      */
     public vNivel(){
         this.setUndecorated(rootPaneCheckingEnabled);
-        this.setSize(vInicio.a,vInicio.h);
+        //this.setSize(vInicio.a,vInicio.h);
         this.setExtendedState(MAXIMIZED_BOTH);
         initComponents();
     }
