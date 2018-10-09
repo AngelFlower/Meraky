@@ -13,14 +13,14 @@ import java.awt.event.KeyEvent;
  *
  * @author Angel Flores
  */
-public class vInicio extends javax.swing.JFrame {    /**
+public class vStart extends javax.swing.JFrame {    /**
      *
      */
     public static int a,h;
     /**
      * Creates new form VInicio
      */
-    public vInicio() {
+    public vStart() {
         Display();
         initComponents();
     }
@@ -60,7 +60,7 @@ public class vInicio extends javax.swing.JFrame {    /**
                 formKeyPressed(evt);
             }
         });
-        getContentPane().setLayout(new java.awt.GridLayout());
+        getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         Contenedor_Inicio.setLayout(new java.awt.BorderLayout());
 
@@ -196,7 +196,7 @@ public class vInicio extends javax.swing.JFrame {    /**
     }//GEN-LAST:event_formKeyPressed
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-        vNivel abrir = new vNivel();
+        vLevel abrir = new vLevel();
         abrir.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnStartActionPerformed
@@ -222,21 +222,23 @@ public class vInicio extends javax.swing.JFrame {    /**
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vStart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vStart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vStart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vStart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new vInicio().setVisible(true);
+                new vStart().setVisible(true);
             }
         });
     }
