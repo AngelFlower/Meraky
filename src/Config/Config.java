@@ -6,7 +6,7 @@
 package Config;
 
 import java.io.FileInputStream;
-import java.util.*;
+//import java.util.*;
 import java.util.Properties;
  
 public class Config
@@ -16,7 +16,6 @@ public class Config
    {
    prop = new Properties();
     try {
-      
         prop.load(new FileInputStream("config/config.cfg"));
         System.out.println("loaded");
     }catch(Exception eta){
@@ -24,8 +23,7 @@ public class Config
     }
    }
  
-   public String getProperty(String key)
-   {
+   public String getProperty(String key){
     String value = this.prop.getProperty(key);
     return value;
    }

@@ -6,8 +6,8 @@
 package UI;
 
 import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
+//import java.awt.Toolkit;
+//import java.awt.event.KeyEvent;
 import Config.PropStore;
 import Config.Config;
 /**
@@ -24,8 +24,7 @@ public class vStart extends javax.swing.JFrame {    /**
     public vStart() {
         Display();
         initComponents();
-        
-        
+        //this.setLocationRelativeTo(null);
     }
     public void toggleRes(){
     }
@@ -39,12 +38,12 @@ public class vStart extends javax.swing.JFrame {    /**
         System.out.println(fullscreen);
         if(fullscreen){
             this.setExtendedState(MAXIMIZED_BOTH);
+            this.setUndecorated(rootPaneCheckingEnabled);
             System.out.println("1");
         }
         else{
-            this.setPreferredSize(new Dimension(600, 400));
+            this.setPreferredSize(new Dimension(800, 600));
         }
-        this.setUndecorated(rootPaneCheckingEnabled);
         
         
         //a= (int)d.getWidth();
@@ -59,6 +58,7 @@ public class vStart extends javax.swing.JFrame {    /**
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         pAll_Start = new javax.swing.JPanel();
         CENTER = new javax.swing.JPanel();
@@ -68,7 +68,6 @@ public class vStart extends javax.swing.JFrame {    /**
         jLabel2 = new javax.swing.JLabel();
         pButtons = new javax.swing.JPanel();
         pGird = new javax.swing.JPanel();
-        top = new javax.swing.JPanel();
         pStart = new javax.swing.JPanel();
         btnStart = new javax.swing.JButton();
         pSettings = new javax.swing.JPanel();
@@ -115,20 +114,9 @@ public class vStart extends javax.swing.JFrame {    /**
         pButtons.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pButtons.setLayout(new java.awt.GridLayout(1, 3));
 
-        pGird.setLayout(new java.awt.GridLayout(6, 3));
+        pGird.setLayout(new java.awt.GridLayout(4, 3));
 
-        javax.swing.GroupLayout topLayout = new javax.swing.GroupLayout(top);
-        top.setLayout(topLayout);
-        topLayout.setHorizontalGroup(
-            topLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 461, Short.MAX_VALUE)
-        );
-        topLayout.setVerticalGroup(
-            topLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 36, Short.MAX_VALUE)
-        );
-
-        pGird.add(top);
+        pStart.setLayout(new java.awt.GridBagLayout());
 
         btnStart.setText("Start");
         btnStart.addActionListener(new java.awt.event.ActionListener() {
@@ -136,9 +124,11 @@ public class vStart extends javax.swing.JFrame {    /**
                 btnStartActionPerformed(evt);
             }
         });
-        pStart.add(btnStart);
+        pStart.add(btnStart, new java.awt.GridBagConstraints());
 
         pGird.add(pStart);
+
+        pSettings.setLayout(new java.awt.GridBagLayout());
 
         btnSettings.setText("Settings");
         btnSettings.addActionListener(new java.awt.event.ActionListener() {
@@ -146,36 +136,23 @@ public class vStart extends javax.swing.JFrame {    /**
                 btnSettingsActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout pSettingsLayout = new javax.swing.GroupLayout(pSettings);
-        pSettings.setLayout(pSettingsLayout);
-        pSettingsLayout.setHorizontalGroup(
-            pSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 461, Short.MAX_VALUE)
-            .addGroup(pSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pSettingsLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(btnSettings)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        pSettingsLayout.setVerticalGroup(
-            pSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 36, Short.MAX_VALUE)
-            .addGroup(pSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pSettingsLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(btnSettings)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 192, 11, 192);
+        pSettings.add(btnSettings, gridBagConstraints);
 
         pGird.add(pSettings);
 
-        pInfo.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 10, 5));
+        pInfo.setLayout(new java.awt.GridBagLayout());
 
         btnInfo.setText("Info");
-        pInfo.add(btnInfo);
+        pInfo.add(btnInfo, new java.awt.GridBagConstraints());
 
         pGird.add(pInfo);
+
+        pExit.setLayout(new java.awt.GridBagLayout());
 
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -183,7 +160,7 @@ public class vStart extends javax.swing.JFrame {    /**
                 btnExitActionPerformed(evt);
             }
         });
-        pExit.add(btnExit);
+        pExit.add(btnExit, new java.awt.GridBagConstraints());
 
         pGird.add(pExit);
 
@@ -329,7 +306,6 @@ public class vStart extends javax.swing.JFrame {    /**
     private javax.swing.JPanel pStart;
     private javax.swing.JPanel pSubtitle;
     private javax.swing.JPanel pTitle;
-    private javax.swing.JPanel top;
     // End of variables declaration//GEN-END:variables
 
 }

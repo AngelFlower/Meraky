@@ -5,6 +5,10 @@
  */
 package UI;
 
+import Config.Config;
+import java.awt.Dimension;
+import static java.awt.Frame.MAXIMIZED_BOTH;
+
 /**
  *
  * @author Angel Flores
@@ -15,9 +19,9 @@ public class vSettings extends javax.swing.JFrame {
      * Creates new form vSettings
      */
     public vSettings() {
+        Dis();
         initComponents();
-        
-    }
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,6 +37,12 @@ public class vSettings extends javax.swing.JFrame {
         Title = new javax.swing.JLabel();
         pCenter = new javax.swing.JPanel();
         pDown = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        pCancel = new javax.swing.JPanel();
+        btnCancel = new javax.swing.JButton();
+        pOK = new javax.swing.JPanel();
+        bntOK = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
         pRight = new javax.swing.JPanel();
         pLeft = new javax.swing.JPanel();
 
@@ -75,21 +85,57 @@ public class vSettings extends javax.swing.JFrame {
         );
         pCenterLayout.setVerticalGroup(
             pCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 196, Short.MAX_VALUE)
+            .addGap(0, 176, Short.MAX_VALUE)
         );
 
         pAll_Settings.add(pCenter, java.awt.BorderLayout.CENTER);
 
-        javax.swing.GroupLayout pDownLayout = new javax.swing.GroupLayout(pDown);
-        pDown.setLayout(pDownLayout);
-        pDownLayout.setHorizontalGroup(
-            pDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 614, Short.MAX_VALUE)
+        pDown.setLayout(new java.awt.GridLayout(1, 4));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 153, Short.MAX_VALUE)
         );
-        pDownLayout.setVerticalGroup(
-            pDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        pDown.add(jPanel1);
+
+        pCancel.setLayout(new java.awt.GridBagLayout());
+
+        btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+        pCancel.add(btnCancel, new java.awt.GridBagConstraints());
+
+        pDown.add(pCancel);
+
+        pOK.setLayout(new java.awt.GridBagLayout());
+
+        bntOK.setText("Accept");
+        pOK.add(bntOK, new java.awt.GridBagConstraints());
+
+        pDown.add(pOK);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 153, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        pDown.add(jPanel4);
 
         pAll_Settings.add(pDown, java.awt.BorderLayout.PAGE_END);
 
@@ -101,7 +147,7 @@ public class vSettings extends javax.swing.JFrame {
         );
         pRightLayout.setVerticalGroup(
             pRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 196, Short.MAX_VALUE)
+            .addGap(0, 176, Short.MAX_VALUE)
         );
 
         pAll_Settings.add(pRight, java.awt.BorderLayout.LINE_END);
@@ -114,7 +160,7 @@ public class vSettings extends javax.swing.JFrame {
         );
         pLeftLayout.setVerticalGroup(
             pLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 196, Short.MAX_VALUE)
+            .addGap(0, 176, Short.MAX_VALUE)
         );
 
         pAll_Settings.add(pLeft, java.awt.BorderLayout.LINE_START);
@@ -124,6 +170,24 @@ public class vSettings extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        vStart abrir = new vStart();
+        abrir.setVisible(true);
+        this.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelActionPerformed
+    public void Dis(){
+        Config cfg = new Config();
+        boolean fullscreen = Boolean.parseBoolean(cfg.getProperty("fullscreen"));
+        System.out.println(fullscreen);
+        if(fullscreen){
+            this.setExtendedState(MAXIMIZED_BOTH);
+            this.setUndecorated(rootPaneCheckingEnabled);
+            System.out.println("1");
+        }
+        else{
+            this.setPreferredSize(new Dimension(800, 600));
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -161,10 +225,16 @@ public class vSettings extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Title;
+    private javax.swing.JButton bntOK;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel pAll_Settings;
+    private javax.swing.JPanel pCancel;
     private javax.swing.JPanel pCenter;
     private javax.swing.JPanel pDown;
     private javax.swing.JPanel pLeft;
+    private javax.swing.JPanel pOK;
     private javax.swing.JPanel pRight;
     private javax.swing.JPanel pTop;
     // End of variables declaration//GEN-END:variables
