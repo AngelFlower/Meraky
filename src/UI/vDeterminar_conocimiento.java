@@ -5,7 +5,10 @@
  */
 package UI;
 
-
+import Niveles.Level1;
+import Niveles.Level2;
+import Niveles.Level3;
+import Niveles.Level4;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 
 /**
@@ -14,7 +17,7 @@ import static java.awt.Frame.MAXIMIZED_BOTH;
  */
 public class vDeterminar_conocimiento extends javax.swing.JFrame {
  private static int a,h;
- 
+public int nivel_op;
     /**
      * Creates new form vDeterminar_conocimiento
      */
@@ -22,7 +25,8 @@ public class vDeterminar_conocimiento extends javax.swing.JFrame {
         initComponents(); 
         this.Label_principiante_contenido.setVisible(false);/* Inicialiazacion no visibles de los temas que contentra cada nivel*/
         this.Label_medio_contenido.setVisible(false);
-        this.Label_avanzado_contenido.setVisible(false);   
+        this.Label_mas_Avanzado_contenido.setVisible(false);   
+       this.Label_avanzado_contenido1.setVisible(false);
        
         
     }
@@ -38,24 +42,59 @@ private void Display(){
 }
 private int Mensajes_slider(int valor){
    
-     
-         if (valor == 3){
-             this.Label_principiante_contenido.setText("Contiene....1" );
+     switch (valor ){
+         case 4:this.Label_principiante_contenido.setText("Contiene....1" );
              this.Label_principiante_contenido.setVisible(true);
              this.Label_medio_contenido.setVisible(false);
-         }
-         else if (valor == 2){
-             this.Label_medio_contenido.setText("cotnieneee 2");
+             
+             break;
+         case 3: this.Label_medio_contenido.setText("cotnieneee 2");
              this.Label_medio_contenido.setVisible(true);
              this.Label_principiante_contenido.setVisible(false);
-             this.Label_avanzado_contenido.setVisible(false);
-         }
-         else if (valor == 1){
-             this.Label_avanzado_contenido.setText("cONTIENEEE 3");
-             this.Label_avanzado_contenido.setVisible(true);
+             this.Label_avanzado_contenido1.setVisible(false);
+             
+             break;
+         case 2:  this.Label_avanzado_contenido1.setText("cONTIENEEE 3");
+             this.Label_avanzado_contenido1.setVisible(true);
              this.Label_medio_contenido.setVisible(false);
-         }
+             this.Label_mas_Avanzado_contenido.setVisible(false);
+             
+             break;
+         case 1:this.Label_mas_Avanzado_contenido.setText("COTNEIEEEEN 4");
+             this.Label_mas_Avanzado_contenido.setVisible(true);
+             this.Label_avanzado_contenido1.setVisible(false);
+             
+             break;
+             
+     }
+     
    return valor;
+}
+
+public void Avanzar_niveles(){
+    nivel_op = this.Jslider.getValue();
+     
+        Level1 abrir1 = new Level1();
+        Level2 abrir2 = new Level2();
+        Level3 abrir3= new Level3();
+        Level4 abrir4 = new Level4();
+        
+        switch(nivel_op){
+            
+            case 1: abrir4.setVisible(true);
+                    this.setVisible(false);;
+            break;
+            case 2: abrir3.setVisible(true);
+            this.setVisible(false);
+            break;
+            case 3: abrir2.setVisible(true);
+            this.setVisible(false);
+            break;
+            case 4: abrir1.setVisible(true);
+            this.setVisible(false);
+                   break;
+        } 
+    
 }
 
     /**
@@ -70,13 +109,15 @@ private int Mensajes_slider(int valor){
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Label_medio_contenido = new javax.swing.JLabel();
-        Label_avanzado_contenido = new javax.swing.JLabel();
+        Label_mas_Avanzado_contenido = new javax.swing.JLabel();
         Label_principiante_contenido = new javax.swing.JLabel();
         Jslider = new javax.swing.JSlider();
         Etiqueta_prrincipiante = new javax.swing.JLabel();
         Etiqueta_inter = new javax.swing.JLabel();
         Etiqueta_avanzado = new javax.swing.JLabel();
         Btn_next = new javax.swing.JButton();
+        Label_avanzado_contenido1 = new javax.swing.JLabel();
+        mas_avanzado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,17 +127,17 @@ private int Mensajes_slider(int valor){
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 290, 28));
 
         Label_medio_contenido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(Label_medio_contenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 270, 68));
+        jPanel1.add(Label_medio_contenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 270, 68));
 
-        Label_avanzado_contenido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(Label_avanzado_contenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 240, 73));
+        Label_mas_Avanzado_contenido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(Label_mas_Avanzado_contenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 240, 73));
 
         Label_principiante_contenido.setText(" ");
         Label_principiante_contenido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(Label_principiante_contenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 270, 54));
+        jPanel1.add(Label_principiante_contenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 270, 54));
 
         Jslider.setMajorTickSpacing(1);
-        Jslider.setMaximum(3);
+        Jslider.setMaximum(4);
         Jslider.setMinimum(1);
         Jslider.setOrientation(javax.swing.JSlider.VERTICAL);
         Jslider.setPaintTicks(true);
@@ -106,21 +147,32 @@ private int Mensajes_slider(int valor){
                 JsliderStateChanged(evt);
             }
         });
-        jPanel1.add(Jslider, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 80, 400));
+        jPanel1.add(Jslider, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 80, 420));
 
         Etiqueta_prrincipiante.setText("Principiante");
         jPanel1.add(Etiqueta_prrincipiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 109, 34));
 
         Etiqueta_inter.setText("Intermedio");
-        jPanel1.add(Etiqueta_inter, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 96, -1));
+        jPanel1.add(Etiqueta_inter, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 96, -1));
 
         Etiqueta_avanzado.setText("Avanzado");
-        jPanel1.add(Etiqueta_avanzado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 85, -1));
+        jPanel1.add(Etiqueta_avanzado, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 85, -1));
 
         Btn_next.setText("Next");
-        jPanel1.add(Btn_next, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, 150, 50));
+        Btn_next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_nextActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Btn_next, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 460, 150, 50));
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_START);
+        Label_avanzado_contenido1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(Label_avanzado_contenido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 240, 73));
+
+        mas_avanzado.setText(" Naci en US pvto");
+        jPanel1.add(mas_avanzado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 110, 20));
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -134,6 +186,11 @@ private int Mensajes_slider(int valor){
           
          
     }//GEN-LAST:event_JsliderStateChanged
+
+    private void Btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_nextActionPerformed
+        // TODO add your handling code here:
+              Avanzar_niveles();
+    }//GEN-LAST:event_Btn_nextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,10 +235,12 @@ private int Mensajes_slider(int valor){
     private javax.swing.JLabel Etiqueta_inter;
     private javax.swing.JLabel Etiqueta_prrincipiante;
     private javax.swing.JSlider Jslider;
-    private javax.swing.JLabel Label_avanzado_contenido;
+    private javax.swing.JLabel Label_avanzado_contenido1;
+    private javax.swing.JLabel Label_mas_Avanzado_contenido;
     private javax.swing.JLabel Label_medio_contenido;
     private javax.swing.JLabel Label_principiante_contenido;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel mas_avanzado;
     // End of variables declaration//GEN-END:variables
 }
