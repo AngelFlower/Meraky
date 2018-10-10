@@ -23,6 +23,7 @@ public class vInicio extends javax.swing.JFrame {    /**
     public vInicio() {
         Display();
         initComponents();
+        this.btnExit.setMnemonic('w');// SetMnemonic es para usar una letra para activar un boto etc ejemplo  AÑT + 'letra_dentro de el parentesis'
     }
 
     /**
