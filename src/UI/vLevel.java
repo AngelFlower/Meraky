@@ -5,6 +5,10 @@
  */
 package UI;
 
+import Config.Config;
+import java.awt.Dimension;
+import static java.awt.Frame.MAXIMIZED_BOTH;
+
 
 
 /**
@@ -17,9 +21,8 @@ public class vLevel extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     public vLevel(){
-        this.setUndecorated(rootPaneCheckingEnabled);
-        //this.setSize(vInicio.a,vInicio.h);
-        this.setExtendedState(MAXIMIZED_BOTH);
+        
+        Dis();
         initComponents();
     }
 
@@ -174,7 +177,19 @@ public class vLevel extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void Dis(){
+        Config cfg = new Config();
+        boolean fullscreen = Boolean.parseBoolean(cfg.getProperty("fullscreen"));
+        System.out.println(fullscreen);
+        if(fullscreen){
+            this.setExtendedState(MAXIMIZED_BOTH);
+            this.setUndecorated(rootPaneCheckingEnabled);
+            System.out.println("1");
+        }
+        else{
+            this.setPreferredSize(new Dimension(800, 600));
+        }
+    }
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         vStart abrir = new vStart();
         abrir.setVisible(true);

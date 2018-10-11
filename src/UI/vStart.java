@@ -6,9 +6,10 @@
 package UI;
 
 import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-
+//import java.awt.Toolkit;
+//import java.awt.event.KeyEvent;
+import Config.PropStore;
+import Config.Config;
 /**
  *
  * @author Angel Flores
@@ -23,8 +24,32 @@ public class vStart extends javax.swing.JFrame {    /**
     public vStart() {
         Display();
         initComponents();
+        //this.setLocationRelativeTo(null);
     }
-
+    public void toggleRes(){
+    }
+    public void Display(){
+        //Toolkit tk = Toolkit.getDefaultToolkit();
+        //Dimension d= tk.getScreenSize();
+        
+        //this.setSize(d);
+        Config cfg = new Config();
+        boolean fullscreen = Boolean.parseBoolean(cfg.getProperty("fullscreen"));
+        System.out.println(fullscreen);
+        if(fullscreen){
+            this.setExtendedState(MAXIMIZED_BOTH);
+            this.setUndecorated(rootPaneCheckingEnabled);
+            System.out.println("1");
+        }
+        else{
+            this.setPreferredSize(new Dimension(800, 600));
+        }
+        
+        
+        //a= (int)d.getWidth();
+        //h= (int)d.getHeight();
+        //System.out.println(" "+a+" "+h);
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,8 +58,9 @@ public class vStart extends javax.swing.JFrame {    /**
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        Contenedor_Inicio = new javax.swing.JPanel();
+        pAll_Start = new javax.swing.JPanel();
         CENTER = new javax.swing.JPanel();
         pTitle = new javax.swing.JPanel();
         Title = new javax.swing.JLabel();
@@ -42,9 +68,10 @@ public class vStart extends javax.swing.JFrame {    /**
         jLabel2 = new javax.swing.JLabel();
         pButtons = new javax.swing.JPanel();
         pGird = new javax.swing.JPanel();
-        top = new javax.swing.JPanel();
         pStart = new javax.swing.JPanel();
         btnStart = new javax.swing.JButton();
+        pSettings = new javax.swing.JPanel();
+        btnSettings = new javax.swing.JButton();
         pInfo = new javax.swing.JPanel();
         btnInfo = new javax.swing.JButton();
         pExit = new javax.swing.JPanel();
@@ -62,7 +89,7 @@ public class vStart extends javax.swing.JFrame {    /**
         });
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        Contenedor_Inicio.setLayout(new java.awt.BorderLayout());
+        pAll_Start.setLayout(new java.awt.BorderLayout());
 
         CENTER.setLayout(new java.awt.GridLayout(3, 0));
 
@@ -87,20 +114,9 @@ public class vStart extends javax.swing.JFrame {    /**
         pButtons.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pButtons.setLayout(new java.awt.GridLayout(1, 3));
 
-        pGird.setLayout(new java.awt.GridLayout(5, 3));
+        pGird.setLayout(new java.awt.GridLayout(4, 3));
 
-        javax.swing.GroupLayout topLayout = new javax.swing.GroupLayout(top);
-        top.setLayout(topLayout);
-        topLayout.setHorizontalGroup(
-            topLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 461, Short.MAX_VALUE)
-        );
-        topLayout.setVerticalGroup(
-            topLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
-        );
-
-        pGird.add(top);
+        pStart.setLayout(new java.awt.GridBagLayout());
 
         btnStart.setText("Start");
         btnStart.addActionListener(new java.awt.event.ActionListener() {
@@ -108,16 +124,35 @@ public class vStart extends javax.swing.JFrame {    /**
                 btnStartActionPerformed(evt);
             }
         });
-        pStart.add(btnStart);
+        pStart.add(btnStart, new java.awt.GridBagConstraints());
 
         pGird.add(pStart);
 
-        pInfo.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 10, 5));
+        pSettings.setLayout(new java.awt.GridBagLayout());
+
+        btnSettings.setText("Settings");
+        btnSettings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSettingsActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 192, 11, 192);
+        pSettings.add(btnSettings, gridBagConstraints);
+
+        pGird.add(pSettings);
+
+        pInfo.setLayout(new java.awt.GridBagLayout());
 
         btnInfo.setText("Info");
-        pInfo.add(btnInfo);
+        pInfo.add(btnInfo, new java.awt.GridBagConstraints());
 
         pGird.add(pInfo);
+
+        pExit.setLayout(new java.awt.GridBagLayout());
 
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +160,7 @@ public class vStart extends javax.swing.JFrame {    /**
                 btnExitActionPerformed(evt);
             }
         });
-        pExit.add(btnExit);
+        pExit.add(btnExit, new java.awt.GridBagConstraints());
 
         pGird.add(pExit);
 
@@ -133,7 +168,7 @@ public class vStart extends javax.swing.JFrame {    /**
 
         CENTER.add(pButtons);
 
-        Contenedor_Inicio.add(CENTER, java.awt.BorderLayout.CENTER);
+        pAll_Start.add(CENTER, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout TOPLayout = new javax.swing.GroupLayout(TOP);
         TOP.setLayout(TOPLayout);
@@ -146,7 +181,7 @@ public class vStart extends javax.swing.JFrame {    /**
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
-        Contenedor_Inicio.add(TOP, java.awt.BorderLayout.NORTH);
+        pAll_Start.add(TOP, java.awt.BorderLayout.NORTH);
 
         javax.swing.GroupLayout DOWNLayout = new javax.swing.GroupLayout(DOWN);
         DOWN.setLayout(DOWNLayout);
@@ -159,7 +194,7 @@ public class vStart extends javax.swing.JFrame {    /**
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
-        Contenedor_Inicio.add(DOWN, java.awt.BorderLayout.SOUTH);
+        pAll_Start.add(DOWN, java.awt.BorderLayout.SOUTH);
 
         javax.swing.GroupLayout RIGHTLayout = new javax.swing.GroupLayout(RIGHT);
         RIGHT.setLayout(RIGHTLayout);
@@ -169,10 +204,10 @@ public class vStart extends javax.swing.JFrame {    /**
         );
         RIGHTLayout.setVerticalGroup(
             RIGHTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 536, Short.MAX_VALUE)
+            .addGap(0, 662, Short.MAX_VALUE)
         );
 
-        Contenedor_Inicio.add(RIGHT, java.awt.BorderLayout.EAST);
+        pAll_Start.add(RIGHT, java.awt.BorderLayout.EAST);
 
         javax.swing.GroupLayout LEFTLayout = new javax.swing.GroupLayout(LEFT);
         LEFT.setLayout(LEFTLayout);
@@ -182,12 +217,12 @@ public class vStart extends javax.swing.JFrame {    /**
         );
         LEFTLayout.setVerticalGroup(
             LEFTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 536, Short.MAX_VALUE)
+            .addGap(0, 662, Short.MAX_VALUE)
         );
 
-        Contenedor_Inicio.add(LEFT, java.awt.BorderLayout.LINE_START);
+        pAll_Start.add(LEFT, java.awt.BorderLayout.LINE_START);
 
-        getContentPane().add(Contenedor_Inicio);
+        getContentPane().add(pAll_Start);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -204,6 +239,12 @@ public class vStart extends javax.swing.JFrame {    /**
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingsActionPerformed
+        vSettings abrir = new vSettings();
+        abrir.setVisible(true);
+        this.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSettingsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,23 +279,14 @@ public class vStart extends javax.swing.JFrame {    /**
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                PropStore props = new PropStore();
                 new vStart().setVisible(true);
             }
         });
     }
-    public void Display(){
-        //Toolkit tk = Toolkit.getDefaultToolkit();
-        //Dimension d= tk.getScreenSize();
-        this.setUndecorated(rootPaneCheckingEnabled);
-        //this.setSize(d);
-        this.setExtendedState(MAXIMIZED_BOTH);
-        //a= (int)d.getWidth();
-        //h= (int)d.getHeight();
-        System.out.println(" "+a+" "+h);
-}
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CENTER;
-    private javax.swing.JPanel Contenedor_Inicio;
     private javax.swing.JPanel DOWN;
     private javax.swing.JPanel LEFT;
     private javax.swing.JPanel RIGHT;
@@ -262,16 +294,18 @@ public class vStart extends javax.swing.JFrame {    /**
     private javax.swing.JLabel Title;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnInfo;
+    private javax.swing.JButton btnSettings;
     private javax.swing.JButton btnStart;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel pAll_Start;
     private javax.swing.JPanel pButtons;
     private javax.swing.JPanel pExit;
     private javax.swing.JPanel pGird;
     private javax.swing.JPanel pInfo;
+    private javax.swing.JPanel pSettings;
     private javax.swing.JPanel pStart;
     private javax.swing.JPanel pSubtitle;
     private javax.swing.JPanel pTitle;
-    private javax.swing.JPanel top;
     // End of variables declaration//GEN-END:variables
 
 }
