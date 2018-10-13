@@ -5,22 +5,24 @@
  */
 package UI;
 
-import Config.Config;
+import Config.Config;import Config.PropStore;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.util.Properties;
 
 /**
  *
  * @author Angel Flores
  */
 public class vSettings extends javax.swing.JFrame {
-
+    boolean window;
     /**
      * Creates new form vSettings
      */
     public vSettings() {
         Dis();
         initComponents();
+        win();
         }
 
     /**
@@ -36,6 +38,12 @@ public class vSettings extends javax.swing.JFrame {
         pTop = new javax.swing.JPanel();
         Title = new javax.swing.JLabel();
         pCenter = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        wPrevious = new javax.swing.JButton();
+        etiWindow = new javax.swing.JLabel();
+        wNext = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
         pDown = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         pCancel = new javax.swing.JPanel();
@@ -47,7 +55,7 @@ public class vSettings extends javax.swing.JFrame {
         pLeft = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.GridLayout());
+        getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         pAll_Settings.setLayout(new java.awt.BorderLayout());
 
@@ -77,16 +85,57 @@ public class vSettings extends javax.swing.JFrame {
 
         pAll_Settings.add(pTop, java.awt.BorderLayout.PAGE_START);
 
-        javax.swing.GroupLayout pCenterLayout = new javax.swing.GroupLayout(pCenter);
-        pCenter.setLayout(pCenterLayout);
-        pCenterLayout.setHorizontalGroup(
-            pCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pCenter.setLayout(new java.awt.GridLayout(3, 1));
+
+        jPanel2.setLayout(new java.awt.GridBagLayout());
+
+        wPrevious.setText("<");
+        wPrevious.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wPreviousActionPerformed(evt);
+            }
+        });
+        jPanel2.add(wPrevious, new java.awt.GridBagConstraints());
+
+        etiWindow.setText("jLabel1");
+        etiWindow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(etiWindow, new java.awt.GridBagConstraints());
+
+        wNext.setText(">");
+        wNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wNextActionPerformed(evt);
+            }
+        });
+        jPanel2.add(wNext, new java.awt.GridBagConstraints());
+
+        pCenter.add(jPanel2);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 414, Short.MAX_VALUE)
         );
-        pCenterLayout.setVerticalGroup(
-            pCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 176, Short.MAX_VALUE)
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 58, Short.MAX_VALUE)
         );
+
+        pCenter.add(jPanel3);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 414, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 58, Short.MAX_VALUE)
+        );
+
+        pCenter.add(jPanel5);
 
         pAll_Settings.add(pCenter, java.awt.BorderLayout.CENTER);
 
@@ -120,6 +169,11 @@ public class vSettings extends javax.swing.JFrame {
         pOK.setLayout(new java.awt.GridBagLayout());
 
         bntOK.setText("Accept");
+        bntOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntOKActionPerformed(evt);
+            }
+        });
         pOK.add(bntOK, new java.awt.GridBagConstraints());
 
         pDown.add(pOK);
@@ -175,6 +229,27 @@ public class vSettings extends javax.swing.JFrame {
         abrir.setVisible(true);
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void wNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wNextActionPerformed
+        etiWindow.setText("Window");
+        window=false;
+        PropStore.windo="false";
+        PropStore.firstStore();      // TODO add your handling code here:
+    }//GEN-LAST:event_wNextActionPerformed
+
+    private void wPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wPreviousActionPerformed
+        etiWindow.setText("FullScreen");
+        PropStore.windo="true";
+        PropStore.firstStore();
+        window=true;        // TODO add your handling code here:
+    }//GEN-LAST:event_wPreviousActionPerformed
+
+    private void bntOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntOKActionPerformed
+        this.setVisible(false);
+        this.dispose();
+        vStart abrir = new vStart();
+        abrir.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_bntOKActionPerformed
     public void Dis(){
         Config cfg = new Config();
         boolean fullscreen = Boolean.parseBoolean(cfg.getProperty("fullscreen"));
@@ -183,9 +258,21 @@ public class vSettings extends javax.swing.JFrame {
             this.setExtendedState(MAXIMIZED_BOTH);
             this.setUndecorated(rootPaneCheckingEnabled);
             System.out.println("1");
+            window=true;
+            System.out.println("w ="+window);
         }
         else{
             this.setPreferredSize(new Dimension(800, 600));
+            window=false;
+            System.out.println("w ="+window);
+        }
+    }
+    public void win(){
+        if(window==true){
+            etiWindow.setText("FullScreen");
+        }
+        else if(window==false){
+            etiWindow.setText("Window");
         }
     }
     /**
@@ -227,8 +314,12 @@ public class vSettings extends javax.swing.JFrame {
     private javax.swing.JLabel Title;
     private javax.swing.JButton bntOK;
     private javax.swing.JButton btnCancel;
+    private javax.swing.JLabel etiWindow;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel pAll_Settings;
     private javax.swing.JPanel pCancel;
     private javax.swing.JPanel pCenter;
@@ -237,5 +328,7 @@ public class vSettings extends javax.swing.JFrame {
     private javax.swing.JPanel pOK;
     private javax.swing.JPanel pRight;
     private javax.swing.JPanel pTop;
+    private javax.swing.JButton wNext;
+    private javax.swing.JButton wPrevious;
     // End of variables declaration//GEN-END:variables
 }

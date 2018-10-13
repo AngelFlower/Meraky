@@ -15,8 +15,10 @@ import java.io.IOException;
 import java.util.Properties;
  
 public class PropStore 
-{
+{   
+    public static String windo;
     public PropStore(){
+        windo="true";
         PropStore.main(null);
         if(!this.checkConfigFile()){
             this.firstStore();
@@ -31,11 +33,11 @@ public class PropStore
         boolean exists = tmpDir.exists();
         return exists;
     }
-    public void firstStore(){
+    public static void firstStore(){
      Properties prop = new Properties();
     	try {
      //set the properties value
-     prop.setProperty("fullscreen", "true");
+     prop.setProperty("fullscreen", windo);
      prop.setProperty("wHeight", "600");
      prop.setProperty("wWidth", "800");
  

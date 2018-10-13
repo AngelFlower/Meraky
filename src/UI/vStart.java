@@ -10,6 +10,7 @@ import java.awt.Dimension;
 //import java.awt.event.KeyEvent;
 import Config.PropStore;
 import Config.Config;
+import javax.swing.ImageIcon;
 /**
  *
  * @author Angel Flores
@@ -24,6 +25,7 @@ public class vStart extends javax.swing.JFrame {    /**
     public vStart() {
         Display();
         initComponents();
+        //btnStart.setIcon(new ImageIcon("src/Images/prueba.jpg"));
         //this.setLocationRelativeTo(null);
     }
     public void toggleRes(){
@@ -204,7 +206,7 @@ public class vStart extends javax.swing.JFrame {    /**
         );
         RIGHTLayout.setVerticalGroup(
             RIGHTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 662, Short.MAX_VALUE)
+            .addGap(0, 3230, Short.MAX_VALUE)
         );
 
         pAll_Start.add(RIGHT, java.awt.BorderLayout.EAST);
@@ -217,7 +219,7 @@ public class vStart extends javax.swing.JFrame {    /**
         );
         LEFTLayout.setVerticalGroup(
             LEFTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 662, Short.MAX_VALUE)
+            .addGap(0, 3230, Short.MAX_VALUE)
         );
 
         pAll_Start.add(LEFT, java.awt.BorderLayout.LINE_START);
