@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package UIAntiguo;
 
+import UIAntiguo.vStart;
 import Config.Config;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;

@@ -5,53 +5,25 @@
  */
 package UI;
 
-import java.awt.Dimension;
-//import java.awt.Toolkit;
-//import java.awt.event.KeyEvent;
-import Config.PropStore;
-import Config.Config;
-import javax.swing.ImageIcon;
+import static UI.Main.paneMain;
+import java.awt.GridLayout;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author Angel Flores
  */
-public class vStart extends javax.swing.JFrame {    /**
-     *
-     */
-    public static int a,h;
+public class  pStart extends javax.swing.JPanel {
+
     /**
-     * Creates new form VInicio
+     * Creates new form pStart
      */
-    public vStart() {
-        Display();
+    public pStart() {
         initComponents();
-        //btnStart.setIcon(new ImageIcon("src/Images/prueba.jpg"));
-        //this.setLocationRelativeTo(null);
+        
+        
     }
-    public void toggleRes(){
-    }
-    public void Display(){
-        //Toolkit tk = Toolkit.getDefaultToolkit();
-        //Dimension d= tk.getScreenSize();
-        
-        //this.setSize(d);
-        Config cfg = new Config();
-        boolean fullscreen = Boolean.parseBoolean(cfg.getProperty("fullscreen"));
-        System.out.println(fullscreen);
-        if(fullscreen){
-            this.setExtendedState(MAXIMIZED_BOTH);
-            this.setUndecorated(rootPaneCheckingEnabled);
-            System.out.println("1");
-        }
-        else{
-            this.setPreferredSize(new Dimension(800, 600));
-        }
-        
-        
-        //a= (int)d.getWidth();
-        //h= (int)d.getHeight();
-        //System.out.println(" "+a+" "+h);
-}
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -83,13 +55,7 @@ public class vStart extends javax.swing.JFrame {    /**
         RIGHT = new javax.swing.JPanel();
         LEFT = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                formKeyPressed(evt);
-            }
-        });
-        getContentPane().setLayout(new java.awt.GridLayout(1, 0));
+        setLayout(new java.awt.GridLayout());
 
         pAll_Start.setLayout(new java.awt.BorderLayout());
 
@@ -176,7 +142,7 @@ public class vStart extends javax.swing.JFrame {    /**
         TOP.setLayout(TOPLayout);
         TOPLayout.setHorizontalGroup(
             TOPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 595, Short.MAX_VALUE)
+            .addGap(0, 761, Short.MAX_VALUE)
         );
         TOPLayout.setVerticalGroup(
             TOPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +155,7 @@ public class vStart extends javax.swing.JFrame {    /**
         DOWN.setLayout(DOWNLayout);
         DOWNLayout.setHorizontalGroup(
             DOWNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 761, Short.MAX_VALUE)
         );
         DOWNLayout.setVerticalGroup(
             DOWNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,7 +172,7 @@ public class vStart extends javax.swing.JFrame {    /**
         );
         RIGHTLayout.setVerticalGroup(
             RIGHTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3230, Short.MAX_VALUE)
+            .addGap(0, 666, Short.MAX_VALUE)
         );
 
         pAll_Start.add(RIGHT, java.awt.BorderLayout.EAST);
@@ -219,73 +185,36 @@ public class vStart extends javax.swing.JFrame {    /**
         );
         LEFTLayout.setVerticalGroup(
             LEFTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3230, Short.MAX_VALUE)
+            .addGap(0, 666, Short.MAX_VALUE)
         );
 
         pAll_Start.add(LEFT, java.awt.BorderLayout.LINE_START);
 
-        getContentPane().add(pAll_Start);
-
-        pack();
+        add(pAll_Start);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-    }//GEN-LAST:event_formKeyPressed
-
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-        vLevel abrir = new vLevel();
-        abrir.setVisible(true);
-        this.setVisible(false);
+        pLevel level = new pLevel();
+        level.setLocation(0, 0);
+        paneMain.removeAll();
+        paneMain.add(level,GridLayout.class);
+        paneMain.revalidate();
+        paneMain.repaint();
     }//GEN-LAST:event_btnStartActionPerformed
+
+    private void btnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingsActionPerformed
+        pSettings settings = new pSettings();
+        settings.setLocation(0, 0);
+        paneMain.removeAll();
+        paneMain.add(settings,GridLayout.class);
+        paneMain.revalidate();
+        paneMain.repaint();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSettingsActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
 
-    private void btnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingsActionPerformed
-        vSettings abrir = new vSettings();
-        abrir.setVisible(true);
-        this.setVisible(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSettingsActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vStart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vStart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vStart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vStart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                PropStore props = new PropStore();
-                new vStart().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CENTER;
@@ -309,6 +238,4 @@ public class vStart extends javax.swing.JFrame {    /**
     private javax.swing.JPanel pSubtitle;
     private javax.swing.JPanel pTitle;
     // End of variables declaration//GEN-END:variables
-
 }
-

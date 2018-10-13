@@ -5,6 +5,10 @@
  */
 package UI;
 
+import Config.Config;
+import java.awt.Dimension;
+import static java.awt.Frame.MAXIMIZED_BOTH;
+
 /**
  *
  * @author Angel Flores
@@ -14,8 +18,10 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
-    public Main() {
+    public Main() { 
+        Display();
         initComponents();
+        Win();
     }
 
     /**
@@ -27,15 +33,43 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pLevel1 = new UI.pLevel();
+        paneMain = new javax.swing.JPanel();
+        pStart1 = new UI.pStart();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridLayout());
-        getContentPane().add(pLevel1);
+
+        paneMain.setLayout(new java.awt.GridLayout());
+        paneMain.add(pStart1);
+
+        getContentPane().add(paneMain);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public void Display(){
+        //Toolkit tk = Toolkit.getDefaultToolkit();
+        //Dimension d= tk.getScreenSize();
+        //this.setSize(d);
+        Config cfg = new Config();
+        boolean fullscreen = Boolean.parseBoolean(cfg.getProperty("fullscreen"));
+        System.out.println(fullscreen);
+        if(fullscreen){
+            this.setExtendedState(MAXIMIZED_BOTH);
+            this.setUndecorated(rootPaneCheckingEnabled);
+            System.out.println("Full"+fullscreen);
+        }
+        else{
+            this.setPreferredSize(new Dimension(800, 600));
+        }
+    }
+    public void Win(){
+        Config cfg = new Config();
+        boolean fullscreen = Boolean.parseBoolean(cfg.getProperty("fullscreen"));
+        if(!fullscreen){
+            this.setLocationRelativeTo(null);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -72,6 +106,7 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private UI.pLevel pLevel1;
+    private UI.pStart pStart1;
+    public static javax.swing.JPanel paneMain;
     // End of variables declaration//GEN-END:variables
 }

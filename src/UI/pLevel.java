@@ -14,7 +14,8 @@ import java.awt.event.KeyEvent;
  * @author Angel Flores
  */
 public class pLevel extends javax.swing.JPanel {
-
+    int x,y;
+    boolean mo;
     /**
      * Creates new form pLevel
      */
@@ -22,6 +23,10 @@ public class pLevel extends javax.swing.JPanel {
         initComponents();
         ImageFondo image=new ImageFondo();
         image.setImage("/img/fondo.jpg");
+        setFocusable(true);
+        int x= goku.getBounds().x;
+        int y= goku.getBounds().y;
+        
     }
 
     /**
@@ -32,74 +37,250 @@ public class pLevel extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         fondoL1 = new fondos.FondoL();
         goku = new Personajes.Goku();
+        pCenter = new javax.swing.JPanel();
+        pLevel1 = new javax.swing.JPanel();
+        btnLevel1 = new javax.swing.JButton();
+        pLevel2 = new javax.swing.JPanel();
+        btnLevel2 = new javax.swing.JButton();
+        pLevel3 = new javax.swing.JPanel();
+        btnLevel3 = new javax.swing.JButton();
+        pLevel4 = new javax.swing.JPanel();
+        btnLevel4 = new javax.swing.JButton();
+        pTop = new javax.swing.JPanel();
+        pTGrid = new javax.swing.JPanel();
+        pHome = new javax.swing.JPanel();
+        btnHome = new javax.swing.JButton();
+        pTitle = new javax.swing.JPanel();
+        Title = new javax.swing.JLabel();
+        pE = new javax.swing.JPanel();
+        pDown = new javax.swing.JPanel();
+        pLeft = new javax.swing.JPanel();
+        pRight = new javax.swing.JPanel();
 
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 formKeyPressed(evt);
             }
         });
-        setLayout(new java.awt.GridLayout(1, 0));
+        setLayout(new java.awt.GridLayout());
+
+        fondoL1.setOpaque(false);
+        fondoL1.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout gokuLayout = new javax.swing.GroupLayout(goku);
         goku.setLayout(gokuLayout);
         gokuLayout.setHorizontalGroup(
             gokuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         gokuLayout.setVerticalGroup(
             gokuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        fondoL1.add(goku, java.awt.BorderLayout.CENTER);
+
+        pCenter.setOpaque(false);
+        pCenter.setLayout(new java.awt.GridLayout(1, 4));
+
+        pLevel1.setOpaque(false);
+        pLevel1.setLayout(new java.awt.GridBagLayout());
+
+        btnLevel1.setText("Level 1");
+        pLevel1.add(btnLevel1, new java.awt.GridBagConstraints());
+
+        pCenter.add(pLevel1);
+
+        pLevel2.setOpaque(false);
+        pLevel2.setLayout(new java.awt.GridBagLayout());
+
+        btnLevel2.setText("Level 2");
+        pLevel2.add(btnLevel2, new java.awt.GridBagConstraints());
+
+        pCenter.add(pLevel2);
+
+        pLevel3.setOpaque(false);
+        pLevel3.setLayout(new java.awt.GridBagLayout());
+
+        btnLevel3.setText("Level 3");
+        pLevel3.add(btnLevel3, new java.awt.GridBagConstraints());
+
+        pCenter.add(pLevel3);
+
+        pLevel4.setOpaque(false);
+        pLevel4.setLayout(new java.awt.GridBagLayout());
+
+        btnLevel4.setText("Level 4");
+        pLevel4.add(btnLevel4, new java.awt.GridBagConstraints());
+
+        pCenter.add(pLevel4);
+
+        fondoL1.add(pCenter, java.awt.BorderLayout.CENTER);
+
+        pTop.setOpaque(false);
+        pTop.setLayout(new java.awt.GridLayout());
+
+        pTGrid.setOpaque(false);
+        pTGrid.setLayout(new java.awt.GridLayout(1, 3));
+
+        pHome.setOpaque(false);
+        pHome.setLayout(new java.awt.GridBagLayout());
+
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+        pHome.add(btnHome, new java.awt.GridBagConstraints());
+
+        pTGrid.add(pHome);
+
+        pTitle.setOpaque(false);
+        pTitle.setLayout(new java.awt.GridBagLayout());
+
+        Title.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
+        Title.setText("Levels");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(42, 29, 42, 30);
+        pTitle.add(Title, gridBagConstraints);
+
+        pTGrid.add(pTitle);
+
+        pE.setOpaque(false);
+
+        javax.swing.GroupLayout pELayout = new javax.swing.GroupLayout(pE);
+        pE.setLayout(pELayout);
+        pELayout.setHorizontalGroup(
+            pELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 396, Short.MAX_VALUE)
+        );
+        pELayout.setVerticalGroup(
+            pELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 151, Short.MAX_VALUE)
+        );
+
+        pTGrid.add(pE);
+
+        pTop.add(pTGrid);
+
+        fondoL1.add(pTop, java.awt.BorderLayout.PAGE_START);
+
+        pDown.setOpaque(false);
+
+        javax.swing.GroupLayout pDownLayout = new javax.swing.GroupLayout(pDown);
+        pDown.setLayout(pDownLayout);
+        pDownLayout.setHorizontalGroup(
+            pDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1188, Short.MAX_VALUE)
+        );
+        pDownLayout.setVerticalGroup(
+            pDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout fondoL1Layout = new javax.swing.GroupLayout(fondoL1);
-        fondoL1.setLayout(fondoL1Layout);
-        fondoL1Layout.setHorizontalGroup(
-            fondoL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoL1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(goku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(437, Short.MAX_VALUE))
+        fondoL1.add(pDown, java.awt.BorderLayout.PAGE_END);
+
+        pLeft.setOpaque(false);
+
+        javax.swing.GroupLayout pLeftLayout = new javax.swing.GroupLayout(pLeft);
+        pLeft.setLayout(pLeftLayout);
+        pLeftLayout.setHorizontalGroup(
+            pLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
-        fondoL1Layout.setVerticalGroup(
-            fondoL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fondoL1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(goku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(248, Short.MAX_VALUE))
+        pLeftLayout.setVerticalGroup(
+            pLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 151, Short.MAX_VALUE)
         );
+
+        fondoL1.add(pLeft, java.awt.BorderLayout.LINE_END);
+
+        pRight.setOpaque(false);
+
+        javax.swing.GroupLayout pRightLayout = new javax.swing.GroupLayout(pRight);
+        pRight.setLayout(pRightLayout);
+        pRightLayout.setHorizontalGroup(
+            pRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        pRightLayout.setVerticalGroup(
+            pRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 151, Short.MAX_VALUE)
+        );
+
+        fondoL1.add(pRight, java.awt.BorderLayout.LINE_START);
 
         add(fondoL1);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        int x= goku.getBounds().x;
-        int y= goku.getBounds().y;
-        switch(evt.getKeyCode()){
+       switch(evt.getKeyCode()){
             case KeyEvent.VK_W:
                 y-=10;
-                goku.setBounds(x, y, 200, 200);
+                goku.setBounds(x, y, 100, 100);
                 break;
             case KeyEvent.VK_S:
                 y+=10;
-                goku.setBounds(x, y, 200, 200);
+                goku.setBounds(x, y, 100, 100);
                 break;
             case KeyEvent.VK_D:
                 x+=10;
-                goku.setBounds(x, y, 200, 200);
+                goku.setBounds(x, y, 100, 100);
                 break;
             case KeyEvent.VK_A:
                 x-=10;
-                goku.setBounds(x, y, 200, 200);
+                goku.setBounds(x, y, 100, 100);
                 break;
         }        // TODO add your handling code here:
     }//GEN-LAST:event_formKeyPressed
 
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        requestFocusInWindow();          
+        //System.out.println("Hola mundo");
+                  // TODO add your handling code here:
+    }//GEN-LAST:event_formMouseClicked
+
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+        /*vStart abrir = new vStart();
+        abrir.setVisible(true);
+        this.setVisible(false);   */     // TODO add your handling code here:
+    }//GEN-LAST:event_btnHomeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Title;
+    private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnLevel1;
+    private javax.swing.JButton btnLevel2;
+    private javax.swing.JButton btnLevel3;
+    private javax.swing.JButton btnLevel4;
     private fondos.FondoL fondoL1;
     private Personajes.Goku goku;
+    private javax.swing.JPanel pCenter;
+    private javax.swing.JPanel pDown;
+    private javax.swing.JPanel pE;
+    private javax.swing.JPanel pHome;
+    private javax.swing.JPanel pLeft;
+    private javax.swing.JPanel pLevel1;
+    private javax.swing.JPanel pLevel2;
+    private javax.swing.JPanel pLevel3;
+    private javax.swing.JPanel pLevel4;
+    private javax.swing.JPanel pRight;
+    private javax.swing.JPanel pTGrid;
+    private javax.swing.JPanel pTitle;
+    private javax.swing.JPanel pTop;
     // End of variables declaration//GEN-END:variables
 }
