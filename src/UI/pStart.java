@@ -5,7 +5,7 @@
  */
 package UI;
 
-import static UI.Main.paneMain;
+import static UI.main.paneMain;
 import java.awt.GridLayout;
 import javax.swing.SwingUtilities;
 
@@ -55,7 +55,7 @@ public class  pStart extends javax.swing.JPanel {
         RIGHT = new javax.swing.JPanel();
         LEFT = new javax.swing.JPanel();
 
-        setLayout(new java.awt.GridLayout());
+        setLayout(new java.awt.GridLayout(1, 0));
 
         pAll_Start.setLayout(new java.awt.BorderLayout());
 
@@ -86,7 +86,8 @@ public class  pStart extends javax.swing.JPanel {
 
         pStart.setLayout(new java.awt.GridBagLayout());
 
-        btnStart.setText("Start");
+        btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btbPlay.png"))); // NOI18N
+        btnStart.setContentAreaFilled(false);
         btnStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStartActionPerformed(evt);
@@ -172,7 +173,7 @@ public class  pStart extends javax.swing.JPanel {
         );
         RIGHTLayout.setVerticalGroup(
             RIGHTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 666, Short.MAX_VALUE)
+            .addGap(0, 722, Short.MAX_VALUE)
         );
 
         pAll_Start.add(RIGHT, java.awt.BorderLayout.EAST);
@@ -185,7 +186,7 @@ public class  pStart extends javax.swing.JPanel {
         );
         LEFTLayout.setVerticalGroup(
             LEFTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 666, Short.MAX_VALUE)
+            .addGap(0, 722, Short.MAX_VALUE)
         );
 
         pAll_Start.add(LEFT, java.awt.BorderLayout.LINE_START);

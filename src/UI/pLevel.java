@@ -6,6 +6,8 @@
 package UI;
 
 import Config.ImageFondo;
+import static UI.main.paneMain;
+import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 
 
@@ -225,9 +227,31 @@ public class pLevel extends javax.swing.JPanel {
 
         add(fondoL1);
     }// </editor-fold>//GEN-END:initComponents
-
+    public void borders(){
+        if(x <= -76){
+            x = this.getWidth()+30;
+            goku.setLocation(x, y);
+            System.out.println(" "+ x);
+        }
+        else if(x>this.getWidth()+50){
+            x = -60;
+            goku.setLocation(x, y);
+            System.out.println(" "+ x);
+        }
+        else if(y <= -60){
+            y = this.getHeight();
+            goku.setLocation(x, y);
+            System.out.println(" "+ y);
+        }
+        else if(y >= this.getHeight()+20){
+            y = -60;
+            goku.setLocation(x, y);
+            System.out.println(" "+ y);
+        }
+    }
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-       switch(evt.getKeyCode()){
+       borders();
+        switch(evt.getKeyCode()){
             case KeyEvent.VK_W:
                 y-=10;
                 goku.setBounds(x, y, 100, 100);
@@ -243,6 +267,7 @@ public class pLevel extends javax.swing.JPanel {
             case KeyEvent.VK_A:
                 x-=10;
                 goku.setBounds(x, y, 100, 100);
+                System.out.println("x "+ x);
                 break;
         }        // TODO add your handling code here:
     }//GEN-LAST:event_formKeyPressed
@@ -254,9 +279,12 @@ public class pLevel extends javax.swing.JPanel {
     }//GEN-LAST:event_formMouseClicked
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        /*vStart abrir = new vStart();
-        abrir.setVisible(true);
-        this.setVisible(false);   */     // TODO add your handling code here:
+        pStart start = new pStart();
+        start.setLocation(0, 0);
+        paneMain.removeAll();
+        paneMain.add(start,GridLayout.class);
+        paneMain.revalidate();
+        paneMain.repaint();     // TODO add your handling code here:
     }//GEN-LAST:event_btnHomeActionPerformed
 
 

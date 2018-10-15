@@ -7,7 +7,7 @@ package UI;
 
 import Config.Config;
 import Config.PropStore;
-import static UI.Main.paneMain;
+import static UI.main.paneMain;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.GridLayout;
@@ -255,8 +255,8 @@ public class pSettings extends javax.swing.JPanel {
         //Main m = new Main();
         //this.dispose();
         //m.setVisible(true);
-        Main frame = (Main) SwingUtilities.getWindowAncestor(this);
-        frame.dispose();
+        //main frame = (main) SwingUtilities.getWindowAncestor(this);
+        //frame.dispose();
         //frame.setVisible(true);
         pStart start = new pStart();
         start.setLocation(0, 0);
