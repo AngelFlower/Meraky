@@ -8,10 +8,7 @@ package UI;
 import Config.Config;
 import Config.PropStore;
 import static UI.main.paneMain;
-import java.awt.Dimension;
-import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.GridLayout;
-import javax.swing.SwingUtilities;
 
 /**
  *
@@ -239,33 +236,21 @@ public class pSettings extends javax.swing.JPanel {
     }//GEN-LAST:event_wNextActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        //Main m = new Main();
-        //m.dispose();
-        //m.setVisible(true);
         pStart start = new pStart();
         start.setLocation(0, 0);
         paneMain.removeAll();
         paneMain.add(start,GridLayout.class);
         paneMain.revalidate();
         paneMain.repaint();
-                // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void bntOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntOKActionPerformed
-        //Main m = new Main();
-        //this.dispose();
-        //m.setVisible(true);
-        //main frame = (main) SwingUtilities.getWindowAncestor(this);
-        //frame.dispose();
-        //frame.setVisible(true);
         pStart start = new pStart();
         start.setLocation(0, 0);
         paneMain.removeAll();
         paneMain.add(start,GridLayout.class);
         paneMain.revalidate();
         paneMain.repaint();
-        //vStart abrir = new vStart();
-        //abrir.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_bntOKActionPerformed
     public void Dis(){
         Config cfg = new Config();

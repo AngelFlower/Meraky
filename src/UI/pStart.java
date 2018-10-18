@@ -176,7 +176,7 @@ public class  pStart extends javax.swing.JPanel {
             .addGap(0, 722, Short.MAX_VALUE)
         );
 
-        pAll_Start.add(RIGHT, java.awt.BorderLayout.EAST);
+        pAll_Start.add(RIGHT, java.awt.BorderLayout.LINE_END);
 
         javax.swing.GroupLayout LEFTLayout = new javax.swing.GroupLayout(LEFT);
         LEFT.setLayout(LEFTLayout);

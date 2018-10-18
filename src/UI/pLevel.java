@@ -5,7 +5,10 @@
  */
 package UI;
 
-import Config.ImageFondo;
+import Niveles.level1;
+import Niveles.level2;
+import Niveles.level3;
+import Niveles.pDetermination;
 import static UI.main.paneMain;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
@@ -23,8 +26,6 @@ public class pLevel extends javax.swing.JPanel {
      */
     public pLevel() {
         initComponents();
-        ImageFondo image=new ImageFondo();
-        image.setImage("/img/fondo.jpg");
         setFocusable(true);
         int x= goku.getBounds().x;
         int y= goku.getBounds().y;
@@ -59,6 +60,7 @@ public class pLevel extends javax.swing.JPanel {
         pTitle = new javax.swing.JPanel();
         Title = new javax.swing.JLabel();
         pE = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         pDown = new javax.swing.JPanel();
         pLeft = new javax.swing.JPanel();
         pRight = new javax.swing.JPanel();
@@ -73,7 +75,7 @@ public class pLevel extends javax.swing.JPanel {
                 formKeyPressed(evt);
             }
         });
-        setLayout(new java.awt.GridLayout());
+        setLayout(new java.awt.GridLayout(1, 0));
 
         fondoL1.setOpaque(false);
         fondoL1.setLayout(new java.awt.BorderLayout());
@@ -98,6 +100,11 @@ public class pLevel extends javax.swing.JPanel {
         pLevel1.setLayout(new java.awt.GridBagLayout());
 
         btnLevel1.setText("Level 1");
+        btnLevel1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLevel1ActionPerformed(evt);
+            }
+        });
         pLevel1.add(btnLevel1, new java.awt.GridBagConstraints());
 
         pCenter.add(pLevel1);
@@ -106,6 +113,11 @@ public class pLevel extends javax.swing.JPanel {
         pLevel2.setLayout(new java.awt.GridBagLayout());
 
         btnLevel2.setText("Level 2");
+        btnLevel2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLevel2ActionPerformed(evt);
+            }
+        });
         pLevel2.add(btnLevel2, new java.awt.GridBagConstraints());
 
         pCenter.add(pLevel2);
@@ -114,6 +126,11 @@ public class pLevel extends javax.swing.JPanel {
         pLevel3.setLayout(new java.awt.GridBagLayout());
 
         btnLevel3.setText("Level 3");
+        btnLevel3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLevel3ActionPerformed(evt);
+            }
+        });
         pLevel3.add(btnLevel3, new java.awt.GridBagConstraints());
 
         pCenter.add(pLevel3);
@@ -129,7 +146,7 @@ public class pLevel extends javax.swing.JPanel {
         fondoL1.add(pCenter, java.awt.BorderLayout.CENTER);
 
         pTop.setOpaque(false);
-        pTop.setLayout(new java.awt.GridLayout());
+        pTop.setLayout(new java.awt.GridLayout(1, 0));
 
         pTGrid.setOpaque(false);
         pTGrid.setLayout(new java.awt.GridLayout(1, 3));
@@ -162,17 +179,15 @@ public class pLevel extends javax.swing.JPanel {
         pTGrid.add(pTitle);
 
         pE.setOpaque(false);
+        pE.setLayout(new java.awt.GridBagLayout());
 
-        javax.swing.GroupLayout pELayout = new javax.swing.GroupLayout(pE);
-        pE.setLayout(pELayout);
-        pELayout.setHorizontalGroup(
-            pELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 396, Short.MAX_VALUE)
-        );
-        pELayout.setVerticalGroup(
-            pELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 151, Short.MAX_VALUE)
-        );
+        jButton1.setText("Extra");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        pE.add(jButton1, new java.awt.GridBagConstraints());
 
         pTGrid.add(pE);
 
@@ -205,7 +220,7 @@ public class pLevel extends javax.swing.JPanel {
         );
         pLeftLayout.setVerticalGroup(
             pLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 151, Short.MAX_VALUE)
+            .addGap(0, 161, Short.MAX_VALUE)
         );
 
         fondoL1.add(pLeft, java.awt.BorderLayout.LINE_END);
@@ -220,37 +235,50 @@ public class pLevel extends javax.swing.JPanel {
         );
         pRightLayout.setVerticalGroup(
             pRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 151, Short.MAX_VALUE)
+            .addGap(0, 161, Short.MAX_VALUE)
         );
 
         fondoL1.add(pRight, java.awt.BorderLayout.LINE_START);
 
         add(fondoL1);
     }// </editor-fold>//GEN-END:initComponents
+    public void coor(){
+        System.out.println("x: "+x+" y "+y);
+    }
+    public void colision(){
+        int x2 =btnLevel2.getX() ,y2 = btnLevel2.getY();
+        //System.out.println("x y "+btnLevel2.getX()+btnLevel2.getY());
+        if(x>=x2-5 && x<=x2+5){
+            System.out.println("X Colision");
+            
+        }
+        if(y>=y2-5 && y<=y2+5){
+            System.out.println("Y Colision");
+        }
+    }
     public void borders(){
         if(x <= -76){
             x = this.getWidth()+30;
             goku.setLocation(x, y);
-            System.out.println(" "+ x);
         }
         else if(x>this.getWidth()+50){
             x = -60;
             goku.setLocation(x, y);
-            System.out.println(" "+ x);
         }
         else if(y <= -60){
             y = this.getHeight();
             goku.setLocation(x, y);
-            System.out.println(" "+ y);
         }
         else if(y >= this.getHeight()+20){
             y = -60;
             goku.setLocation(x, y);
-            System.out.println(" "+ y);
         }
     }
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
        borders();
+        System.out.println("Btn xy "+btnLevel2.getX()+"  "+btnLevel2.getY());
+        System.out.println("Goku xy"+goku.getX()+"  "+goku.getY());
+       //coor();
         switch(evt.getKeyCode()){
             case KeyEvent.VK_W:
                 y-=10;
@@ -267,15 +295,14 @@ public class pLevel extends javax.swing.JPanel {
             case KeyEvent.VK_A:
                 x-=10;
                 goku.setBounds(x, y, 100, 100);
-                System.out.println("x "+ x);
                 break;
-        }        // TODO add your handling code here:
+                
+        }
+        //colision();// TODO add your handling code here:
     }//GEN-LAST:event_formKeyPressed
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         requestFocusInWindow();          
-        //System.out.println("Hola mundo");
-                  // TODO add your handling code here:
     }//GEN-LAST:event_formMouseClicked
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
@@ -287,6 +314,42 @@ public class pLevel extends javax.swing.JPanel {
         paneMain.repaint();     // TODO add your handling code here:
     }//GEN-LAST:event_btnHomeActionPerformed
 
+    private void btnLevel2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLevel2ActionPerformed
+        level2 start=new level2(); 
+        start.setLocation(0, 0);
+        paneMain.removeAll();
+        paneMain.add(start,GridLayout.class);
+        paneMain.revalidate();
+        paneMain.repaint();    // TODO add your handling code here:
+    }//GEN-LAST:event_btnLevel2ActionPerformed
+
+    private void btnLevel3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLevel3ActionPerformed
+       level3 start=new level3();
+        start.setLocation(0, 0);
+        paneMain.removeAll();
+        paneMain.add(start,GridLayout.class);
+        paneMain.revalidate();
+        paneMain.repaint();   // TODO add your handling code here:
+    }//GEN-LAST:event_btnLevel3ActionPerformed
+
+    private void btnLevel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLevel1ActionPerformed
+        level1 start=new level1();
+        start.setLocation(0, 0);
+        paneMain.removeAll();
+        paneMain.add(start,GridLayout.class);
+        paneMain.revalidate();
+        paneMain.repaint();  // TODO add your handling code here:
+    }//GEN-LAST:event_btnLevel1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     pDetermination start=new pDetermination();
+        start.setLocation(0, 0);
+        paneMain.removeAll();
+        paneMain.add(start,GridLayout.class);
+        paneMain.revalidate();
+        paneMain.repaint();    // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Title;
@@ -297,6 +360,7 @@ public class pLevel extends javax.swing.JPanel {
     private javax.swing.JButton btnLevel4;
     private fondos.FondoL fondoL1;
     private Personajes.Goku goku;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel pCenter;
     private javax.swing.JPanel pDown;
     private javax.swing.JPanel pE;

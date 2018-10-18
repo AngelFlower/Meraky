@@ -3,36 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package Niveles;
 
-import Niveles.Level1;
-import Niveles.Level2;
-import Niveles.Level3;
-import Niveles.Level4;
-import static java.awt.Frame.MAXIMIZED_BOTH;
-
+import Niveles.pDetermination;
 /**
  *
- * @author uriel
+ * @author angel
  */
-public class vDetermination extends javax.swing.JFrame {
- private static int a,h;
-public int nivel_op;
+public class pDetermination extends javax.swing.JPanel {
+
     /**
-     * Creates new form
+     * Creates new form pDetermination
      */
-    public vDetermination() {
-        initComponents(); 
+    public pDetermination() {
+        initComponents();
         this.labelNose.setVisible(false);/* Inicialiazacion no visibles de los temas que contentra cada nivel*/
         this.labelPrincipiante.setVisible(false);
         this.labelAvanzado.setVisible(false);   
        this.labelIntermedio.setVisible(false);
-       
-        
     }
-private void Display(){
-        
-}
 private int Mensajes_slider(int valor){
    
      switch (valor ){
@@ -63,14 +52,14 @@ private int Mensajes_slider(int valor){
      
    return valor;
 }
-
 public void Avanzar_niveles(){
-    nivel_op = this.Jslider.getValue();
+    
+    int nivel_op = this.Jslider.getValue();
      
-        Level1 abrir1 = new Level1();
-        Level2 abrir2 = new Level2();
-        Level3 abrir3= new Level3();
-        Level4 abrir4 = new Level4();
+        level1 abrir1 = new level1();
+        level2 abrir2 = new level2();
+        level3 abrir3= new level3();
+     level4 abrir4 = new level4();
         
         switch(nivel_op){
             
@@ -89,7 +78,6 @@ public void Avanzar_niveles(){
         } 
     
 }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -112,8 +100,7 @@ public void Avanzar_niveles(){
         labelIntermedio = new javax.swing.JLabel();
         avanzado = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.GridLayout());
+        setLayout(new java.awt.GridLayout());
 
         Contenedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -143,7 +130,7 @@ public void Avanzar_niveles(){
                 JsliderStateChanged(evt);
             }
         });
-        Contenedor.add(Jslider, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 80, 420));
+        Contenedor.add(Jslider, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 80, 420));
 
         etiNose.setText("No sé nada");
         Contenedor.add(etiNose, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 109, 34));
@@ -168,63 +155,22 @@ public void Avanzar_niveles(){
         avanzado.setText("Avanzado");
         Contenedor.add(avanzado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 110, 20));
 
-        getContentPane().add(Contenedor);
-
-        pack();
+        add(Contenedor);
     }// </editor-fold>//GEN-END:initComponents
 
     private void JsliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_JsliderStateChanged
         // TODO add your handling code here:
-       int valor;
+        int valor;
         valor = this.Jslider.getValue();
         this.Mensajes_slider(valor);
-       
-          
-         
+
     }//GEN-LAST:event_JsliderStateChanged
 
     private void Btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_nextActionPerformed
         // TODO add your handling code here:
-              Avanzar_niveles();
+        Avanzar_niveles();
     }//GEN-LAST:event_Btn_nextActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vDetermination.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vDetermination.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vDetermination.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vDetermination.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new vDetermination().setVisible(true);
-            }
-            
-        });
-    }
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_next;
@@ -240,4 +186,6 @@ public void Avanzar_niveles(){
     private javax.swing.JLabel labelNose;
     private javax.swing.JLabel labelPrincipiante;
     // End of variables declaration//GEN-END:variables
+
+    
 }
