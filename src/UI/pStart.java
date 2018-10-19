@@ -86,7 +86,7 @@ public class  pStart extends javax.swing.JPanel {
 
         pStart.setLayout(new java.awt.GridBagLayout());
 
-        btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btbPlay.png"))); // NOI18N
+        btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnPlay.png"))); // NOI18N
         btnStart.setContentAreaFilled(false);
         btnStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

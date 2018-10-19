@@ -5,17 +5,29 @@
  */
 package Niveles;
 
+import static UI.main.paneMain;
+import UI.pLevel;
+import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author angel
  */
 public class level1 extends javax.swing.JPanel {
-
+    boolean p1,p2,p3;
+    int i=0;
     /**
      * Creates new form level1
      */
     public level1() {
         initComponents();
+        etiPregunta.setText("Selecciona la palabra que corresponda al color 'Rojo'");
+        //etiResultado.setVisible(false);
+        p3 = false; p2 = false;p1 = false;
+        btn1.setActionCommand("btn1");
+        btn2.setActionCommand("btn2");
+        btn3.setActionCommand("btn3");
     }
 
     /**
@@ -26,56 +38,191 @@ public class level1 extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
+        btns = new javax.swing.ButtonGroup();
         fondoL11 = new fondos.FondoL1();
         pTop = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        playBack = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
         pDown = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        btnOk = new javax.swing.JButton();
         pCenter = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        etiPregunta = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        pImg1 = new javax.swing.JPanel();
+        btn1 = new javax.swing.JRadioButton();
+        pImg2 = new javax.swing.JPanel();
+        btn2 = new javax.swing.JRadioButton();
+        pImg3 = new javax.swing.JPanel();
+        btn3 = new javax.swing.JRadioButton();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        etiResultado = new javax.swing.JLabel();
         pRight = new javax.swing.JPanel();
         pLeft = new javax.swing.JPanel();
 
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
         setLayout(new java.awt.GridLayout(1, 0));
 
         fondoL11.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout pTopLayout = new javax.swing.GroupLayout(pTop);
-        pTop.setLayout(pTopLayout);
-        pTopLayout.setHorizontalGroup(
-            pTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        pTop.setOpaque(false);
+        pTop.setLayout(new java.awt.GridLayout(1, 2));
+
+        playBack.setText("Back");
+        playBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playBackActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addComponent(playBack)
+                .addGap(0, 315, Short.MAX_VALUE))
         );
-        pTopLayout.setVerticalGroup(
-            pTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addComponent(playBack)
+                .addGap(0, 71, Short.MAX_VALUE))
         );
+
+        pTop.add(jPanel7);
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 354, Short.MAX_VALUE)
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        pTop.add(jPanel9);
 
         fondoL11.add(pTop, java.awt.BorderLayout.PAGE_START);
 
-        javax.swing.GroupLayout pDownLayout = new javax.swing.GroupLayout(pDown);
-        pDown.setLayout(pDownLayout);
-        pDownLayout.setHorizontalGroup(
-            pDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        pDown.setOpaque(false);
+        pDown.setLayout(new java.awt.GridLayout(1, 2));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 354, Short.MAX_VALUE)
         );
-        pDownLayout.setVerticalGroup(
-            pDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        pDown.add(jPanel5);
+
+        btnOk.setText("Calificar");
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOkActionPerformed(evt);
+            }
+        });
+        jPanel6.add(btnOk);
+
+        pDown.add(jPanel6);
 
         fondoL11.add(pDown, java.awt.BorderLayout.PAGE_END);
 
-        javax.swing.GroupLayout pCenterLayout = new javax.swing.GroupLayout(pCenter);
-        pCenter.setLayout(pCenterLayout);
-        pCenterLayout.setHorizontalGroup(
-            pCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        pCenter.setOpaque(false);
+        pCenter.setLayout(new java.awt.GridLayout(3, 1));
+
+        jPanel1.setOpaque(false);
+        jPanel1.add(etiPregunta);
+
+        pCenter.add(jPanel1);
+
+        jPanel2.setOpaque(false);
+        jPanel2.setLayout(new java.awt.GridLayout(1, 5));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 121, Short.MAX_VALUE)
         );
-        pCenterLayout.setVerticalGroup(
-            pCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 79, Short.MAX_VALUE)
         );
 
+        jPanel2.add(jPanel4);
+
+        pImg1.setLayout(new java.awt.GridBagLayout());
+
+        btns.add(btn1);
+        btn1.setText("Green");
+        pImg1.add(btn1, new java.awt.GridBagConstraints());
+
+        jPanel2.add(pImg1);
+
+        pImg2.setLayout(new java.awt.GridBagLayout());
+
+        btns.add(btn2);
+        btn2.setText("Blue");
+        pImg2.add(btn2, new java.awt.GridBagConstraints());
+
+        jPanel2.add(pImg2);
+
+        pImg3.setLayout(new java.awt.GridBagLayout());
+
+        btns.add(btn3);
+        btn3.setText("Red");
+        pImg3.add(btn3, new java.awt.GridBagConstraints());
+
+        jPanel2.add(pImg3);
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 121, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 79, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel8);
+
+        pCenter.add(jPanel2);
+
+        jPanel3.setOpaque(false);
+        jPanel3.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(32, 298, 30, 270);
+        jPanel3.add(etiResultado, gridBagConstraints);
+
+        pCenter.add(jPanel3);
+
         fondoL11.add(pCenter, java.awt.BorderLayout.CENTER);
+
+        pRight.setOpaque(false);
 
         javax.swing.GroupLayout pRightLayout = new javax.swing.GroupLayout(pRight);
         pRight.setLayout(pRightLayout);
@@ -89,6 +236,8 @@ public class level1 extends javax.swing.JPanel {
         );
 
         fondoL11.add(pRight, java.awt.BorderLayout.WEST);
+
+        pLeft.setOpaque(false);
 
         javax.swing.GroupLayout pLeftLayout = new javax.swing.GroupLayout(pLeft);
         pLeft.setLayout(pLeftLayout);
@@ -105,14 +254,162 @@ public class level1 extends javax.swing.JPanel {
 
         add(fondoL11);
     }// </editor-fold>//GEN-END:initComponents
+    public char btnDeterminar(char Sbtn){
+        char btnS=' ';
+        System.out.println("Selected Radio Button: " + btns.getSelection().getActionCommand());
+        String value = btns.getSelection().getActionCommand();
+        switch(value){
+            case "btn1":
+                btnS = '1';
+                break;
+            case "btn2":
+                btnS = '2';
+                break;
+            case "btn3":
+                btnS = '3';
+                break;
+            default:
+                btnS='0';
+    }       
+        return btnS;
+    }
+    public void btnRC(){
+                btn1.setEnabled(false);
+                btn2.setEnabled(false);
+                btn3.setEnabled(false);
+                btnOk.setText("Continuar");
+    }
+    public void btnNormal(){
+                btn1.setEnabled(true);
+                btn2.setEnabled(true);
+                btn3.setEnabled(true);
+                btns.clearSelection();
+                btnOk.setText("Calificar");
+                etiResultado.setText(" ");
+    }
+    public void preg1(){
+        char btnS = btnDeterminar(' ');
+        System.out.println(" "+btnS);
+        switch(btnS){
+            case '3':
+                btnRC();
+                etiResultado.setText("¡Genial!... Respuesta correcta");
+                p1 = true;
+                break;
+            default:
+                etiResultado.setText("Ups!... Respuesta incorrecta, intentalo de nuevo");
+                btns.clearSelection();
+                break;
+        }
+       
+    }
+    public void preg2(){
+        if(i==0){
+            etiResultado.setVisible(false);
+            etiPregunta.setText("Selecciona la palabra que corresponda a 'Perro'");
+            btn1.setText("Cat");
+            btn2.setText("Dog");
+            btn3.setText("Lion");
+            btnNormal();
+            i++;
+        }
+        else{
+            etiResultado.setVisible(true);
+            
+            char btnS = btnDeterminar(' ');
+            System.out.println(" "+btnS);
+            switch(btnS){
+                case '2':
+                    btnRC();
+                    etiResultado.setText("¡Genial!... Respuesta correcta");
+                    p2 =true;
+                    break;
+                default:
+                    etiResultado.setText("Ups!... Respuesta incorrecta, intentalo de nuevo");
+                    btns.clearSelection();
+            }
+        }
+    }
+    public void preg3(){
+        if(i==1){
+            etiResultado.setVisible(false);
+            etiPregunta.setText("Selecciona la palabra que corresponda a 'Dos'");
+            btn1.setText("Teen");
+            btn2.setText("One");
+            btn3.setText("Two");
+            btnNormal();
+            i++;
+        }
+        else{
+            etiResultado.setVisible(true);
+            
+            char btnS = btnDeterminar(' ');
+            System.out.println(" "+btnS);
+            switch(btnS){
+                case '3':
+                    btnRC();
+                    etiResultado.setText("¡Genial!... Respuesta correcta");
+                    p2 =true;
+                    break;
+                default:
+                    etiResultado.setText("Ups!... Respuesta incorrecta, intentalo de nuevo");
+                    btns.clearSelection();
+            }
+        }
+    }
+    private void playBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playBackActionPerformed
+        pLevel level = new pLevel();
+        level.setLocation(0, 0);
+        paneMain.removeAll();
+        paneMain.add(level,GridLayout.class);
+        paneMain.revalidate();
+        paneMain.repaint();        // TODO add your handling code here:
+    }//GEN-LAST:event_playBackActionPerformed
 
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        switch(evt.getKeyCode()){
+            case KeyEvent.VK_ESCAPE:
+        }
+    }//GEN-LAST:event_formKeyPressed
+
+    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
+        if(btn1.isSelected()||btn2.isSelected()||btn3.isSelected()){
+            if(!p1) preg1();
+            else if(!p2) preg2(); else if(!p3) preg3();
+            else System.out.println("gg");
+        }
+        else{
+             System.out.println("nada");
+        }
+    }//GEN-LAST:event_btnOkActionPerformed
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton btn1;
+    private javax.swing.JRadioButton btn2;
+    private javax.swing.JRadioButton btn3;
+    private javax.swing.JButton btnOk;
+    private javax.swing.ButtonGroup btns;
+    private javax.swing.JLabel etiPregunta;
+    private javax.swing.JLabel etiResultado;
     private fondos.FondoL1 fondoL11;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel pCenter;
     private javax.swing.JPanel pDown;
+    private javax.swing.JPanel pImg1;
+    private javax.swing.JPanel pImg2;
+    private javax.swing.JPanel pImg3;
     private javax.swing.JPanel pLeft;
     private javax.swing.JPanel pRight;
     private javax.swing.JPanel pTop;
+    private javax.swing.JButton playBack;
     // End of variables declaration//GEN-END:variables
 }
