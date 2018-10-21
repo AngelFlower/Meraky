@@ -6,7 +6,8 @@
 package UIAntiguo;
 
 import UIAntiguo.vStart;
-import Config.Config;import Config.PropStore;
+import Herramientas.Config;
+import Herramientas.PropStore;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.util.Properties;

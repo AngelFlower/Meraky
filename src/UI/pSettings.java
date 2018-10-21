@@ -5,8 +5,9 @@
  */
 package UI;
 
-import Config.Config;
-import Config.PropStore;
+import Herramientas.Config;
+import Herramientas.PropStore;
+import static UI.main.musica;
 import static UI.main.paneMain;
 import java.awt.GridLayout;
 
@@ -15,14 +16,14 @@ import java.awt.GridLayout;
  * @author Angel Flores
  */
 public class pSettings extends javax.swing.JPanel {
-    boolean window;
+    boolean window,sonid;
     /**
      * Creates new form pSettings
      */
     public pSettings() {
-        Dis();
+        Configs();
         initComponents();
-        win();
+        Etiquetas();
     }
 
     /**
@@ -43,6 +44,9 @@ public class pSettings extends javax.swing.JPanel {
         etiWindow = new javax.swing.JLabel();
         wNext = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        sPrevious = new javax.swing.JButton();
+        etiSound = new javax.swing.JLabel();
+        sNext = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         pDown = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -54,7 +58,7 @@ public class pSettings extends javax.swing.JPanel {
         pRight = new javax.swing.JPanel();
         pLeft = new javax.swing.JPanel();
 
-        setLayout(new java.awt.GridLayout());
+        setLayout(new java.awt.GridLayout(1, 0));
 
         pAll_Settings.setLayout(new java.awt.BorderLayout());
 
@@ -96,7 +100,7 @@ public class pSettings extends javax.swing.JPanel {
         });
         jPanel2.add(wPrevious, new java.awt.GridBagConstraints());
 
-        etiWindow.setText("jLabel1");
+        etiWindow.setText("Pantalla");
         etiWindow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(etiWindow, new java.awt.GridBagConstraints());
 
@@ -110,15 +114,51 @@ public class pSettings extends javax.swing.JPanel {
 
         pCenter.add(jPanel2);
 
+        sPrevious.setText("<");
+        sPrevious.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sPreviousActionPerformed(evt);
+            }
+        });
+
+        etiSound.setText("Sonido");
+        etiSound.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        sNext.setText(">");
+        sNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sNextActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 169, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(sPrevious)
+                    .addGap(0, 0, 0)
+                    .addComponent(etiSound)
+                    .addGap(0, 0, 0)
+                    .addComponent(sNext)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 50, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(sPrevious)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(7, 7, 7)
+                            .addComponent(etiSound))
+                        .addComponent(sNext))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pCenter.add(jPanel3);
@@ -232,7 +272,7 @@ public class pSettings extends javax.swing.JPanel {
         etiWindow.setText("Window");
         window=false;
         PropStore.windo="false";
-        PropStore.firstStore();// TODO add your handling code here:
+        PropStore.firstStore();
     }//GEN-LAST:event_wNextActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
@@ -252,32 +292,48 @@ public class pSettings extends javax.swing.JPanel {
         paneMain.revalidate();
         paneMain.repaint();
     }//GEN-LAST:event_bntOKActionPerformed
-    public void Dis(){
+
+    private void sPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sPreviousActionPerformed
+        etiSound.setText("On");
+        sonid = true;
+        musica.repetir();
+        PropStore.sound = "true";
+        PropStore.firstStore();
+    }//GEN-LAST:event_sPreviousActionPerformed
+
+    private void sNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sNextActionPerformed
+        etiSound.setText("Off");
+        sonid = false;
+        musica.stop();
+        PropStore.sound = "false";
+        PropStore.firstStore();
+    }//GEN-LAST:event_sNextActionPerformed
+    public void Configs(){
         Config cfg = new Config();
         boolean fullscreen = Boolean.parseBoolean(cfg.getProperty("fullscreen"));
+        boolean sonido = Boolean.parseBoolean(cfg.getProperty("sound"));
         System.out.println(fullscreen);
-        if(fullscreen){
-            window=true;
-            System.out.println("w ="+window);
-        }
-        else{
-            window=false;
-            System.out.println("w ="+window);
-        }
+        System.out.println(sonido);
+        
+        if(fullscreen) window=true;
+        else window=false;
+        
+        if(sonido) sonid = true;
+        else sonid = false;
     }
-    public void win(){
-        if(window==true){
-            etiWindow.setText("FullScreen");
-        }
-        else if(window==false){
-            etiWindow.setText("Window");
-        }
+    public void Etiquetas(){
+        if(window) etiWindow.setText("FullScreen");
+        else etiWindow.setText("Window");
+        
+        if(sonid) etiSound.setText("On");
+        else etiSound.setText("Off");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Title;
     private javax.swing.JButton bntOK;
     private javax.swing.JButton btnCancel;
+    private javax.swing.JLabel etiSound;
     private javax.swing.JLabel etiWindow;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -292,6 +348,8 @@ public class pSettings extends javax.swing.JPanel {
     private javax.swing.JPanel pOK;
     private javax.swing.JPanel pRight;
     private javax.swing.JPanel pTop;
+    private javax.swing.JButton sNext;
+    private javax.swing.JButton sPrevious;
     private javax.swing.JButton wNext;
     private javax.swing.JButton wPrevious;
     // End of variables declaration//GEN-END:variables

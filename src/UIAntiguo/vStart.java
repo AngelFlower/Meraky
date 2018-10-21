@@ -8,8 +8,8 @@ package UIAntiguo;
 import java.awt.Dimension;
 //import java.awt.Toolkit;
 //import java.awt.event.KeyEvent;
-import Config.PropStore;
-import Config.Config;
+import Herramientas.PropStore;
+import Herramientas.Config;
 import javax.swing.ImageIcon;
 /**
  *
@@ -281,7 +281,7 @@ public class vStart extends javax.swing.JFrame {    /**
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                PropStore props = new PropStore();
+               
                 new vStart().setVisible(true);
             }
         });

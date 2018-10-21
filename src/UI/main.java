@@ -5,21 +5,25 @@
  */
 package UI;
 
-import Config.Config;
+import Herramientas.Config;
+import Herramientas.PropStore;
+import Herramientas.Sound;
 import java.awt.Dimension;
-import static java.awt.Frame.MAXIMIZED_BOTH;
+//import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 
 /**
  *
  * @author Angel Flores
  */
 public class main extends javax.swing.JFrame {
-
+    public static Sound musica = new Sound("/Sonidos/musica.wav");
     /**
      * Creates new form Main
      */
     public main() { 
-        Display();
+        Configuraciones();
         initComponents();
         Win();
     }
@@ -37,9 +41,16 @@ public class main extends javax.swing.JFrame {
         pStart1 = new UI.pStart();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(819, 619));
+        setPreferredSize(getPreferredSize());
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
+        paneMain.setMinimumSize(new java.awt.Dimension(0, 0));
+        paneMain.setPreferredSize(null);
         paneMain.setLayout(new java.awt.GridLayout(1, 0));
+
+        pStart1.setMinimumSize(null);
+        pStart1.setPreferredSize(null);
         paneMain.add(pStart1);
 
         getContentPane().add(paneMain);
@@ -47,21 +58,29 @@ public class main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    public void Display(){
+    public void Configuraciones(){
         //Toolkit tk = Toolkit.getDefaultToolkit();
         //Dimension d= tk.getScreenSize();
         //this.setSize(d);
         Config cfg = new Config();
         boolean fullscreen = Boolean.parseBoolean(cfg.getProperty("fullscreen"));
+        boolean sonido = Boolean.parseBoolean(cfg.getProperty("sound"));
         System.out.println(fullscreen);
         if(fullscreen){
-            this.setExtendedState(MAXIMIZED_BOTH);
-            this.setUndecorated(rootPaneCheckingEnabled);
+            //this.setExtendedState(MAXIMIZED_BOTH);
+            //this.setUndecorated(rootPaneCheckingEnabled);
             System.out.println("Full"+fullscreen);
+            //this.setPreferredSize(d);
+            GraphicsDevice grafica=GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+            grafica.setFullScreenWindow(this);
+            //setEnabled(false);
+            setResizable(false);
+            //setVisible(true);
         }
         else{
-            this.setPreferredSize(new Dimension(800, 600));
+            this.setPreferredSize(new Dimension(819,619));
         }
+        if(sonido) musica.repetir();
     }
     public void Win(){
         Config cfg = new Config();
@@ -101,6 +120,7 @@ public class main extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                 PropStore props = new PropStore();
                 new main().setVisible(true);
             }
         });
