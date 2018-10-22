@@ -7,8 +7,8 @@ package Herramientas;
 
 /**
  *
- * @author uriel
+ * @author Angel Flores
  */
-public class NewClass {
+public class gg {
     
 }
