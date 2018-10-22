@@ -8,6 +8,7 @@ package UI;
 import Niveles.level1;
 import Niveles.level2;
 import Niveles.level3;
+import Niveles.level4;
 import Niveles.pDetermination;
 import static UI.main.paneMain;
 import java.awt.GridLayout;
@@ -139,6 +140,11 @@ public class pLevel extends javax.swing.JPanel {
         pLevel4.setLayout(new java.awt.GridBagLayout());
 
         btnLevel4.setText("Level 4");
+        btnLevel4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLevel4ActionPerformed(evt);
+            }
+        });
         pLevel4.add(btnLevel4, new java.awt.GridBagConstraints());
 
         pCenter.add(pLevel4);
@@ -349,6 +355,16 @@ public class pLevel extends javax.swing.JPanel {
         paneMain.revalidate();
         paneMain.repaint();    // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnLevel4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLevel4ActionPerformed
+        // TODO add your handling code here:
+        level4 start = new level4();
+        start.setLocation(0, 0);
+        paneMain.removeAll();
+         paneMain.add(start,GridLayout.class);
+        paneMain.revalidate();
+        paneMain.repaint(); 
+    }//GEN-LAST:event_btnLevel4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

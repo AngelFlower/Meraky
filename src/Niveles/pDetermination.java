@@ -100,7 +100,7 @@ public void Avanzar_niveles(){
         labelIntermedio = new javax.swing.JLabel();
         avanzado = new javax.swing.JLabel();
 
-        setLayout(new java.awt.GridLayout());
+        setLayout(new java.awt.GridLayout(1, 0));
 
         Contenedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -109,10 +109,11 @@ public void Avanzar_niveles(){
 
         labelPrincipiante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelPrincipiante.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Contenedor.add(labelPrincipiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 270, 68));
+        Contenedor.add(labelPrincipiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 410, 68));
 
+        labelAvanzado.setText("The student knows diferenctiate when use will, going to, presente continuos");
         labelAvanzado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Contenedor.add(labelAvanzado, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 240, 73));
+        Contenedor.add(labelAvanzado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 370, 73));
 
         labelNose.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelNose.setText(" ");
@@ -150,7 +151,7 @@ public void Avanzar_niveles(){
         Contenedor.add(Btn_next, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 460, 150, 50));
 
         labelIntermedio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        Contenedor.add(labelIntermedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 240, 73));
+        Contenedor.add(labelIntermedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 360, 73));
 
         avanzado.setText("Avanzado");
         Contenedor.add(avanzado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 110, 20));
