@@ -28,7 +28,7 @@ public class menuPlay extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
 
-        setLayout(new java.awt.GridLayout());
+        setLayout(new java.awt.GridLayout(1, 0));
         add(jPanel1);
     }// </editor-fold>//GEN-END:initComponents
 

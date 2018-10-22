@@ -12,6 +12,7 @@ import java.awt.Dimension;
 //import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.awt.HeadlessException;
 
 /**
  *
@@ -25,6 +26,7 @@ public class main extends javax.swing.JFrame {
     public main() { 
         Configuraciones();
         initComponents();
+       
         Win();
     }
 
@@ -42,11 +44,10 @@ public class main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(819, 619));
-        setPreferredSize(getPreferredSize());
+        setPreferredSize(preferredSize());
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         paneMain.setMinimumSize(new java.awt.Dimension(0, 0));
-        paneMain.setPreferredSize(null);
         paneMain.setLayout(new java.awt.GridLayout(1, 0));
 
         pStart1.setMinimumSize(null);
@@ -59,6 +60,7 @@ public class main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     public void Configuraciones(){
+        this.setTitle("");
         //Toolkit tk = Toolkit.getDefaultToolkit();
         //Dimension d= tk.getScreenSize();
         //this.setSize(d);
@@ -69,19 +71,35 @@ public class main extends javax.swing.JFrame {
         if(fullscreen){
             //this.setExtendedState(MAXIMIZED_BOTH);
             //this.setUndecorated(rootPaneCheckingEnabled);
+            try {
             System.out.println("Full"+fullscreen);
-            //this.setPreferredSize(d);
-            GraphicsDevice grafica=GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-            grafica.setFullScreenWindow(this);
+            
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            GraphicsDevice[] devices = ge.getScreenDevices();
+            this.setUndecorated(rootPaneCheckingEnabled);
+            devices[0].setFullScreenWindow(this);
+            this.revalidate();
+            Dimension size = this.getSize();
+                System.out.println(""+size);
+                
+            this.setPreferredSize(size);
+            
             //setEnabled(false);
-            setResizable(false);
+            //setResizable(false);
             //setVisible(true);
+            System.out.println("Llega");
+            } catch (HeadlessException e) {
+                //;
+               // this.setExtendedState(MAXIMIZED_BOTH);
+                //this.setUndecorated(rootPaneCheckingEnabled);
+            }
         }
         else{
-            this.setPreferredSize(new Dimension(819,619));
+            this.setSize(new Dimension(819,619));
         }
         if(sonido) musica.repetir();
     }
+    
     public void Win(){
         Config cfg = new Config();
         boolean fullscreen = Boolean.parseBoolean(cfg.getProperty("fullscreen"));
@@ -114,6 +132,8 @@ public class main extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

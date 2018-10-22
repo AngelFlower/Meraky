@@ -195,7 +195,7 @@ public class  pStart extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-        pLevel level = new pLevel();
+        menuGame level = new menuGame();
         level.setLocation(0, 0);
         paneMain.removeAll();
         paneMain.add(level,GridLayout.class);

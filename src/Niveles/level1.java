@@ -79,7 +79,7 @@ public class level1 extends javax.swing.JPanel {
         pTop.setOpaque(false);
         pTop.setLayout(new java.awt.GridLayout(1, 2));
 
-        playBack.setText("Back");
+        playBack.setText("Atras");
         playBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 playBackActionPerformed(evt);
@@ -92,13 +92,13 @@ public class level1 extends javax.swing.JPanel {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(playBack)
-                .addGap(0, 315, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(playBack)
-                .addGap(0, 71, Short.MAX_VALUE))
+                .addGap(0, 51, Short.MAX_VALUE))
         );
 
         pTop.add(jPanel7);
@@ -107,11 +107,11 @@ public class level1 extends javax.swing.JPanel {
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 354, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 83, Short.MAX_VALUE)
         );
 
         pTop.add(jPanel9);
@@ -125,15 +125,16 @@ public class level1 extends javax.swing.JPanel {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 354, Short.MAX_VALUE)
+            .addGap(0, 384, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 96, Short.MAX_VALUE)
         );
 
         pDown.add(jPanel5);
 
+        btnOk.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btnOk.setText("Calificar");
         btnOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,7 +151,10 @@ public class level1 extends javax.swing.JPanel {
         pCenter.setLayout(new java.awt.GridLayout(3, 1));
 
         jPanel1.setOpaque(false);
-        jPanel1.add(etiPregunta);
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        etiPregunta.setFont(new java.awt.Font("Comic Sans MS", 1, 20)); // NOI18N
+        jPanel1.add(etiPregunta, new java.awt.GridBagConstraints());
 
         pCenter.add(jPanel1);
 
@@ -161,11 +165,11 @@ public class level1 extends javax.swing.JPanel {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 121, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 79, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jPanel2.add(jPanel4);
@@ -173,6 +177,7 @@ public class level1 extends javax.swing.JPanel {
         pImg1.setLayout(new java.awt.GridBagLayout());
 
         btns.add(btn1);
+        btn1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         btn1.setText("Green");
         pImg1.add(btn1, new java.awt.GridBagConstraints());
 
@@ -181,6 +186,7 @@ public class level1 extends javax.swing.JPanel {
         pImg2.setLayout(new java.awt.GridBagLayout());
 
         btns.add(btn2);
+        btn2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         btn2.setText("Blue");
         pImg2.add(btn2, new java.awt.GridBagConstraints());
 
@@ -189,6 +195,7 @@ public class level1 extends javax.swing.JPanel {
         pImg3.setLayout(new java.awt.GridBagLayout());
 
         btns.add(btn3);
+        btn3.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         btn3.setText("Red");
         pImg3.add(btn3, new java.awt.GridBagConstraints());
 
@@ -198,11 +205,11 @@ public class level1 extends javax.swing.JPanel {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 121, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 79, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jPanel2.add(jPanel8);
@@ -211,6 +218,8 @@ public class level1 extends javax.swing.JPanel {
 
         jPanel3.setOpaque(false);
         jPanel3.setLayout(new java.awt.GridBagLayout());
+
+        etiResultado.setFont(new java.awt.Font("Comic Sans MS", 1, 20)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -228,7 +237,7 @@ public class level1 extends javax.swing.JPanel {
         pRight.setLayout(pRightLayout);
         pRightLayout.setHorizontalGroup(
             pRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         pRightLayout.setVerticalGroup(
             pRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,7 +252,7 @@ public class level1 extends javax.swing.JPanel {
         pLeft.setLayout(pLeftLayout);
         pLeftLayout.setHorizontalGroup(
             pLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         pLeftLayout.setVerticalGroup(
             pLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -349,11 +358,12 @@ public class level1 extends javax.swing.JPanel {
                 case '3':
                     btnRC();
                     etiResultado.setText("¡Genial!... Respuesta correcta");
-                    p2 =true;
+                    p3 =true;
                     break;
                 default:
                     etiResultado.setText("Ups!... Respuesta incorrecta, intentalo de nuevo");
                     btns.clearSelection();
+                    
             }
         }
     }
@@ -376,10 +386,13 @@ public class level1 extends javax.swing.JPanel {
         if(btn1.isSelected()||btn2.isSelected()||btn3.isSelected()){
             if(!p1) preg1();
             else if(!p2) preg2(); else if(!p3) preg3();
-            else System.out.println("gg");
-        }
-        else{
-             System.out.println("nada");
+            else{
+            nextLevel level = new nextLevel();
+            paneMain.removeAll();
+            paneMain.add(level,GridLayout.class);
+            paneMain.revalidate();
+            paneMain.repaint();
+            }
         }
     }//GEN-LAST:event_btnOkActionPerformed
     
