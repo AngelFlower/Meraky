@@ -47,9 +47,8 @@ public class  pStart extends javax.swing.JPanel {
         pSettings = new javax.swing.JPanel();
         btnSettings = new javax.swing.JButton();
         pInfo = new javax.swing.JPanel();
-        btnInfo = new javax.swing.JButton();
-        pExit = new javax.swing.JPanel();
         btnExit = new javax.swing.JButton();
+        pExit = new javax.swing.JPanel();
         TOP = new javax.swing.JPanel();
         DOWN = new javax.swing.JPanel();
         RIGHT = new javax.swing.JPanel();
@@ -65,7 +64,7 @@ public class  pStart extends javax.swing.JPanel {
         pTitle.setLayout(new java.awt.GridBagLayout());
 
         Title.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
-        Title.setText("Title");
+        Title.setText("SOUL DEAD");
         pTitle.add(Title, new java.awt.GridBagConstraints());
 
         CENTER.add(pTitle);
@@ -74,7 +73,7 @@ public class  pStart extends javax.swing.JPanel {
         pSubtitle.setLayout(new java.awt.GridBagLayout());
 
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel2.setText("SubTitle");
+        jLabel2.setText("The Game");
         pSubtitle.add(jLabel2, new java.awt.GridBagConstraints());
 
         CENTER.add(pSubtitle);
@@ -116,21 +115,17 @@ public class  pStart extends javax.swing.JPanel {
 
         pInfo.setLayout(new java.awt.GridBagLayout());
 
-        btnInfo.setText("Info");
-        pInfo.add(btnInfo, new java.awt.GridBagConstraints());
-
-        pGird.add(pInfo);
-
-        pExit.setLayout(new java.awt.GridBagLayout());
-
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
             }
         });
-        pExit.add(btnExit, new java.awt.GridBagConstraints());
+        pInfo.add(btnExit, new java.awt.GridBagConstraints());
 
+        pGird.add(pInfo);
+
+        pExit.setLayout(new java.awt.GridBagLayout());
         pGird.add(pExit);
 
         pButtons.add(pGird);
@@ -225,7 +220,6 @@ public class  pStart extends javax.swing.JPanel {
     private javax.swing.JPanel TOP;
     private javax.swing.JLabel Title;
     private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnInfo;
     private javax.swing.JButton btnSettings;
     private javax.swing.JButton btnStart;
     private javax.swing.JLabel jLabel2;

@@ -38,6 +38,7 @@ public class level3 extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        btnNext = new javax.swing.JButton();
 
         setLayout(new java.awt.GridLayout(1, 0));
 
@@ -82,16 +83,15 @@ public class level3 extends javax.swing.JPanel {
 
         jPanel1.add(jPanel3);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 108, Short.MAX_VALUE)
-        );
+        jPanel4.setLayout(new java.awt.GridBagLayout());
+
+        btnNext.setText("NEXT LEVEL");
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnNext, new java.awt.GridBagConstraints());
 
         jPanel1.add(jPanel4);
 
@@ -107,8 +107,18 @@ public class level3 extends javax.swing.JPanel {
         paneMain.repaint();        // TODO add your handling code here:
     }//GEN-LAST:event_playBackActionPerformed
 
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        level4 level = new level4();
+        level.setLocation(0, 0);
+        paneMain.removeAll();
+        paneMain.add(level,GridLayout.class);
+        paneMain.revalidate();
+        paneMain.repaint();
+    }//GEN-LAST:event_btnNextActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnNext;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

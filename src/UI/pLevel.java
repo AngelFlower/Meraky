@@ -61,7 +61,6 @@ public class pLevel extends javax.swing.JPanel {
         pTitle = new javax.swing.JPanel();
         Title = new javax.swing.JLabel();
         pE = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         pDown = new javax.swing.JPanel();
         pLeft = new javax.swing.JPanel();
         pRight = new javax.swing.JPanel();
@@ -186,15 +185,6 @@ public class pLevel extends javax.swing.JPanel {
 
         pE.setOpaque(false);
         pE.setLayout(new java.awt.GridBagLayout());
-
-        jButton1.setText("Extra");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        pE.add(jButton1, new java.awt.GridBagConstraints());
-
         pTGrid.add(pE);
 
         pTop.add(pTGrid);
@@ -347,15 +337,6 @@ public class pLevel extends javax.swing.JPanel {
         paneMain.repaint();  // TODO add your handling code here:
     }//GEN-LAST:event_btnLevel1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     pDetermination start=new pDetermination();
-        start.setLocation(0, 0);
-        paneMain.removeAll();
-        paneMain.add(start,GridLayout.class);
-        paneMain.revalidate();
-        paneMain.repaint();    // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void btnLevel4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLevel4ActionPerformed
         // TODO add your handling code here:
         level4 start = new level4();
@@ -376,7 +357,6 @@ public class pLevel extends javax.swing.JPanel {
     private javax.swing.JButton btnLevel4;
     private fondos.FondoL fondoL1;
     private Personajes.Goku goku;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel pCenter;
     private javax.swing.JPanel pDown;
     private javax.swing.JPanel pE;

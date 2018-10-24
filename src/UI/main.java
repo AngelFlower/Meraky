@@ -13,6 +13,8 @@ import java.awt.Dimension;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.HeadlessException;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -24,6 +26,8 @@ public class main extends javax.swing.JFrame {
      * Creates new form Main
      */
     public main() { 
+        Image icon = new ImageIcon(getClass().getResource("/img/icon.png")).getImage();
+        setIconImage(icon);
         Configuraciones();
         initComponents();
        
@@ -43,6 +47,7 @@ public class main extends javax.swing.JFrame {
         pStart1 = new UI.pStart();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Soul Dead");
         setMinimumSize(new java.awt.Dimension(819, 619));
         setPreferredSize(preferredSize());
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));

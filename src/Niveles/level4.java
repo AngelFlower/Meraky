@@ -9,12 +9,15 @@ package Niveles;
 import Herramientas.Sound;
 import UI.main;
 import static UI.main.musica;
+import static UI.main.paneMain;
+import UI.pLevel;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import java.applet.AudioClip;
+import java.awt.GridLayout;
 
 /**
  
@@ -235,6 +238,8 @@ public  String Input1,
         jScrollPane1 = new javax.swing.JScrollPane();
         Outpu_Lyric = new javax.swing.JTextArea();
         rep_sonido1 = new javax.swing.JButton();
+        playBack = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jToolBar1.setRollover(true);
 
@@ -254,7 +259,7 @@ public  String Input1,
                 formMousePressed(evt);
             }
         });
-        setLayout(new java.awt.GridLayout());
+        setLayout(new java.awt.GridLayout(1, 0));
 
         rep_sonido.setText("Play Song");
         rep_sonido.addActionListener(new java.awt.event.ActionListener() {
@@ -334,11 +339,25 @@ public  String Input1,
             }
         });
 
+        playBack.setText("Atras");
+        playBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playBackActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Listen carefuly the song and write in each box the wrong word. Only there's one wrong word for each box");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(playBack, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -378,7 +397,11 @@ public  String Input1,
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 568, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(playBack)
+                    .addComponent(jLabel1))
+                .addGap(0, 536, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(0, 29, Short.MAX_VALUE)
@@ -529,6 +552,15 @@ public  String Input1,
         musica.repetir();// TODO add your handling code here:
     }//GEN-LAST:event_rep_sonido1ActionPerformed
 
+    private void playBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playBackActionPerformed
+        pLevel level = new pLevel();
+        level.setLocation(0, 0);
+        paneMain.removeAll();
+        paneMain.add(level,GridLayout.class);
+        paneMain.revalidate();
+        paneMain.repaint();        // TODO add your handling code here:
+    }//GEN-LAST:event_playBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Input14;
@@ -553,9 +585,11 @@ public  String Input1,
     private javax.swing.JTextField input8;
     private javax.swing.JTextField input9;
     private javax.swing.JFrame jFrame1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JButton playBack;
     private javax.swing.JButton rep_sonido;
     private javax.swing.JButton rep_sonido1;
     private javax.swing.JButton validador;

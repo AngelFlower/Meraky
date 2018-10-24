@@ -14,7 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 /**
- *
+ *Hector 
  * @author angel
  */
 public class level2 extends javax.swing.JPanel {
@@ -37,12 +37,12 @@ public class level2 extends javax.swing.JPanel {
         msgs = new String[20];
 
         //imagenes del joven ahorcado lol
-        imgs[0] = new ImageIcon(getClass().getResource("/img/im1.jpg"));
-        imgs[1] = new ImageIcon(getClass().getResource("/img/im2.jpg"));
-        imgs[2] = new ImageIcon(getClass().getResource("/img/im3.jpg"));
-        imgs[3] = new ImageIcon(getClass().getResource("/img/im4.jpg"));
-        imgs[4] = new ImageIcon(getClass().getResource("/img/im5.jpg"));
-        imgs[5] = new ImageIcon(getClass().getResource("/img/im6.jpg"));
+        imgs[0] = new ImageIcon(getClass().getResource("/img/img1.png"));
+        imgs[1] = new ImageIcon(getClass().getResource("/img/img2.png"));
+        imgs[2] = new ImageIcon(getClass().getResource("/img/img3.png"));
+        imgs[3] = new ImageIcon(getClass().getResource("/img/img4.png"));
+        imgs[4] = new ImageIcon(getClass().getResource("/img/img5.png"));
+        imgs[5] = new ImageIcon(getClass().getResource("/img/img6.png"));
 
         //botones para las letras
         btns[1] = jButton2;
@@ -247,17 +247,19 @@ public class level2 extends javax.swing.JPanel {
         jButton28 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jButton29 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(102, 255, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridLayout(1, 0));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.setOpaque(false);
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 255));
-        jPanel1.setForeground(new java.awt.Color(102, 255, 102));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         aviso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -316,7 +318,7 @@ public class level2 extends javax.swing.JPanel {
 
         all.setOpaque(false);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/im1.jpg"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img1.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -432,7 +434,7 @@ public class level2 extends javax.swing.JPanel {
         jButton27.setText("Z");
 
         jButton28.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jButton28.setText("RESTAR");
+        jButton28.setText("RESTART");
         jButton28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton28ActionPerformed(evt);
@@ -443,8 +445,6 @@ public class level2 extends javax.swing.JPanel {
 
         jTextField1.setText(" THE PARTS OF THE HOUSE, COLORS, AND FAMILY MEMBERS.");
 
-        jTextField2.setText("PLAY OF HANGED.");
-
         jButton29.setText("Atras");
         jButton29.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -452,19 +452,41 @@ public class level2 extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setText("PLAY OF HANGED.");
+
         javax.swing.GroupLayout allLayout = new javax.swing.GroupLayout(all);
         all.setLayout(allLayout);
         allLayout.setHorizontalGroup(
             allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 790, Short.MAX_VALUE)
+            .addGroup(allLayout.createSequentialGroup()
+                .addGap(166, 166, 166)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, allLayout.createSequentialGroup()
+                .addContainerGap(448, Short.MAX_VALUE)
+                .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(allLayout.createSequentialGroup()
+                        .addComponent(jButton5)
+                        .addGap(6, 6, 6)
+                        .addComponent(jButton6)
+                        .addGap(6, 6, 6)
+                        .addComponent(jButton7)
+                        .addGap(6, 6, 6)
+                        .addComponent(jButton8))
+                    .addGroup(allLayout.createSequentialGroup()
+                        .addComponent(jButton12)
+                        .addGap(6, 6, 6)
+                        .addComponent(jButton13)
+                        .addGap(6, 6, 6)
+                        .addComponent(jButton14)
+                        .addGap(6, 6, 6)
+                        .addComponent(jButton15)))
+                .addGap(164, 164, 164))
             .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(allLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(allLayout.createSequentialGroup()
-                            .addComponent(jButton29)
-                            .addGap(64, 64, 64)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton29)
                         .addGroup(allLayout.createSequentialGroup()
                             .addGap(62, 62, 62)
                             .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -485,30 +507,14 @@ public class level2 extends javax.swing.JPanel {
                             .addGap(6, 6, 6)
                             .addComponent(jButton3)
                             .addGap(6, 6, 6)
-                            .addComponent(jButton4)
-                            .addGap(31, 31, 31)
-                            .addComponent(jButton5)
-                            .addGap(6, 6, 6)
-                            .addComponent(jButton6)
-                            .addGap(6, 6, 6)
-                            .addComponent(jButton7)
-                            .addGap(6, 6, 6)
-                            .addComponent(jButton8))
+                            .addComponent(jButton4))
                         .addGroup(allLayout.createSequentialGroup()
                             .addGap(294, 294, 294)
                             .addComponent(jButton9)
                             .addGap(6, 6, 6)
                             .addComponent(jButton10)
                             .addGap(6, 6, 6)
-                            .addComponent(jButton11)
-                            .addGap(31, 31, 31)
-                            .addComponent(jButton12)
-                            .addGap(6, 6, 6)
-                            .addComponent(jButton13)
-                            .addGap(6, 6, 6)
-                            .addComponent(jButton14)
-                            .addGap(6, 6, 6)
-                            .addComponent(jButton15))
+                            .addComponent(jButton11))
                         .addGroup(allLayout.createSequentialGroup()
                             .addGap(294, 294, 294)
                             .addComponent(jButton16)
@@ -539,16 +545,27 @@ public class level2 extends javax.swing.JPanel {
         );
         allLayout.setVerticalGroup(
             allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
+            .addGroup(allLayout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 282, Short.MAX_VALUE)
+                .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton5)
+                    .addComponent(jButton6)
+                    .addComponent(jButton7)
+                    .addComponent(jButton8))
+                .addGap(8, 8, 8)
+                .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton12)
+                    .addComponent(jButton13)
+                    .addComponent(jButton14)
+                    .addComponent(jButton15))
+                .addGap(99, 99, 99))
             .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(allLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton29)
-                        .addGroup(allLayout.createSequentialGroup()
-                            .addGap(23, 23, 23)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(18, 18, 18)
+                    .addComponent(jButton29)
+                    .addGap(52, 52, 52)
                     .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(allLayout.createSequentialGroup()
                             .addGap(18, 18, 18)
@@ -563,20 +580,12 @@ public class level2 extends javax.swing.JPanel {
                     .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jButton2)
                         .addComponent(jButton3)
-                        .addComponent(jButton4)
-                        .addComponent(jButton5)
-                        .addComponent(jButton6)
-                        .addComponent(jButton7)
-                        .addComponent(jButton8))
+                        .addComponent(jButton4))
                     .addGap(8, 8, 8)
                     .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jButton9)
                         .addComponent(jButton10)
-                        .addComponent(jButton11)
-                        .addComponent(jButton12)
-                        .addComponent(jButton13)
-                        .addComponent(jButton14)
-                        .addComponent(jButton15))
+                        .addComponent(jButton11))
                     .addGap(7, 7, 7)
                     .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jButton16)
@@ -603,14 +612,6 @@ public class level2 extends javax.swing.JPanel {
         add(jPanel2);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
-        iniciar();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton28ActionPerformed
-
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
         pLevel level = new pLevel();
         level.setLocation(0, 0);
@@ -620,14 +621,13 @@ public class level2 extends javax.swing.JPanel {
         paneMain.repaint();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton29ActionPerformed
 
-    private void btnexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexitActionPerformed
-        pLevel level = new pLevel();
-        level.setLocation(0, 0);
-        paneMain.removeAll();
-        paneMain.add(level,GridLayout.class);
-        paneMain.revalidate();
-        paneMain.repaint();// TODO add your handling code here:
-    }//GEN-LAST:event_btnexitActionPerformed
+    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+        iniciar();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton28ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnTryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTryActionPerformed
         iniciar();
@@ -643,6 +643,15 @@ public class level2 extends javax.swing.JPanel {
         paneMain.revalidate();
         paneMain.repaint();
     }//GEN-LAST:event_btnNextActionPerformed
+
+    private void btnexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexitActionPerformed
+        pLevel level = new pLevel();
+        level.setLocation(0, 0);
+        paneMain.removeAll();
+        paneMain.add(level,GridLayout.class);
+        paneMain.revalidate();
+        paneMain.repaint();// TODO add your handling code here:
+    }//GEN-LAST:event_btnexitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -681,12 +690,12 @@ public class level2 extends javax.swing.JPanel {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JPanel p1;
     private javax.swing.JPanel p2;
