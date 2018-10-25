@@ -6,10 +6,11 @@
 package UI;
 
 import Herramientas.Config;
+import Herramientas.GuardarAvance;
 import Herramientas.PropStore;
 import Herramientas.Sound;
 import java.awt.Dimension;
-//import static java.awt.Frame.MAXIMIZED_BOTH;
+import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.HeadlessException;
@@ -74,29 +75,20 @@ public class main extends javax.swing.JFrame {
         boolean sonido = Boolean.parseBoolean(cfg.getProperty("sound"));
         System.out.println(fullscreen);
         if(fullscreen){
-            //this.setExtendedState(MAXIMIZED_BOTH);
-            //this.setUndecorated(rootPaneCheckingEnabled);
             try {
             System.out.println("Full"+fullscreen);
-            
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             GraphicsDevice[] devices = ge.getScreenDevices();
             this.setUndecorated(rootPaneCheckingEnabled);
             devices[0].setFullScreenWindow(this);
             this.revalidate();
             Dimension size = this.getSize();
-                System.out.println(""+size);
-                
+                System.out.println(""+size);     
             this.setPreferredSize(size);
-            
-            //setEnabled(false);
-            //setResizable(false);
-            //setVisible(true);
             System.out.println("Llega");
             } catch (HeadlessException e) {
-                //;
-               // this.setExtendedState(MAXIMIZED_BOTH);
-                //this.setUndecorated(rootPaneCheckingEnabled);
+               this.setExtendedState(MAXIMIZED_BOTH);
+               this.setUndecorated(rootPaneCheckingEnabled);
             }
         }
         else{
@@ -145,7 +137,8 @@ public class main extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                 PropStore props = new PropStore();
+                PropStore props = new PropStore();
+                GuardarAvance avance = new GuardarAvance();
                 new main().setVisible(true);
             }
         });

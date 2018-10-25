@@ -9,7 +9,11 @@ import Herramientas.Config;
 import Herramientas.PropStore;
 import static UI.main.musica;
 import static UI.main.paneMain;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.net.URL;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -20,6 +24,13 @@ public class pSettings extends javax.swing.JPanel {
     /**
      * Creates new form pSettings
      */
+    private URL url = getClass().getResource("/img/fondoInicio.jpg");
+    Image image = new ImageIcon(url).getImage();
+    public void paint(Graphics g){
+        g.drawImage(image, 0, 0, getWidth(), getHeight(), pAll_Settings);
+        setOpaque(false);
+        super.paint(g);
+    }
     public pSettings() {
         Configs();
         initComponents();
@@ -60,9 +71,13 @@ public class pSettings extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridLayout(1, 0));
 
+        pAll_Settings.setOpaque(false);
         pAll_Settings.setLayout(new java.awt.BorderLayout());
 
+        pTop.setOpaque(false);
+
         Title.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
+        Title.setForeground(new java.awt.Color(240, 240, 240));
         Title.setText("Settings");
 
         javax.swing.GroupLayout pTopLayout = new javax.swing.GroupLayout(pTop);
@@ -88,8 +103,10 @@ public class pSettings extends javax.swing.JPanel {
 
         pAll_Settings.add(pTop, java.awt.BorderLayout.PAGE_START);
 
+        pCenter.setOpaque(false);
         pCenter.setLayout(new java.awt.GridLayout(3, 1));
 
+        jPanel2.setOpaque(false);
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
         wPrevious.setText("<");
@@ -100,6 +117,7 @@ public class pSettings extends javax.swing.JPanel {
         });
         jPanel2.add(wPrevious, new java.awt.GridBagConstraints());
 
+        etiWindow.setForeground(new java.awt.Color(250, 250, 250));
         etiWindow.setText("Pantalla");
         etiWindow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(etiWindow, new java.awt.GridBagConstraints());
@@ -114,6 +132,8 @@ public class pSettings extends javax.swing.JPanel {
 
         pCenter.add(jPanel2);
 
+        jPanel3.setOpaque(false);
+
         sPrevious.setText("<");
         sPrevious.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +141,7 @@ public class pSettings extends javax.swing.JPanel {
             }
         });
 
+        etiSound.setForeground(new java.awt.Color(250, 250, 250));
         etiSound.setText("Sonido");
         etiSound.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -163,6 +184,8 @@ public class pSettings extends javax.swing.JPanel {
 
         pCenter.add(jPanel3);
 
+        jPanel5.setOpaque(false);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -178,7 +201,10 @@ public class pSettings extends javax.swing.JPanel {
 
         pAll_Settings.add(pCenter, java.awt.BorderLayout.CENTER);
 
+        pDown.setOpaque(false);
         pDown.setLayout(new java.awt.GridLayout(1, 4));
+
+        jPanel1.setOpaque(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -193,6 +219,7 @@ public class pSettings extends javax.swing.JPanel {
 
         pDown.add(jPanel1);
 
+        pCancel.setOpaque(false);
         pCancel.setLayout(new java.awt.GridBagLayout());
 
         btnCancel.setText("Cancel");
@@ -205,6 +232,7 @@ public class pSettings extends javax.swing.JPanel {
 
         pDown.add(pCancel);
 
+        pOK.setOpaque(false);
         pOK.setLayout(new java.awt.GridBagLayout());
 
         bntOK.setText("Accept");
@@ -216,6 +244,8 @@ public class pSettings extends javax.swing.JPanel {
         pOK.add(bntOK, new java.awt.GridBagConstraints());
 
         pDown.add(pOK);
+
+        jPanel4.setOpaque(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -232,6 +262,8 @@ public class pSettings extends javax.swing.JPanel {
 
         pAll_Settings.add(pDown, java.awt.BorderLayout.PAGE_END);
 
+        pRight.setOpaque(false);
+
         javax.swing.GroupLayout pRightLayout = new javax.swing.GroupLayout(pRight);
         pRight.setLayout(pRightLayout);
         pRightLayout.setHorizontalGroup(
@@ -244,6 +276,8 @@ public class pSettings extends javax.swing.JPanel {
         );
 
         pAll_Settings.add(pRight, java.awt.BorderLayout.LINE_END);
+
+        pLeft.setOpaque(false);
 
         javax.swing.GroupLayout pLeftLayout = new javax.swing.GroupLayout(pLeft);
         pLeft.setLayout(pLeftLayout);

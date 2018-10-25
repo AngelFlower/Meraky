@@ -6,7 +6,11 @@
 package UI;
 
 import static UI.main.paneMain;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.net.URL;
+import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 
 /**
@@ -18,12 +22,18 @@ public class  pStart extends javax.swing.JPanel {
     /**
      * Creates new form pStart
      */
+    private URL url = getClass().getResource("/img/fondoInicio.jpg");
+    Image image = new ImageIcon(url).getImage();
+    public void paint(Graphics g){
+        g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+        setOpaque(false);
+        super.paint(g);
+    }
+    
     public pStart() {
         initComponents();
-        
-        
     }
-
+      
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,9 +47,8 @@ public class  pStart extends javax.swing.JPanel {
         pAll_Start = new javax.swing.JPanel();
         CENTER = new javax.swing.JPanel();
         pTitle = new javax.swing.JPanel();
-        Title = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         pSubtitle = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         pButtons = new javax.swing.JPanel();
         pGird = new javax.swing.JPanel();
         pStart = new javax.swing.JPanel();
@@ -54,39 +63,45 @@ public class  pStart extends javax.swing.JPanel {
         RIGHT = new javax.swing.JPanel();
         LEFT = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(20, 20, 20));
         setLayout(new java.awt.GridLayout(1, 0));
 
+        pAll_Start.setOpaque(false);
         pAll_Start.setLayout(new java.awt.BorderLayout());
 
+        CENTER.setOpaque(false);
         CENTER.setLayout(new java.awt.GridLayout(3, 0));
 
-        pTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pTitle.setLayout(new java.awt.GridBagLayout());
+        pTitle.setBorder(null);
+        pTitle.setOpaque(false);
+        pTitle.setLayout(new java.awt.GridLayout(1, 0));
 
-        Title.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
-        Title.setText("SOUL DEAD");
-        pTitle.add(Title, new java.awt.GridBagConstraints());
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo.png"))); // NOI18N
+        pTitle.add(jLabel1);
 
         CENTER.add(pTitle);
 
-        pSubtitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pSubtitle.setLayout(new java.awt.GridBagLayout());
-
-        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel2.setText("The Game");
-        pSubtitle.add(jLabel2, new java.awt.GridBagConstraints());
-
+        pSubtitle.setBorder(null);
+        pSubtitle.setOpaque(false);
+        pSubtitle.setLayout(new java.awt.GridLayout(1, 1));
         CENTER.add(pSubtitle);
 
-        pButtons.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pButtons.setBorder(null);
+        pButtons.setOpaque(false);
         pButtons.setLayout(new java.awt.GridLayout(1, 3));
 
+        pGird.setOpaque(false);
         pGird.setLayout(new java.awt.GridLayout(4, 3));
 
+        pStart.setOpaque(false);
         pStart.setLayout(new java.awt.GridBagLayout());
 
         btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnPlay.png"))); // NOI18N
+        btnStart.setBorderPainted(false);
         btnStart.setContentAreaFilled(false);
+        btnStart.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnStart.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         btnStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStartActionPerformed(evt);
@@ -96,6 +111,7 @@ public class  pStart extends javax.swing.JPanel {
 
         pGird.add(pStart);
 
+        pSettings.setOpaque(false);
         pSettings.setLayout(new java.awt.GridBagLayout());
 
         btnSettings.setText("Settings");
@@ -113,6 +129,7 @@ public class  pStart extends javax.swing.JPanel {
 
         pGird.add(pSettings);
 
+        pInfo.setOpaque(false);
         pInfo.setLayout(new java.awt.GridBagLayout());
 
         btnExit.setText("Exit");
@@ -125,6 +142,7 @@ public class  pStart extends javax.swing.JPanel {
 
         pGird.add(pInfo);
 
+        pExit.setOpaque(false);
         pExit.setLayout(new java.awt.GridBagLayout());
         pGird.add(pExit);
 
@@ -134,11 +152,13 @@ public class  pStart extends javax.swing.JPanel {
 
         pAll_Start.add(CENTER, java.awt.BorderLayout.CENTER);
 
+        TOP.setOpaque(false);
+
         javax.swing.GroupLayout TOPLayout = new javax.swing.GroupLayout(TOP);
         TOP.setLayout(TOPLayout);
         TOPLayout.setHorizontalGroup(
             TOPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 761, Short.MAX_VALUE)
+            .addGap(0, 866, Short.MAX_VALUE)
         );
         TOPLayout.setVerticalGroup(
             TOPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,11 +167,13 @@ public class  pStart extends javax.swing.JPanel {
 
         pAll_Start.add(TOP, java.awt.BorderLayout.NORTH);
 
+        DOWN.setOpaque(false);
+
         javax.swing.GroupLayout DOWNLayout = new javax.swing.GroupLayout(DOWN);
         DOWN.setLayout(DOWNLayout);
         DOWNLayout.setHorizontalGroup(
             DOWNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 761, Short.MAX_VALUE)
+            .addGap(0, 866, Short.MAX_VALUE)
         );
         DOWNLayout.setVerticalGroup(
             DOWNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,6 +181,8 @@ public class  pStart extends javax.swing.JPanel {
         );
 
         pAll_Start.add(DOWN, java.awt.BorderLayout.SOUTH);
+
+        RIGHT.setOpaque(false);
 
         javax.swing.GroupLayout RIGHTLayout = new javax.swing.GroupLayout(RIGHT);
         RIGHT.setLayout(RIGHTLayout);
@@ -172,6 +196,8 @@ public class  pStart extends javax.swing.JPanel {
         );
 
         pAll_Start.add(RIGHT, java.awt.BorderLayout.LINE_END);
+
+        LEFT.setOpaque(false);
 
         javax.swing.GroupLayout LEFTLayout = new javax.swing.GroupLayout(LEFT);
         LEFT.setLayout(LEFTLayout);
@@ -218,11 +244,10 @@ public class  pStart extends javax.swing.JPanel {
     private javax.swing.JPanel LEFT;
     private javax.swing.JPanel RIGHT;
     private javax.swing.JPanel TOP;
-    private javax.swing.JLabel Title;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnSettings;
     private javax.swing.JButton btnStart;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel pAll_Start;
     private javax.swing.JPanel pButtons;
     private javax.swing.JPanel pExit;

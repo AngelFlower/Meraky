@@ -11,8 +11,12 @@ import Niveles.level3;
 import Niveles.level4;
 import Niveles.pDetermination;
 import static UI.main.paneMain;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.net.URL;
+import javax.swing.ImageIcon;
 
 
 /**
@@ -25,11 +29,16 @@ public class pLevel extends javax.swing.JPanel {
     /**
      * Creates new form pLevel
      */
+    private URL url = getClass().getResource("/img/fondoInicio.jpg");
+    Image image = new ImageIcon(url).getImage();
+    public void paint(Graphics g){
+        g.drawImage(image, 0, 0, getWidth(), getHeight(), contenedor);
+        setOpaque(false);
+        super.paint(g);
+    }
     public pLevel() {
         initComponents();
         setFocusable(true);
-        int x= goku.getBounds().x;
-        int y= goku.getBounds().y;
         
     }
 
@@ -43,8 +52,7 @@ public class pLevel extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        fondoL1 = new fondos.FondoL();
-        goku = new Personajes.Goku();
+        contenedor = new javax.swing.JPanel();
         pCenter = new javax.swing.JPanel();
         pLevel1 = new javax.swing.JPanel();
         btnLevel1 = new javax.swing.JButton();
@@ -75,23 +83,10 @@ public class pLevel extends javax.swing.JPanel {
                 formKeyPressed(evt);
             }
         });
-        setLayout(new java.awt.GridLayout(1, 0));
+        setLayout(new java.awt.GridLayout());
 
-        fondoL1.setOpaque(false);
-        fondoL1.setLayout(new java.awt.BorderLayout());
-
-        javax.swing.GroupLayout gokuLayout = new javax.swing.GroupLayout(goku);
-        goku.setLayout(gokuLayout);
-        gokuLayout.setHorizontalGroup(
-            gokuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        gokuLayout.setVerticalGroup(
-            gokuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        fondoL1.add(goku, java.awt.BorderLayout.CENTER);
+        contenedor.setOpaque(false);
+        contenedor.setLayout(new java.awt.BorderLayout());
 
         pCenter.setOpaque(false);
         pCenter.setLayout(new java.awt.GridLayout(1, 4));
@@ -148,7 +143,7 @@ public class pLevel extends javax.swing.JPanel {
 
         pCenter.add(pLevel4);
 
-        fondoL1.add(pCenter, java.awt.BorderLayout.CENTER);
+        contenedor.add(pCenter, java.awt.BorderLayout.CENTER);
 
         pTop.setOpaque(false);
         pTop.setLayout(new java.awt.GridLayout(1, 0));
@@ -173,6 +168,7 @@ public class pLevel extends javax.swing.JPanel {
         pTitle.setLayout(new java.awt.GridBagLayout());
 
         Title.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
+        Title.setForeground(new java.awt.Color(244, 244, 244));
         Title.setText("Levels");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -189,7 +185,7 @@ public class pLevel extends javax.swing.JPanel {
 
         pTop.add(pTGrid);
 
-        fondoL1.add(pTop, java.awt.BorderLayout.PAGE_START);
+        contenedor.add(pTop, java.awt.BorderLayout.PAGE_START);
 
         pDown.setOpaque(false);
 
@@ -204,7 +200,7 @@ public class pLevel extends javax.swing.JPanel {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        fondoL1.add(pDown, java.awt.BorderLayout.PAGE_END);
+        contenedor.add(pDown, java.awt.BorderLayout.PAGE_END);
 
         pLeft.setOpaque(false);
 
@@ -216,10 +212,10 @@ public class pLevel extends javax.swing.JPanel {
         );
         pLeftLayout.setVerticalGroup(
             pLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 161, Short.MAX_VALUE)
+            .addGap(0, 151, Short.MAX_VALUE)
         );
 
-        fondoL1.add(pLeft, java.awt.BorderLayout.LINE_END);
+        contenedor.add(pLeft, java.awt.BorderLayout.LINE_END);
 
         pRight.setOpaque(false);
 
@@ -231,14 +227,14 @@ public class pLevel extends javax.swing.JPanel {
         );
         pRightLayout.setVerticalGroup(
             pRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 161, Short.MAX_VALUE)
+            .addGap(0, 151, Short.MAX_VALUE)
         );
 
-        fondoL1.add(pRight, java.awt.BorderLayout.LINE_START);
+        contenedor.add(pRight, java.awt.BorderLayout.LINE_START);
 
-        add(fondoL1);
+        add(contenedor);
     }// </editor-fold>//GEN-END:initComponents
-    public void coor(){
+    /*public void coor(){
         System.out.println("x: "+x+" y "+y);
     }
     public void colision(){
@@ -270,9 +266,9 @@ public class pLevel extends javax.swing.JPanel {
             goku.setLocation(x, y);
         }
     }
+*/
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-       borders();
-        System.out.println("Btn xy "+btnLevel2.getX()+"  "+btnLevel2.getY());
+        /*System.out.println("Btn xy "+btnLevel2.getX()+"  "+btnLevel2.getY());
         System.out.println("Goku xy"+goku.getX()+"  "+goku.getY());
        //coor();
         switch(evt.getKeyCode()){
@@ -294,7 +290,8 @@ public class pLevel extends javax.swing.JPanel {
                 break;
                 
         }
-        //colision();// TODO add your handling code here:
+        //colision();*/
+        // TODO add your handling code here:
     }//GEN-LAST:event_formKeyPressed
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
@@ -355,8 +352,7 @@ public class pLevel extends javax.swing.JPanel {
     private javax.swing.JButton btnLevel2;
     private javax.swing.JButton btnLevel3;
     private javax.swing.JButton btnLevel4;
-    private fondos.FondoL fondoL1;
-    private Personajes.Goku goku;
+    private javax.swing.JPanel contenedor;
     private javax.swing.JPanel pCenter;
     private javax.swing.JPanel pDown;
     private javax.swing.JPanel pE;

@@ -8,7 +8,11 @@ package UI;
 import Niveles.level1;
 import Niveles.pDetermination;
 import static UI.main.paneMain;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.net.URL;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -19,6 +23,13 @@ public class menuGame extends javax.swing.JPanel {
     /**
      * Creates new form menuGame
      */
+    private URL url = getClass().getResource("/img/fondoInicio.jpg");
+    Image image = new ImageIcon(url).getImage();
+    public void paint(Graphics g){
+        g.drawImage(image, 0, 0, getWidth(), getHeight(), pAll_Settings);
+        setOpaque(false);
+        super.paint(g);
+    }
     public menuGame() {
         initComponents();
         Det_nivel.setVisible(false);
@@ -58,10 +69,13 @@ public class menuGame extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridLayout(1, 0));
 
+        pAll_Settings.setOpaque(false);
         pAll_Settings.setLayout(new java.awt.BorderLayout());
 
+        pTop.setOpaque(false);
         pTop.setLayout(new java.awt.GridLayout(1, 3));
 
+        jPanel6.setOpaque(false);
         jPanel6.setLayout(new java.awt.GridBagLayout());
 
         btnCancel.setText("Atras");
@@ -79,9 +93,11 @@ public class menuGame extends javax.swing.JPanel {
 
         pTop.add(jPanel6);
 
+        jPanel7.setOpaque(false);
         jPanel7.setLayout(new java.awt.GridBagLayout());
 
         Title.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        Title.setForeground(new java.awt.Color(246, 246, 246));
         Title.setText("Modos de juego");
         jPanel7.add(Title, new java.awt.GridBagConstraints());
 
@@ -104,8 +120,10 @@ public class menuGame extends javax.swing.JPanel {
 
         pAll_Settings.add(pTop, java.awt.BorderLayout.PAGE_START);
 
+        pCenter.setOpaque(false);
         pCenter.setLayout(new java.awt.GridLayout(3, 1));
 
+        jPanel2.setOpaque(false);
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
         wNext.setText("Modo historia");
@@ -118,6 +136,7 @@ public class menuGame extends javax.swing.JPanel {
 
         pCenter.add(jPanel2);
 
+        jPanel3.setOpaque(false);
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
         jButton1.setText("Modo Libre");
@@ -130,6 +149,7 @@ public class menuGame extends javax.swing.JPanel {
 
         pCenter.add(jPanel3);
 
+        jPanel5.setOpaque(false);
         jPanel5.setLayout(new java.awt.GridBagLayout());
 
         Det_nivel.setText("Determina tu nivel");
@@ -144,7 +164,10 @@ public class menuGame extends javax.swing.JPanel {
 
         pAll_Settings.add(pCenter, java.awt.BorderLayout.CENTER);
 
+        pDown.setOpaque(false);
         pDown.setLayout(new java.awt.GridLayout(1, 4));
+
+        jPanel1.setOpaque(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -159,11 +182,15 @@ public class menuGame extends javax.swing.JPanel {
 
         pDown.add(jPanel1);
 
+        pCancel.setOpaque(false);
         pCancel.setLayout(new java.awt.GridBagLayout());
         pDown.add(pCancel);
 
+        pOK.setOpaque(false);
         pOK.setLayout(new java.awt.GridBagLayout());
         pDown.add(pOK);
+
+        jPanel4.setOpaque(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -180,6 +207,8 @@ public class menuGame extends javax.swing.JPanel {
 
         pAll_Settings.add(pDown, java.awt.BorderLayout.PAGE_END);
 
+        pRight.setOpaque(false);
+
         javax.swing.GroupLayout pRightLayout = new javax.swing.GroupLayout(pRight);
         pRight.setLayout(pRightLayout);
         pRightLayout.setHorizontalGroup(
@@ -192,6 +221,8 @@ public class menuGame extends javax.swing.JPanel {
         );
 
         pAll_Settings.add(pRight, java.awt.BorderLayout.LINE_END);
+
+        pLeft.setOpaque(false);
 
         javax.swing.GroupLayout pLeftLayout = new javax.swing.GroupLayout(pLeft);
         pLeft.setLayout(pLeftLayout);
