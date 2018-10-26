@@ -1,5 +1,7 @@
 # game
 Learn english
+Primera captura
+![alt text](https://i.imgur.com/goyJqpD.png)
 GIT
 - https://git-scm.com/downloads
 
