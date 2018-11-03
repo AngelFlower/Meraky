@@ -15,21 +15,35 @@ import java.awt.event.KeyEvent;
  * @author angel
  */
 public class level1 extends javax.swing.JPanel {
-    boolean p1,p2,p3;
-    int i=0;
+    boolean p1,p2,p3,p4,p5;
+    int i=0,p=0,e=0;
+    String vPreguntas[],mRespuestas[][];
     /**
      * Creates new form level1
      */
     public level1() {
         initComponents();
-        etiPregunta.setText("Selecciona la palabra que corresponda al color 'Rojo'");
-        //etiResultado.setVisible(false);
+        Inicial();
+    }
+    public void Inicial(){
+        mRespuestas = new String[7][3];
+        vPreguntas = new String[7];
+        vPreguntas[0] = "Select the word that corresponds to 'Rojo'";                //Pregunta 1
+        vPreguntas[1] = "Select the word that corresponds to 'Perro'";               //Pregunta 2
+        vPreguntas[2] = "Select the word that corresponds to 'Dos'";                 //Pregunta 3
+        vPreguntas[3] = "Select the word that corresponds to 'Hola'";                //Pregunta 4
+        vPreguntas[4] = "Select the word that corresponds to 'Ventana'";             //Pregunta 5
+        mRespuestas[0][0]="Green";mRespuestas[0][1]="Blue";mRespuestas[0][2]="Red";    //Respuestas 1
+        mRespuestas[1][0]="Cat";mRespuestas[1][1]="Dog";mRespuestas[1][2]="Lion";      //Respuestas 2
+        mRespuestas[2][0]="Ten";mRespuestas[2][1]="One";mRespuestas[2][2]="Two";       //Respuestas 3
+        mRespuestas[3][0]="Hello";mRespuestas[3][1]="Bye";mRespuestas[3][2]="Good";    //Respuestas 4
+        mRespuestas[4][0]="Table";mRespuestas[4][1]="Cake";mRespuestas[4][2]="Window"; //Respuestas 5
+        etiPregunta.setText(vPreguntas[i]);
         p3 = false; p2 = false;p1 = false;
         btn1.setActionCommand("btn1");
         btn2.setActionCommand("btn2");
         btn3.setActionCommand("btn3");
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,6 +62,11 @@ public class level1 extends javax.swing.JPanel {
         jPanel9 = new javax.swing.JPanel();
         pDown = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
+        RP1 = new javax.swing.JLabel();
+        RP2 = new javax.swing.JLabel();
+        RP3 = new javax.swing.JLabel();
+        RP4 = new javax.swing.JLabel();
+        RP5 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         btnOk = new javax.swing.JButton();
         pCenter = new javax.swing.JPanel();
@@ -79,7 +98,7 @@ public class level1 extends javax.swing.JPanel {
         pTop.setOpaque(false);
         pTop.setLayout(new java.awt.GridLayout(1, 2));
 
-        playBack.setText("Atras");
+        playBack.setText("Back");
         playBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 playBackActionPerformed(evt);
@@ -98,7 +117,7 @@ public class level1 extends javax.swing.JPanel {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(playBack)
-                .addGap(0, 51, Short.MAX_VALUE))
+                .addGap(0, 3, Short.MAX_VALUE))
         );
 
         pTop.add(jPanel7);
@@ -111,7 +130,7 @@ public class level1 extends javax.swing.JPanel {
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 83, Short.MAX_VALUE)
+            .addGap(0, 34, Short.MAX_VALUE)
         );
 
         pTop.add(jPanel9);
@@ -121,21 +140,30 @@ public class level1 extends javax.swing.JPanel {
         pDown.setOpaque(false);
         pDown.setLayout(new java.awt.GridLayout(1, 2));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 384, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 96, Short.MAX_VALUE)
-        );
+        RP1.setText("1");
+        RP1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel5.add(RP1);
+
+        RP2.setText("2");
+        RP2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel5.add(RP2);
+
+        RP3.setText("3");
+        RP3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel5.add(RP3);
+
+        RP4.setText("4");
+        RP4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel5.add(RP4);
+
+        RP5.setText("5");
+        RP5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel5.add(RP5);
 
         pDown.add(jPanel5);
 
         btnOk.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        btnOk.setText("Calificar");
+        btnOk.setText("Rate");
         btnOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOkActionPerformed(evt);
@@ -286,47 +314,46 @@ public class level1 extends javax.swing.JPanel {
                 btn1.setEnabled(false);
                 btn2.setEnabled(false);
                 btn3.setEnabled(false);
-                btnOk.setText("Continuar");
+                btnOk.setText("Next");
     }
     public void btnNormal(){
                 btn1.setEnabled(true);
                 btn2.setEnabled(true);
                 btn3.setEnabled(true);
                 btns.clearSelection();
-                btnOk.setText("Calificar");
+                btnOk.setText("Rate");
                 etiResultado.setText(" ");
     }
     public void preg1(){
         char btnS = btnDeterminar(' ');
-        System.out.println(" "+btnS);
         switch(btnS){
             case '3':
                 btnRC();
                 etiResultado.setText("¡Genial!... Respuesta correcta");
                 p1 = true;
+                i++;
                 break;
             default:
                 etiResultado.setText("Ups!... Respuesta incorrecta, intentalo de nuevo");
                 btns.clearSelection();
+                e+=1;
                 break;
         }
        
     }
     public void preg2(){
-        if(i==0){
+        if(i==1){
             etiResultado.setVisible(false);
-            etiPregunta.setText("Selecciona la palabra que corresponda a 'Perro'");
-            btn1.setText("Cat");
-            btn2.setText("Dog");
-            btn3.setText("Lion");
+            etiPregunta.setText(vPreguntas[i]);
+            btn1.setText(mRespuestas[i][0]);
+            btn2.setText(mRespuestas[i][1]);
+            btn3.setText(mRespuestas[i][2]);
             btnNormal();
             i++;
         }
         else{
             etiResultado.setVisible(true);
-            
             char btnS = btnDeterminar(' ');
-            System.out.println(" "+btnS);
             switch(btnS){
                 case '2':
                     btnRC();
@@ -336,22 +363,22 @@ public class level1 extends javax.swing.JPanel {
                 default:
                     etiResultado.setText("Ups!... Respuesta incorrecta, intentalo de nuevo");
                     btns.clearSelection();
+                    e+=1;
             }
         }
     }
     public void preg3(){
-        if(i==1){
+        if(i==2){
             etiResultado.setVisible(false);
-            etiPregunta.setText("Selecciona la palabra que corresponda a 'Dos'");
-            btn1.setText("Teen");
-            btn2.setText("One");
-            btn3.setText("Two");
+            etiPregunta.setText(vPreguntas[i]);
+            btn1.setText(mRespuestas[i][0]);
+            btn2.setText(mRespuestas[i][1]);
+            btn3.setText(mRespuestas[i][2]);
             btnNormal();
             i++;
         }
         else{
             etiResultado.setVisible(true);
-            
             char btnS = btnDeterminar(' ');
             System.out.println(" "+btnS);
             switch(btnS){
@@ -363,6 +390,61 @@ public class level1 extends javax.swing.JPanel {
                 default:
                     etiResultado.setText("Ups!... Respuesta incorrecta, intentalo de nuevo");
                     btns.clearSelection();
+                    e+=1;
+                    
+            }
+        }
+    }
+    public void preg4(){
+        if(i==3){
+            etiResultado.setVisible(false);
+            etiPregunta.setText(vPreguntas[i]);
+            btn1.setText(mRespuestas[i][0]);
+            btn2.setText(mRespuestas[i][1]);
+            btn3.setText(mRespuestas[i][2]);
+            btnNormal();
+            i++;
+        }
+        else{
+            etiResultado.setVisible(true);
+            char btnS = btnDeterminar(' ');
+            switch(btnS){
+                case '1':
+                    btnRC();
+                    etiResultado.setText("¡Genial!... Respuesta correcta");
+                    p4 =true;
+                    break;
+                default:
+                    etiResultado.setText("Ups!... Respuesta incorrecta, intentalo de nuevo");
+                    btns.clearSelection();
+                    e+=1;
+                    
+            }
+        }
+    }
+    public void preg5(){
+        if(i==4){
+            etiResultado.setVisible(false);
+            etiPregunta.setText(vPreguntas[i]);
+            btn1.setText(mRespuestas[i][0]);
+            btn2.setText(mRespuestas[i][1]);
+            btn3.setText(mRespuestas[i][2]);
+            btnNormal();
+            i++;
+        }
+        else{
+            etiResultado.setVisible(true);
+            char btnS = btnDeterminar(' ');
+            switch(btnS){
+                case '3':
+                    btnRC();
+                    etiResultado.setText("¡Genial!... Respuesta correcta");
+                    p5 =true;
+                    break;
+                default:
+                    etiResultado.setText("Ups!... Respuesta incorrecta, intentalo de nuevo");
+                    btns.clearSelection();
+                    e+=1;
                     
             }
         }
@@ -384,8 +466,13 @@ public class level1 extends javax.swing.JPanel {
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         if(btn1.isSelected()||btn2.isSelected()||btn3.isSelected()){
+            
+            System.out.println(""+e);
             if(!p1) preg1();
-            else if(!p2) preg2(); else if(!p3) preg3();
+            else if(!p2) preg2();
+            else if(!p3) preg3();
+            else if(!p4) preg4();
+            else if(!p5) preg5();
             else{
             nextLevel level = new nextLevel();
             paneMain.removeAll();
@@ -398,6 +485,11 @@ public class level1 extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel RP1;
+    private javax.swing.JLabel RP2;
+    private javax.swing.JLabel RP3;
+    private javax.swing.JLabel RP4;
+    private javax.swing.JLabel RP5;
     private javax.swing.JRadioButton btn1;
     private javax.swing.JRadioButton btn2;
     private javax.swing.JRadioButton btn3;

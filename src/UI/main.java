@@ -6,7 +6,8 @@
 package UI;
 
 import Herramientas.Config;
-import Herramientas.GuardarAvance;
+import Herramientas.DatosUsuario;
+import Herramientas.GuardaAvance;
 import Herramientas.PropStore;
 import Herramientas.Sound;
 import java.awt.Dimension;
@@ -138,7 +139,8 @@ public class main extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 PropStore props = new PropStore();
-                GuardarAvance avance = new GuardarAvance();
+                GuardaAvance g = new GuardaAvance();
+                DatosUsuario d = new DatosUsuario();
                 new main().setVisible(true);
             }
         });
