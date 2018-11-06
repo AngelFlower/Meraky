@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package GUI;
 
 import Niveles.level1;
 import Niveles.level2;
 import Niveles.level3;
 import Niveles.level4;
 import Niveles.pDetermination;
-import static UI.main.paneMain;
+import static GUI.main.paneMain;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -83,7 +83,7 @@ public class pLevel extends javax.swing.JPanel {
                 formKeyPressed(evt);
             }
         });
-        setLayout(new java.awt.GridLayout());
+        setLayout(new java.awt.GridLayout(1, 0));
 
         contenedor.setOpaque(false);
         contenedor.setLayout(new java.awt.BorderLayout());

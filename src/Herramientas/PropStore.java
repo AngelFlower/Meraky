@@ -14,39 +14,36 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
  
-public class PropStore 
-{   
+public class PropStore {   
     public static String windo,sound;
     public PropStore(){
         windo="true";
         sound="true";
         PropStore.main(null);
         if(!this.checkConfigFile()){
-        System.out.println("dfgdfh");
             this.firstStore();
         };
     }
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ){
         
     }
     public  boolean checkConfigFile(){
-        File tmpDir = new File("config/config.cfg");
+        File tmpDir = new File("UserData/config.cfg");
         boolean exists = tmpDir.exists();
         return exists;
     }
     public static void firstStore(){
      Properties prop = new Properties();
     	try {
-        File tmpDir = new File("config/");
+        File tmpDir = new File("UserData/");
         if(!tmpDir.exists()){
-            new File("config/").mkdirs();
+            new File("UserData/").mkdirs();
         }
      //set the properties value
      prop.setProperty("fullscreen", windo);
      prop.setProperty("sound", sound);
      //save properties to project root folder
-     prop.store(new FileOutputStream("config/config.cfg"), null);
+     prop.store(new FileOutputStream("UserData/config.cfg"), null);
     	} catch (IOException ex) {
      ex.printStackTrace();
         }

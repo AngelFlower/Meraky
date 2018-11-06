@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package GUI;
 
-import static UI.main.paneMain;
+import static GUI.main.paneMain;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -72,7 +72,6 @@ public class  pStart extends javax.swing.JPanel {
         CENTER.setOpaque(false);
         CENTER.setLayout(new java.awt.GridLayout(3, 0));
 
-        pTitle.setBorder(null);
         pTitle.setOpaque(false);
         pTitle.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -82,12 +81,10 @@ public class  pStart extends javax.swing.JPanel {
 
         CENTER.add(pTitle);
 
-        pSubtitle.setBorder(null);
         pSubtitle.setOpaque(false);
         pSubtitle.setLayout(new java.awt.GridLayout(1, 1));
         CENTER.add(pSubtitle);
 
-        pButtons.setBorder(null);
         pButtons.setOpaque(false);
         pButtons.setLayout(new java.awt.GridLayout(1, 3));
 

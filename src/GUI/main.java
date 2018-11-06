@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package GUI;
 
 import Herramientas.Config;
-import Herramientas.DatosUsuario;
+import Herramientas.CargaAvance;
 import Herramientas.GuardaAvance;
 import Herramientas.PropStore;
 import Herramientas.Sound;
@@ -30,10 +30,9 @@ public class main extends javax.swing.JFrame {
     public main() { 
         Image icon = new ImageIcon(getClass().getResource("/img/icon.png")).getImage();
         setIconImage(icon);
-        Configuraciones();
+        Configuraciones();  //Verifica las configuraciones y asigna
         initComponents();
-       
-        Win();
+        Win();              //Asigna modo ventana
     }
 
     /**
@@ -46,7 +45,7 @@ public class main extends javax.swing.JFrame {
     private void initComponents() {
 
         paneMain = new javax.swing.JPanel();
-        pStart1 = new UI.pStart();
+        pStart1 = new GUI.pStart();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Soul Dead");
@@ -65,7 +64,7 @@ public class main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     public void Configuraciones(){
         this.setTitle("");
         //Toolkit tk = Toolkit.getDefaultToolkit();
@@ -140,14 +139,14 @@ public class main extends javax.swing.JFrame {
             public void run() {
                 PropStore props = new PropStore();
                 GuardaAvance g = new GuardaAvance();
-                DatosUsuario d = new DatosUsuario();
+                CargaAvance d = new CargaAvance();
                 new main().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private UI.pStart pStart1;
+    private GUI.pStart pStart1;
     public static javax.swing.JPanel paneMain;
     // End of variables declaration//GEN-END:variables
 }

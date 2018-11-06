@@ -48,7 +48,7 @@
         <Property name="rows" type="int" value="1"/>
       </Layout>
       <SubComponents>
-        <Component class="UI.pStart" name="pStart1">
+        <Component class="GUI.pStart" name="pStart1">
           <Properties>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="null"/>

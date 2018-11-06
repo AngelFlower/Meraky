@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UI;
+package GUI;
 
-import static UI.main.paneMain;
+import static GUI.main.paneMain;
 import java.awt.GridLayout;
 
 /**

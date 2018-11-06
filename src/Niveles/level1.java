@@ -5,8 +5,8 @@
  */
 package Niveles;
 
-import static UI.main.paneMain;
-import UI.pLevel;
+import static GUI.main.paneMain;
+import GUI.pLevel;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 

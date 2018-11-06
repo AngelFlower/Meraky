@@ -12,13 +12,12 @@ import java.util.Properties;
 public class Config
 {
    Properties prop;
-   public Config()
-   {
+   public Config(){
    PropStore props = new PropStore();
    prop = new Properties();
     try {
-        prop.load(new FileInputStream("config/config.cfg"));
-        System.out.println("loaded");
+        prop.load(new FileInputStream("UserData/config.cfg"));
+        System.out.println("Config loaded");
     }catch(Exception eta){
         eta.printStackTrace();
     }

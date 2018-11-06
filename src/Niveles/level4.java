@@ -7,10 +7,10 @@
 package Niveles;
 
 import Herramientas.Sound;
-import UI.main;
-import static UI.main.musica;
-import static UI.main.paneMain;
-import UI.pLevel;
+import GUI.main;
+import static GUI.main.musica;
+import static GUI.main.paneMain;
+import GUI.pLevel;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 
