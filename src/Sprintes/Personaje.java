@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Personajes;
+package Sprintes;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -15,8 +15,8 @@ import javax.swing.JPanel;
  *
  * @author Angel Flores
  */
-public class Goku extends JPanel{
-    private URL url = getClass().getResource("/img/goku.png");
+public class Personaje extends JPanel{
+    private URL url = getClass().getResource("/img/Personaje.png");
     Image image = new ImageIcon(url).getImage();
     public void paint(Graphics g){
         g.drawImage(image, 0, 0, getWidth(), getHeight(), this);

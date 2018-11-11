@@ -32,7 +32,6 @@ public class menuGame extends javax.swing.JPanel {
     }
     public menuGame() {
         initComponents();
-        Det_nivel.setVisible(false);
     }
 
     /**
@@ -54,11 +53,10 @@ public class menuGame extends javax.swing.JPanel {
         jPanel8 = new javax.swing.JPanel();
         pCenter = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        wNext = new javax.swing.JButton();
+        btnNewGame = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        Det_nivel = new javax.swing.JButton();
         pDown = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         pCancel = new javax.swing.JPanel();
@@ -126,13 +124,13 @@ public class menuGame extends javax.swing.JPanel {
         jPanel2.setOpaque(false);
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        wNext.setText("Mode history");
-        wNext.addActionListener(new java.awt.event.ActionListener() {
+        btnNewGame.setText("New game");
+        btnNewGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wNextActionPerformed(evt);
+                btnNewGameActionPerformed(evt);
             }
         });
-        jPanel2.add(wNext, new java.awt.GridBagConstraints());
+        jPanel2.add(btnNewGame, new java.awt.GridBagConstraints());
 
         pCenter.add(jPanel2);
 
@@ -151,15 +149,6 @@ public class menuGame extends javax.swing.JPanel {
 
         jPanel5.setOpaque(false);
         jPanel5.setLayout(new java.awt.GridBagLayout());
-
-        Det_nivel.setText("Determina tu nivel");
-        Det_nivel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Det_nivelActionPerformed(evt);
-            }
-        });
-        jPanel5.add(Det_nivel, new java.awt.GridBagConstraints());
-
         pCenter.add(jPanel5);
 
         pAll_Settings.add(pCenter, java.awt.BorderLayout.CENTER);
@@ -240,14 +229,15 @@ public class menuGame extends javax.swing.JPanel {
         add(pAll_Settings);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void wNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wNextActionPerformed
-        level1 start = new level1();
+    private void btnNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewGameActionPerformed
+        pSelectLevel start = new pSelectLevel();
         start.setLocation(0, 0);
         paneMain.removeAll();
         paneMain.add(start,GridLayout.class);
         paneMain.revalidate();
         paneMain.repaint();
-    }//GEN-LAST:event_wNextActionPerformed
+        start.requestFocusInWindow();
+    }//GEN-LAST:event_btnNewGameActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         pStart start = new pStart();
@@ -267,20 +257,11 @@ public class menuGame extends javax.swing.JPanel {
         paneMain.repaint();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void Det_nivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Det_nivelActionPerformed
-        pDetermination start = new pDetermination();
-        start.setLocation(0, 0);
-        paneMain.removeAll();
-        paneMain.add(start,GridLayout.class);
-        paneMain.revalidate();
-        paneMain.repaint();        // TODO add your handling code here:
-    }//GEN-LAST:event_Det_nivelActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Det_nivel;
     private javax.swing.JLabel Title;
     private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnNewGame;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -298,6 +279,5 @@ public class menuGame extends javax.swing.JPanel {
     private javax.swing.JPanel pOK;
     private javax.swing.JPanel pRight;
     private javax.swing.JPanel pTop;
-    private javax.swing.JButton wNext;
     // End of variables declaration//GEN-END:variables
 }
