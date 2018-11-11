@@ -5,8 +5,16 @@
  */
 package Herramientas;
 
+import java.awt.Graphics;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsEnvironment;
+import java.awt.Image;
+import java.awt.Transparency;
+import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -31,5 +39,24 @@ public class CargadorDeRecursos {
 		}
 		
 		return clip;
+	}
+        public static BufferedImage cargarImagenCompatibleTranslucida(final String ruta) {
+		Image imagen = null;
+
+		try {
+			imagen = ImageIO.read(ClassLoader.class.getResource(ruta));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		GraphicsConfiguration gc = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
+
+		BufferedImage imagenAcelerada = gc.createCompatibleImage(imagen.getWidth(null), imagen.getHeight(null), Transparency.TRANSLUCENT);
+
+		Graphics g = imagenAcelerada.getGraphics();
+		g.drawImage(imagen, 0, 0, null);
+		g.dispose();
+
+		return imagenAcelerada;
 	}
 }

@@ -7,15 +7,22 @@ package GUI;
 
 import Herramientas.Config;
 import Herramientas.CargaAvance;
+import Herramientas.CargadorDeRecursos;
+import Herramientas.Constantes;
+import static Herramientas.Constantes.RUTA_ICONO_RATON;
 import Herramientas.GuardaAvance;
 import Herramientas.PropStore;
 import Herramientas.Sound;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.HeadlessException;
 import java.awt.Image;
+import java.awt.Point;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 
 /**
@@ -24,15 +31,20 @@ import javax.swing.ImageIcon;
  */
 public class main extends javax.swing.JFrame {
     public static Sound musica = new Sound("/Sonidos/musica.wav");
+    private Cursor cursor;
+    private Point posicion;
+    public int ladoCursor;
     /**
      * Creates new form Main
      */
-    public main() { 
+    public main(){ 
+        mousePersonalizado();
         Image icon = new ImageIcon(getClass().getResource("/img/icon.png")).getImage();
         setIconImage(icon);
         Configuraciones();  //Verifica las configuraciones y asigna
         initComponents();
-        Win();              //Asigna modo ventana
+        Win();
+        //Asigna modo ventana
     }
 
     /**
@@ -64,7 +76,17 @@ public class main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void mousePersonalizado(){
+        Toolkit configuracion = Toolkit.getDefaultToolkit();
+		final BufferedImage iconoCargado = CargadorDeRecursos
+				.cargarImagenCompatibleTranslucida(RUTA_ICONO_RATON);
+		ladoCursor = iconoCargado.getHeight();
+		BufferedImage icono = iconoCargado;
+		Point punta = new Point(0, 0);
+		this.cursor = configuracion.createCustomCursor(icono, punta, "Cursor por defecto");
+                this.setCursor(cursor);
+    }
+    public static void setMouse(){}
     public void Configuraciones(){
         this.setTitle("");
         //Toolkit tk = Toolkit.getDefaultToolkit();

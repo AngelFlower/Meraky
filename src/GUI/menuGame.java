@@ -8,11 +8,13 @@ package GUI;
 import Niveles.level1;
 import Niveles.pDetermination;
 import static GUI.main.paneMain;
+import Herramientas.Constantes;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.net.URL;
 import javax.swing.ImageIcon;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -232,6 +234,9 @@ public class menuGame extends javax.swing.JPanel {
     private void btnNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewGameActionPerformed
         pSelectLevel start = new pSelectLevel();
         start.setLocation(0, 0);
+        Constantes.RUTA_ICONO_RATON  = "/img/IconoCursorLevel.png";
+        main frame = (main) SwingUtilities.getWindowAncestor(this);
+        frame.mousePersonalizado();
         paneMain.removeAll();
         paneMain.add(start,GridLayout.class);
         paneMain.revalidate();
