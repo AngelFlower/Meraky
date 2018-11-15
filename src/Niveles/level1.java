@@ -9,6 +9,7 @@ import static GUI.main.paneMain;
 import GUI.pLevel;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
+import java.util.Random;
 
 /**
  *
@@ -16,8 +17,10 @@ import java.awt.event.KeyEvent;
  */
 public class level1 extends javax.swing.JPanel {
     boolean p1,p2,p3,p4,p5;
-    int i=0,p=0,e=0;
+    int i=0,p=0,e=0;int PreguntasUSE[];
+    public static Random rm = new Random();
     String vPreguntas[],mRespuestas[][];
+    
     /**
      * Creates new form level1
      */
@@ -43,6 +46,12 @@ public class level1 extends javax.swing.JPanel {
         btn1.setActionCommand("btn1");
         btn2.setActionCommand("btn2");
         btn3.setActionCommand("btn3");
+    }
+    public void GeneradoPreguntas(){
+        int t = 0;
+        int n = 5;
+        int numeros[] = new int[5];
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -178,7 +187,6 @@ public class level1 extends javax.swing.JPanel {
         pCenter.setOpaque(false);
         pCenter.setLayout(new java.awt.GridLayout(3, 1));
 
-        jPanel1.setOpaque(false);
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         etiPregunta.setFont(new java.awt.Font("Comic Sans MS", 1, 20)); // NOI18N
@@ -244,7 +252,6 @@ public class level1 extends javax.swing.JPanel {
 
         pCenter.add(jPanel2);
 
-        jPanel3.setOpaque(false);
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
         etiResultado.setFont(new java.awt.Font("Comic Sans MS", 1, 20)); // NOI18N

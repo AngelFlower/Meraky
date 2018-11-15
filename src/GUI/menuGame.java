@@ -139,7 +139,7 @@ public class menuGame extends javax.swing.JPanel {
         jPanel3.setOpaque(false);
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
-        jButton1.setText("Mode free");
+        jButton1.setText("Continue");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -232,16 +232,16 @@ public class menuGame extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewGameActionPerformed
-        pSelectLevel start = new pSelectLevel();
+        pLevel start = new pLevel();
         start.setLocation(0, 0);
-        Constantes.RUTA_ICONO_RATON  = "/img/IconoCursorLevel.png";
-        main frame = (main) SwingUtilities.getWindowAncestor(this);
-        frame.mousePersonalizado();
+        //Constantes.RUTA_ICONO_RATON  = "/img/IconoCursorLevel.png";
+        //main frame = (main) SwingUtilities.getWindowAncestor(this);
+        //frame.mousePersonalizado();
         paneMain.removeAll();
         paneMain.add(start,GridLayout.class);
         paneMain.revalidate();
         paneMain.repaint();
-        start.requestFocusInWindow();
+        //start.requestFocusInWindow();
     }//GEN-LAST:event_btnNewGameActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
