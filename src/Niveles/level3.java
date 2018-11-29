@@ -6,6 +6,7 @@
 package Niveles;
 
 import static GUI.main.paneMain;
+import GUI.menuGame;
 import GUI.pLevel;
 import java.awt.GridLayout;
 
@@ -38,13 +39,12 @@ public class level3 extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        btnNext = new javax.swing.JButton();
 
         setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel1.setLayout(new java.awt.GridLayout(3, 0));
 
-        playBack.setText("Atras");
+        playBack.setText("Back");
         playBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 playBackActionPerformed(evt);
@@ -57,13 +57,13 @@ public class level3 extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(playBack)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 450, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(playBack)
-                .addGap(0, 76, Short.MAX_VALUE))
+                .addGap(0, 83, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2);
@@ -84,22 +84,13 @@ public class level3 extends javax.swing.JPanel {
         jPanel1.add(jPanel3);
 
         jPanel4.setLayout(new java.awt.GridBagLayout());
-
-        btnNext.setText("NEXT LEVEL");
-        btnNext.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNextActionPerformed(evt);
-            }
-        });
-        jPanel4.add(btnNext, new java.awt.GridBagConstraints());
-
         jPanel1.add(jPanel4);
 
         add(jPanel1);
     }// </editor-fold>//GEN-END:initComponents
 
     private void playBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playBackActionPerformed
-        pLevel level = new pLevel();
+        menuGame level = new menuGame();
         level.setLocation(0, 0);
         paneMain.removeAll();
         paneMain.add(level,GridLayout.class);
@@ -107,18 +98,8 @@ public class level3 extends javax.swing.JPanel {
         paneMain.repaint();        // TODO add your handling code here:
     }//GEN-LAST:event_playBackActionPerformed
 
-    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        level4 level = new level4();
-        level.setLocation(0, 0);
-        paneMain.removeAll();
-        paneMain.add(level,GridLayout.class);
-        paneMain.revalidate();
-        paneMain.repaint();
-    }//GEN-LAST:event_btnNextActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnNext;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

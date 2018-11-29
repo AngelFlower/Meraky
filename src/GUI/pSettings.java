@@ -55,10 +55,12 @@ public class pSettings extends javax.swing.JPanel {
         Title = new javax.swing.JLabel();
         pCenter = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         wPrevious = new javax.swing.JButton();
         etiWindow = new javax.swing.JLabel();
         wNext = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         sPrevious = new javax.swing.JButton();
         etiSound = new javax.swing.JLabel();
         sNext = new javax.swing.JButton();
@@ -113,6 +115,10 @@ public class pSettings extends javax.swing.JPanel {
         jPanel2.setOpaque(false);
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
+        jLabel1.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel1.setText("Fullscreen       ");
+        jPanel2.add(jLabel1, new java.awt.GridBagConstraints());
+
         wPrevious.setText("<");
         wPrevious.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +142,11 @@ public class pSettings extends javax.swing.JPanel {
         pCenter.add(jPanel2);
 
         jPanel3.setOpaque(false);
+        jPanel3.setLayout(new java.awt.GridBagLayout());
+
+        jLabel2.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel2.setText("Sound              ");
+        jPanel3.add(jLabel2, new java.awt.GridBagConstraints());
 
         sPrevious.setText("<");
         sPrevious.addActionListener(new java.awt.event.ActionListener() {
@@ -143,9 +154,11 @@ public class pSettings extends javax.swing.JPanel {
                 sPreviousActionPerformed(evt);
             }
         });
+        jPanel3.add(sPrevious, new java.awt.GridBagConstraints());
 
         etiSound.setForeground(new java.awt.Color(250, 250, 250));
         etiSound.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.add(etiSound, new java.awt.GridBagConstraints());
 
         sNext.setText(">");
         sNext.addActionListener(new java.awt.event.ActionListener() {
@@ -153,36 +166,7 @@ public class pSettings extends javax.swing.JPanel {
                 sNextActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 169, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(sPrevious)
-                    .addGap(0, 0, 0)
-                    .addComponent(etiSound)
-                    .addGap(0, 0, 0)
-                    .addComponent(sNext)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(sPrevious)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGap(7, 7, 7)
-                            .addComponent(etiSound))
-                        .addComponent(sNext))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        jPanel3.add(sNext, new java.awt.GridBagConstraints());
 
         pCenter.add(jPanel3);
 
@@ -224,7 +208,7 @@ public class pSettings extends javax.swing.JPanel {
         pCancel.setOpaque(false);
         pCancel.setLayout(new java.awt.GridBagLayout());
 
-        btnCancel.setText("Cancel");
+        btnCancel.setText("Back");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelActionPerformed(evt);
@@ -390,6 +374,8 @@ public class pSettings extends javax.swing.JPanel {
     private javax.swing.JButton btnCancel;
     private javax.swing.JLabel etiSound;
     private javax.swing.JLabel etiWindow;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -114,62 +114,42 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="RP1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="1"/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder>
-                          <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
-                        </LineBorder>
-                      </Border>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="18" style="1"/>
                     </Property>
+                    <Property name="text" type="java.lang.String" value="1"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="RP2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="2"/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder>
-                          <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
-                        </LineBorder>
-                      </Border>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="18" style="1"/>
                     </Property>
+                    <Property name="text" type="java.lang.String" value="2"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="RP3">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="3"/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder>
-                          <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
-                        </LineBorder>
-                      </Border>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="18" style="1"/>
                     </Property>
+                    <Property name="text" type="java.lang.String" value="3"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="RP4">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="4"/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder>
-                          <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
-                        </LineBorder>
-                      </Border>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="18" style="1"/>
                     </Property>
+                    <Property name="text" type="java.lang.String" value="4"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="RP5">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="5"/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder>
-                          <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
-                        </LineBorder>
-                      </Border>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="18" style="1"/>
                     </Property>
+                    <Property name="text" type="java.lang.String" value="5"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -183,7 +163,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Comic Sans MS" size="18" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Rate"/>
+                    <Property name="text" type="java.lang.String" value="Check"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOkActionPerformed"/>

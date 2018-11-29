@@ -12,6 +12,7 @@ import Herramientas.Constantes;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
@@ -44,12 +45,11 @@ public class menuGame extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         pAll_Settings = new javax.swing.JPanel();
         pTop = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        btnCancel = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         Title = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
@@ -57,7 +57,7 @@ public class menuGame extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         btnNewGame = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnContinue = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         pDown = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -67,6 +67,11 @@ public class menuGame extends javax.swing.JPanel {
         pRight = new javax.swing.JPanel();
         pLeft = new javax.swing.JPanel();
 
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
         setLayout(new java.awt.GridLayout(1, 0));
 
         pAll_Settings.setOpaque(false);
@@ -76,20 +81,28 @@ public class menuGame extends javax.swing.JPanel {
         pTop.setLayout(new java.awt.GridLayout(1, 3));
 
         jPanel6.setOpaque(false);
-        jPanel6.setLayout(new java.awt.GridBagLayout());
 
-        btnCancel.setText("Back");
-        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(34, 156, 34, 156);
-        jPanel6.add(btnCancel, gridBagConstraints);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(btnBack)
+                .addGap(0, 312, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addComponent(btnBack)
+                .addGap(0, 75, Short.MAX_VALUE))
+        );
 
         pTop.add(jPanel6);
 
@@ -109,7 +122,7 @@ public class menuGame extends javax.swing.JPanel {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 375, Short.MAX_VALUE)
+            .addGap(0, 379, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,13 +152,13 @@ public class menuGame extends javax.swing.JPanel {
         jPanel3.setOpaque(false);
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
-        jButton1.setText("Continue");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnContinue.setText("Continue");
+        btnContinue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnContinueActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton1, new java.awt.GridBagConstraints());
+        jPanel3.add(btnContinue, new java.awt.GridBagConstraints());
 
         pCenter.add(jPanel3);
 
@@ -164,7 +177,7 @@ public class menuGame extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 281, Short.MAX_VALUE)
+            .addGap(0, 284, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,7 +200,7 @@ public class menuGame extends javax.swing.JPanel {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 281, Short.MAX_VALUE)
+            .addGap(0, 284, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,8 +244,16 @@ public class menuGame extends javax.swing.JPanel {
         add(pAll_Settings);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackAction(){
+        pStart start = new pStart();
+        start.setLocation(0, 0);
+        paneMain.removeAll();
+        paneMain.add(start,GridLayout.class);
+        paneMain.revalidate();
+        paneMain.repaint();
+    }
     private void btnNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewGameActionPerformed
-        pLevel start = new pLevel();
+        level1 start = new level1();
         start.setLocation(0, 0);
         //Constantes.RUTA_ICONO_RATON  = "/img/IconoCursorLevel.png";
         //main frame = (main) SwingUtilities.getWindowAncestor(this);
@@ -244,30 +265,34 @@ public class menuGame extends javax.swing.JPanel {
         //start.requestFocusInWindow();
     }//GEN-LAST:event_btnNewGameActionPerformed
 
-    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        pStart start = new pStart();
-        start.setLocation(0, 0);
-        paneMain.removeAll();
-        paneMain.add(start,GridLayout.class);
-        paneMain.revalidate();
-        paneMain.repaint();
-    }//GEN-LAST:event_btnCancelActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        btnBackAction();
+    }//GEN-LAST:event_btnBackActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        pLevel start = new pLevel();
-        start.setLocation(0, 0);
+    private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
+        pContinueLevel ContLevel = new pContinueLevel();
+        ContLevel.setLocation(0, 0);
         paneMain.removeAll();
-        paneMain.add(start,GridLayout.class);
+        paneMain.add(ContLevel,GridLayout.class);
         paneMain.revalidate();
         paneMain.repaint();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnContinueActionPerformed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        switch (evt.getKeyCode()) {
+            case KeyEvent.VK_ESCAPE:
+                btnBackAction();
+                break;
+            default:
+        }
+    }//GEN-LAST:event_formKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Title;
-    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnContinue;
     private javax.swing.JButton btnNewGame;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

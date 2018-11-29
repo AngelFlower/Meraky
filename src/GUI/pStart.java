@@ -219,6 +219,7 @@ public class  pStart extends javax.swing.JPanel {
         paneMain.add(level,GridLayout.class);
         paneMain.revalidate();
         paneMain.repaint();
+        level.requestFocus();
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingsActionPerformed

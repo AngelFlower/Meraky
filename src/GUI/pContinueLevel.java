@@ -5,19 +5,31 @@
  */
 package GUI;
 
+import static GUI.main.paneMain;
+import Niveles.level2;
+import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author angel
  */
 public class pContinueLevel extends javax.swing.JPanel {
-
+    String codes[];
+    boolean exist;
     /**
      * Creates new form pContinueLevel
      */
     public pContinueLevel() {
         initComponents();
+        valuesInit();
     }
-
+    void valuesInit(){
+        codes = new String[2];
+        codes[0] = "LVA783";
+        codes[1] = "LVB37C";
+        msgCode.setVisible(false);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,25 +40,274 @@ public class pContinueLevel extends javax.swing.JPanel {
     private void initComponents() {
 
         Contenedor = new javax.swing.JPanel();
+        Centro = new javax.swing.JPanel();
+        txtCode = new javax.swing.JTextField();
+        btnCheck = new javax.swing.JButton();
+        Arriba = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        btnBack = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        Abajo = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        msgCode = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        Derecha = new javax.swing.JPanel();
+        Izquierda = new javax.swing.JPanel();
 
-        setLayout(new java.awt.GridLayout());
+        setOpaque(false);
+        setLayout(new java.awt.GridLayout(1, 0));
 
-        javax.swing.GroupLayout ContenedorLayout = new javax.swing.GroupLayout(Contenedor);
-        Contenedor.setLayout(ContenedorLayout);
-        ContenedorLayout.setHorizontalGroup(
-            ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 637, Short.MAX_VALUE)
+        Contenedor.setOpaque(false);
+        Contenedor.setLayout(new java.awt.BorderLayout());
+
+        Centro.setOpaque(false);
+        Centro.setLayout(new java.awt.GridBagLayout());
+
+        txtCode.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtCode.setText("Typed here           ");
+        txtCode.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCodeFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCodeFocusLost(evt);
+            }
+        });
+        txtCode.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtCodeMouseClicked(evt);
+            }
+        });
+        txtCode.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodeKeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCodeKeyPressed(evt);
+            }
+        });
+        Centro.add(txtCode, new java.awt.GridBagConstraints());
+
+        btnCheck.setText("Check");
+        btnCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckActionPerformed(evt);
+            }
+        });
+        Centro.add(btnCheck, new java.awt.GridBagConstraints());
+
+        Contenedor.add(Centro, java.awt.BorderLayout.CENTER);
+
+        Arriba.setOpaque(false);
+        Arriba.setLayout(new java.awt.GridLayout(1, 3));
+
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(btnBack)
+                .addGap(0, 251, Short.MAX_VALUE))
         );
-        ContenedorLayout.setVerticalGroup(
-            ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 415, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(btnBack)
+                .addGap(0, 222, Short.MAX_VALUE))
         );
+
+        Arriba.add(jPanel1);
+
+        jPanel2.setLayout(new java.awt.GridBagLayout());
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setText("Type your code");
+        jPanel2.add(jLabel1, new java.awt.GridBagConstraints());
+
+        Arriba.add(jPanel2);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 318, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 247, Short.MAX_VALUE)
+        );
+
+        Arriba.add(jPanel3);
+
+        Contenedor.add(Arriba, java.awt.BorderLayout.PAGE_START);
+
+        Abajo.setOpaque(false);
+        Abajo.setLayout(new java.awt.GridLayout());
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 318, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 231, Short.MAX_VALUE)
+        );
+
+        Abajo.add(jPanel4);
+
+        jPanel5.setLayout(new java.awt.GridBagLayout());
+
+        msgCode.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        msgCode.setText("Code is no correct");
+        jPanel5.add(msgCode, new java.awt.GridBagConstraints());
+
+        Abajo.add(jPanel5);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 318, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 231, Short.MAX_VALUE)
+        );
+
+        Abajo.add(jPanel6);
+
+        Contenedor.add(Abajo, java.awt.BorderLayout.PAGE_END);
+
+        Derecha.setOpaque(false);
+
+        javax.swing.GroupLayout DerechaLayout = new javax.swing.GroupLayout(Derecha);
+        Derecha.setLayout(DerechaLayout);
+        DerechaLayout.setHorizontalGroup(
+            DerechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        DerechaLayout.setVerticalGroup(
+            DerechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        Contenedor.add(Derecha, java.awt.BorderLayout.LINE_END);
+
+        Izquierda.setOpaque(false);
+
+        javax.swing.GroupLayout IzquierdaLayout = new javax.swing.GroupLayout(Izquierda);
+        Izquierda.setLayout(IzquierdaLayout);
+        IzquierdaLayout.setHorizontalGroup(
+            IzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        IzquierdaLayout.setVerticalGroup(
+            IzquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        Contenedor.add(Izquierda, java.awt.BorderLayout.LINE_START);
 
         add(Contenedor);
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void checkCode(){
+        int i,a = 0;
+        msgCode.setVisible(false);
+        for(i=0; i<codes.length;i++){
+            a = i;
+            if(txtCode.getText().equals(codes[i])){
+                System.out.println("Codigo Correspondiente");
+                exist = true;
+                break;
+            }
+        }
+        //
+        switch (codes[a]) {
+            case "LVA783":
+                level2 nivel2 = new level2();
+                nivel2.setLocation(0, 0);
+                paneMain.removeAll();
+                paneMain.add(nivel2,GridLayout.class);
+                paneMain.revalidate();
+                paneMain.repaint();
+                break;
+            default:
+                msgCode.setVisible(true);
+        }
+        txtCode.setText("Typed here           ");
+        btnCheck.requestFocus();
+        //txtCode.requestFocus();
+    }
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        menuGame menu = new menuGame();
+        menu.setLocation(0, 0);
+        paneMain.removeAll();
+        paneMain.add(menu,GridLayout.class);
+        paneMain.revalidate();
+        paneMain.repaint();
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtCodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodeKeyTyped
+        
+    }//GEN-LAST:event_txtCodeKeyTyped
+
+    private void txtCodeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodeKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+            checkCode();
+    }//GEN-LAST:event_txtCodeKeyPressed
+
+    private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
+        checkCode();
+    }//GEN-LAST:event_btnCheckActionPerformed
+
+    private void txtCodeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCodeMouseClicked
+        if(txtCode.getText().equals("Typed here") ||
+                txtCode.getText().equals("Typed here           "))
+            txtCode.setText("");
+    }//GEN-LAST:event_txtCodeMouseClicked
+
+    private void txtCodeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCodeFocusGained
+        if(txtCode.getText().equals("Typed here") ||
+                txtCode.getText().equals("Typed here           "))
+            txtCode.setText("");
+    }//GEN-LAST:event_txtCodeFocusGained
+
+    private void txtCodeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCodeFocusLost
+        if(txtCode.getText().isEmpty())
+            txtCode.setText("Typed here");
+    }//GEN-LAST:event_txtCodeFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Abajo;
+    private javax.swing.JPanel Arriba;
+    private javax.swing.JPanel Centro;
     private javax.swing.JPanel Contenedor;
+    private javax.swing.JPanel Derecha;
+    private javax.swing.JPanel Izquierda;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnCheck;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JLabel msgCode;
+    private javax.swing.JTextField txtCode;
     // End of variables declaration//GEN-END:variables
 }

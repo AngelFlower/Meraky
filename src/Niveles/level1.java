@@ -6,6 +6,7 @@
 package Niveles;
 
 import static GUI.main.paneMain;
+import GUI.menuGame;
 import GUI.pLevel;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
@@ -46,6 +47,11 @@ public class level1 extends javax.swing.JPanel {
         btn1.setActionCommand("btn1");
         btn2.setActionCommand("btn2");
         btn3.setActionCommand("btn3");
+        RP1.setEnabled(true);
+        RP2.setEnabled(false);
+        RP3.setEnabled(false);
+        RP4.setEnabled(false);
+        RP5.setEnabled(false);
     }
     public void GeneradoPreguntas(){
         int t = 0;
@@ -149,30 +155,30 @@ public class level1 extends javax.swing.JPanel {
         pDown.setOpaque(false);
         pDown.setLayout(new java.awt.GridLayout(1, 2));
 
+        RP1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         RP1.setText("1");
-        RP1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel5.add(RP1);
 
+        RP2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         RP2.setText("2");
-        RP2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel5.add(RP2);
 
+        RP3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         RP3.setText("3");
-        RP3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel5.add(RP3);
 
+        RP4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         RP4.setText("4");
-        RP4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel5.add(RP4);
 
+        RP5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         RP5.setText("5");
-        RP5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel5.add(RP5);
 
         pDown.add(jPanel5);
 
         btnOk.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        btnOk.setText("Rate");
+        btnOk.setText("Check");
         btnOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOkActionPerformed(evt);
@@ -328,16 +334,23 @@ public class level1 extends javax.swing.JPanel {
                 btn2.setEnabled(true);
                 btn3.setEnabled(true);
                 btns.clearSelection();
-                btnOk.setText("Rate");
+                btnOk.setText("Check");
                 etiResultado.setText(" ");
+                RP1.setEnabled(false);
+                RP2.setEnabled(false);
+                RP3.setEnabled(false);
+                RP4.setEnabled(false);
+                RP5.setEnabled(false);
     }
     public void preg1(){
         char btnS = btnDeterminar(' ');
+        RP1.setEnabled(true);
         switch(btnS){
             case '3':
                 btnRC();
                 etiResultado.setText("¡Genial!... Respuesta correcta");
                 p1 = true;
+                //RP1.setOpaque(true);
                 i++;
                 break;
             default:
@@ -349,7 +362,7 @@ public class level1 extends javax.swing.JPanel {
        
     }
     public void preg2(){
-        if(i==1){
+        if(i==1){    
             etiResultado.setVisible(false);
             etiPregunta.setText(vPreguntas[i]);
             btn1.setText(mRespuestas[i][0]);
@@ -357,9 +370,11 @@ public class level1 extends javax.swing.JPanel {
             btn3.setText(mRespuestas[i][2]);
             btnNormal();
             i++;
+            RP2.setEnabled(true);
         }
         else{
             etiResultado.setVisible(true);
+            
             char btnS = btnDeterminar(' ');
             switch(btnS){
                 case '2':
@@ -383,6 +398,7 @@ public class level1 extends javax.swing.JPanel {
             btn3.setText(mRespuestas[i][2]);
             btnNormal();
             i++;
+            RP3.setEnabled(true);
         }
         else{
             etiResultado.setVisible(true);
@@ -411,6 +427,7 @@ public class level1 extends javax.swing.JPanel {
             btn3.setText(mRespuestas[i][2]);
             btnNormal();
             i++;
+            RP4.setEnabled(true);
         }
         else{
             etiResultado.setVisible(true);
@@ -438,6 +455,7 @@ public class level1 extends javax.swing.JPanel {
             btn3.setText(mRespuestas[i][2]);
             btnNormal();
             i++;
+            RP5.setEnabled(true);
         }
         else{
             etiResultado.setVisible(true);
@@ -457,7 +475,7 @@ public class level1 extends javax.swing.JPanel {
         }
     }
     private void playBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playBackActionPerformed
-        pLevel level = new pLevel();
+        menuGame level = new menuGame();
         level.setLocation(0, 0);
         paneMain.removeAll();
         paneMain.add(level,GridLayout.class);
@@ -481,7 +499,7 @@ public class level1 extends javax.swing.JPanel {
             else if(!p4) preg4();
             else if(!p5) preg5();
             else{
-            nextLevel level = new nextLevel();
+            nextLVL2 level = new nextLVL2();
             paneMain.removeAll();
             paneMain.add(level,GridLayout.class);
             paneMain.revalidate();

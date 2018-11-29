@@ -6,7 +6,9 @@
 package Niveles;
 
 import static GUI.main.paneMain;
+import GUI.menuGame;
 import GUI.pLevel;
+import com.sun.glass.events.KeyEvent;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,13 +33,9 @@ public class level2 extends javax.swing.JPanel {
     public level2() {
         initComponents();
         con=0;
-        aviso.setVisible(false);
-        all.setVisible(true);
-        btnNext.setVisible(false);
         imgs = new ImageIcon[6];
         btns = new JButton[27];
         msgs = new String[20];
-
         //imagenes del joven ahorcado lol
         imgs[0] = new ImageIcon(getClass().getResource("/img/img1.png"));
         imgs[1] = new ImageIcon(getClass().getResource("/img/img2.png"));
@@ -47,8 +45,6 @@ public class level2 extends javax.swing.JPanel {
         imgs[5] = new ImageIcon(getClass().getResource("/img/img6.png"));
 
         //botones para las letras
-        
-                
        
         btns[1] = jButton2;
         btns[2] = jButton3;
@@ -76,6 +72,8 @@ public class level2 extends javax.swing.JPanel {
         btns[24] = jButton25;
         btns[25] = jButton26;
         btns[26] = jButton27;
+
+        //
 
         //palabras por advinar, para agregar una nueva palabra sera necesario declararla al inicio
         msgs[0] = "BROTHER".toUpperCase();
@@ -113,7 +111,6 @@ public class level2 extends javax.swing.JPanel {
      public void iniciar() {
         //ERRORES EN 0
         
-        aviso.setOpaque(false);
         err = 0;
         jButton1.setIcon(imgs[0]);
         jTextPane1.setText("");
@@ -177,13 +174,16 @@ public class level2 extends javax.swing.JPanel {
                     //al ser correcta se muestra un mensaje y se reinicia el juego
                     if (gano) {
                         con++;
+                        numPalabra.setText(con +"/3");
                         if(con== 3)
                             {
-                            Msg.setText("CONGRATULATIONS YOU RAISE THE LEVEL");
-                            aviso.setVisible(true);
-                            btnNext.setVisible(true);
-                            btnTry.setVisible(false);
-                            all.setVisible(false);
+                            //Msg.setText("CONGRATULATIONS YOU RAISE THE LEVEL");
+                            nextLVL3 level = new nextLVL3();
+                            level.setLocation(0, 0);
+                            paneMain.removeAll();
+                            paneMain.add(level,GridLayout.class);
+                            paneMain.revalidate();
+                            paneMain.repaint(); 
                             }
                         else iniciar();
                         
@@ -218,19 +218,10 @@ public class level2 extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        aviso = new javax.swing.JPanel();
-        p1 = new javax.swing.JPanel();
-        Msg = new javax.swing.JLabel();
-        p2 = new javax.swing.JPanel();
-        p22 = new javax.swing.JPanel();
-        btnexit = new javax.swing.JButton();
-        p24 = new javax.swing.JPanel();
-        btnNext = new javax.swing.JButton();
-        p23 = new javax.swing.JPanel();
-        btnTry = new javax.swing.JButton();
         all = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -263,372 +254,278 @@ public class level2 extends javax.swing.JPanel {
         jButton27 = new javax.swing.JButton();
         jButton28 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jButton29 = new javax.swing.JButton();
+        numPalabra = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        btnBack = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setLayout(new java.awt.GridLayout(1, 0));
+        setOpaque(false);
+        setLayout(new java.awt.GridLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.setOpaque(false);
-        jPanel2.setLayout(new java.awt.GridBagLayout());
+        jPanel2.setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        aviso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        aviso.setEnabled(false);
-        aviso.setOpaque(false);
-        aviso.setLayout(new java.awt.GridLayout(2, 1));
-
-        p1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 46));
-
-        Msg.setText("Hola");
-        p1.add(Msg);
-
-        aviso.add(p1);
-
-        p2.setLayout(new java.awt.GridLayout(1, 3));
-
-        p22.setLayout(new java.awt.GridBagLayout());
-
-        btnexit.setText("Exit");
-        btnexit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnexitActionPerformed(evt);
-            }
-        });
-        p22.add(btnexit, new java.awt.GridBagConstraints());
-
-        p2.add(p22);
-
-        p24.setLayout(new java.awt.GridBagLayout());
-
-        btnNext.setText("NEXT LEVEL");
-        btnNext.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNextActionPerformed(evt);
-            }
-        });
-        p24.add(btnNext, new java.awt.GridBagConstraints());
-
-        p2.add(p24);
-
-        p23.setLayout(new java.awt.GridBagLayout());
-
-        btnTry.setText("TRY AGAIN ");
-        btnTry.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTryActionPerformed(evt);
-            }
-        });
-        p23.add(btnTry, new java.awt.GridBagConstraints());
-
-        p2.add(p23);
-
-        aviso.add(p2);
-
-        jPanel1.add(aviso, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 390, 200));
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         all.setOpaque(false);
+        all.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img1.png"))); // NOI18N
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setFocusPainted(false);
+        jButton1.setFocusable(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        all.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 258, 260));
 
         jTextPane1.setEditable(false);
         jTextPane1.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jScrollPane1.setViewportView(jTextPane1);
 
+        all.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 341, 75));
+
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton2.setText("A");
+        all.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, -1, -1));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton3.setText("B");
+        all.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 460, -1, -1));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton4.setText("C");
+        all.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, -1, -1));
 
         jButton5.setBackground(new java.awt.Color(255, 255, 255));
         jButton5.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton5.setText("D");
+        all.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, -1, -1));
 
         jButton6.setBackground(new java.awt.Color(255, 255, 255));
         jButton6.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton6.setText("E");
+        all.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, -1, -1));
 
         jButton7.setBackground(new java.awt.Color(255, 255, 255));
         jButton7.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton7.setText("F");
+        all.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 420, -1, -1));
 
         jButton8.setBackground(new java.awt.Color(255, 255, 255));
         jButton8.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton8.setText("G");
+        all.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, -1, -1));
 
         jButton9.setBackground(new java.awt.Color(255, 255, 255));
         jButton9.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton9.setText("H");
+        all.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, -1, -1));
 
         jButton10.setBackground(new java.awt.Color(255, 255, 255));
         jButton10.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton10.setText("I");
+        all.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 380, -1, -1));
 
         jButton11.setBackground(new java.awt.Color(255, 255, 255));
         jButton11.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton11.setText("J");
+        all.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, -1, -1));
 
         jButton12.setBackground(new java.awt.Color(255, 255, 255));
         jButton12.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton12.setText("K");
+        all.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, -1, -1));
 
         jButton13.setBackground(new java.awt.Color(255, 255, 255));
         jButton13.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton13.setText("L");
+        all.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, -1, -1));
 
         jButton14.setBackground(new java.awt.Color(255, 255, 255));
         jButton14.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton14.setText("M");
+        all.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, -1, -1));
 
         jButton15.setBackground(new java.awt.Color(255, 255, 255));
         jButton15.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton15.setText("N");
+        all.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, -1, -1));
 
         jButton16.setBackground(new java.awt.Color(255, 255, 255));
         jButton16.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton16.setText("O");
+        all.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, -1, -1));
 
         jButton17.setBackground(new java.awt.Color(255, 255, 255));
         jButton17.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton17.setText("P");
+        all.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, -1, -1));
 
         jButton18.setBackground(new java.awt.Color(255, 255, 255));
         jButton18.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton18.setText("Q");
+        jButton18.setToolTipText("");
+        all.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, -1, -1));
 
         jButton19.setBackground(new java.awt.Color(255, 255, 255));
         jButton19.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton19.setText("R");
+        all.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, -1, -1));
 
         jButton20.setBackground(new java.awt.Color(255, 255, 255));
         jButton20.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton20.setText("S");
+        all.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, -1, -1));
 
         jButton21.setBackground(new java.awt.Color(255, 255, 255));
         jButton21.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton21.setText("T");
+        all.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 380, -1, -1));
 
         jButton22.setBackground(new java.awt.Color(255, 255, 255));
         jButton22.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton22.setText("U");
+        all.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 380, -1, -1));
 
         jButton23.setBackground(new java.awt.Color(255, 255, 255));
         jButton23.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton23.setText("V");
+        all.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, -1, -1));
 
         jButton24.setBackground(new java.awt.Color(255, 255, 255));
         jButton24.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton24.setText("W");
+        all.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
 
         jButton25.setBackground(new java.awt.Color(255, 255, 255));
         jButton25.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton25.setText("X");
+        all.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, -1, -1));
 
         jButton26.setBackground(new java.awt.Color(255, 255, 255));
         jButton26.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton26.setText("Y");
+        all.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, -1, -1));
 
         jButton27.setBackground(new java.awt.Color(255, 255, 255));
         jButton27.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jButton27.setText("Z");
+        all.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, -1, -1));
 
         jButton28.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jButton28.setText("RESTART");
+        jButton28.setText("Other word");
         jButton28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton28ActionPerformed(evt);
             }
         });
+        all.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 177, 45));
 
         jLabel3.setText(" ");
+        all.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(781, 86, -1, -1));
 
-        jTextField1.setText(" THE PARTS OF THE HOUSE, COLORS, AND FAMILY MEMBERS.");
+        jLabel1.setText("HANGED   ");
+        all.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
-        jLabel1.setText("PLAY OF HANGED.");
+        numPalabra.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        numPalabra.setText("0/3");
+        all.add(numPalabra, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, -1, -1));
 
-        javax.swing.GroupLayout allLayout = new javax.swing.GroupLayout(all);
-        all.setLayout(allLayout);
-        allLayout.setHorizontalGroup(
-            allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(allLayout.createSequentialGroup()
-                .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(allLayout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(jButton27)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton25)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton23)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton14)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(allLayout.createSequentialGroup()
-                        .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(allLayout.createSequentialGroup()
-                                .addGap(190, 190, 190)
-                                .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton20)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton13))
-                            .addGroup(allLayout.createSequentialGroup()
-                                .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(allLayout.createSequentialGroup()
-                                        .addGap(170, 170, 170)
-                                        .addComponent(jButton18)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton24)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton19))
-                                    .addGroup(allLayout.createSequentialGroup()
-                                        .addGap(166, 166, 166)
-                                        .addComponent(jLabel1)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton21)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton26)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton22)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton17)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)))
-                .addGap(67, 67, 67))
-            .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(allLayout.createSequentialGroup()
-                    .addGap(62, 72, Short.MAX_VALUE)
-                    .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(allLayout.createSequentialGroup()
-                            .addGap(17, 17, 17)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(allLayout.createSequentialGroup()
-                            .addGap(73, 73, 73)
-                            .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(100, 100, 100)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(6, 6, 6)
-                    .addComponent(jLabel3)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        allLayout.setVerticalGroup(
-            allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(allLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 311, Short.MAX_VALUE)
-                .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton22)
-                    .addComponent(jButton6)
-                    .addComponent(jButton19)
-                    .addComponent(jButton21)
-                    .addComponent(jButton26)
-                    .addComponent(jButton10)
-                    .addComponent(jButton16)
-                    .addComponent(jButton17)
-                    .addComponent(jButton24)
-                    .addComponent(jButton18))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton20)
-                    .addComponent(jButton5)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8)
-                    .addComponent(jButton9)
-                    .addComponent(jButton11)
-                    .addComponent(jButton13)
-                    .addComponent(jButton12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton27)
-                    .addComponent(jButton23)
-                    .addComponent(jButton25)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3)
-                    .addComponent(jButton15)
-                    .addComponent(jButton14))
-                .addGap(33, 33, 33))
-            .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(allLayout.createSequentialGroup()
-                    .addGap(0, 87, Short.MAX_VALUE)
-                    .addGroup(allLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(allLayout.createSequentialGroup()
-                            .addGap(18, 18, 18)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(32, 32, 32)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(36, 36, 36)
-                            .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3))
-                    .addGap(0, 193, Short.MAX_VALUE)))
-        );
+        jLabel4.setText(" THE PARTS OF THE HOUSE, COLORS, AND FAMILY MEMBERS.");
+        all.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
 
-        jPanel1.add(all, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 790, 540));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 19;
+        gridBagConstraints.ipady = 260;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 40, 0, 0);
+        jPanel1.add(all, gridBagConstraints);
 
-        jButton29.setText("Back");
-        jButton29.addActionListener(new java.awt.event.ActionListener() {
+        jPanel2.add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        jPanel3.setOpaque(false);
+
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton29ActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel2.add(jPanel1, new java.awt.GridBagConstraints());
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(btnBack)
+                .addGap(0, 876, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnBack)
+        );
+
+        jPanel2.add(jPanel3, java.awt.BorderLayout.PAGE_START);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel4, java.awt.BorderLayout.PAGE_END);
+
+        jPanel5.setOpaque(false);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 943, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 14, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel5, java.awt.BorderLayout.PAGE_END);
 
         add(jPanel2);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-        pLevel level = new pLevel();
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        menuGame level = new menuGame();
         level.setLocation(0, 0);
         paneMain.removeAll();
         paneMain.add(level,GridLayout.class);
         paneMain.revalidate();
         paneMain.repaint();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton29ActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
         iniciar();        // TODO add your handling code here:
@@ -638,38 +535,10 @@ public class level2 extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnTryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTryActionPerformed
-        iniciar();
-        all.setVisible(true);
-        aviso.setVisible(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTryActionPerformed
-
-    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        level3 level = new level3();
-        level.setLocation(0, 0);
-        paneMain.removeAll();
-        paneMain.add(level,GridLayout.class);
-        paneMain.revalidate();
-        paneMain.repaint();
-    }//GEN-LAST:event_btnNextActionPerformed
-
-    private void btnexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexitActionPerformed
-        pLevel level = new pLevel();
-        level.setLocation(0, 0);
-        paneMain.removeAll();
-        paneMain.add(level,GridLayout.class);
-        paneMain.revalidate();
-        paneMain.repaint();// TODO add your handling code here:
-    }//GEN-LAST:event_btnexitActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Msg;
     private javax.swing.JPanel all;
-    private javax.swing.JPanel aviso;
-    private javax.swing.JButton btnNext;
-    private javax.swing.JButton btnTry;
-    private javax.swing.JButton btnexit;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -691,7 +560,6 @@ public class level2 extends javax.swing.JPanel {
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton28;
-    private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -701,15 +569,14 @@ public class level2 extends javax.swing.JPanel {
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JPanel p1;
-    private javax.swing.JPanel p2;
-    private javax.swing.JPanel p22;
-    private javax.swing.JPanel p23;
-    private javax.swing.JPanel p24;
+    private javax.swing.JLabel numPalabra;
     // End of variables declaration//GEN-END:variables
 }
