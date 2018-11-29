@@ -8,7 +8,11 @@ package Niveles;
 import static GUI.main.paneMain;
 import GUI.menuGame;
 import GUI.pLevel;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.net.URL;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -19,6 +23,13 @@ public class nextLVL3 extends javax.swing.JPanel {
     /**
      * Creates new form nextLevel
      */
+    private URL url = getClass().getResource("/img/globofondo.png");
+    Image image = new ImageIcon(url).getImage();
+    public void paint(Graphics g){
+        g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+        setOpaque(false);
+        super.paint(g);
+    }
     public nextLVL3() {
         
         initComponents();
@@ -45,29 +56,37 @@ public class nextLVL3 extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         playBack = new javax.swing.JButton();
 
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
+        jPanel1.setOpaque(false);
         jPanel1.setLayout(new java.awt.GridLayout(3, 0));
 
+        jPanel2.setOpaque(false);
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel2.setText("CONGRATULATIONS YOU RAISE THE LEVEL");
         jPanel2.add(jLabel2, new java.awt.GridBagConstraints());
 
         jPanel1.add(jPanel2);
 
+        jPanel5.setOpaque(false);
         jPanel5.setLayout(new java.awt.GridBagLayout());
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         jLabel3.setText("You code is: LVB37C");
         jPanel5.add(jLabel3, new java.awt.GridBagConstraints());
 
         jPanel1.add(jPanel5);
 
+        jPanel6.setOpaque(false);
         jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 20));
 
-        btnNext.setText("Next Level");
+        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Next.png"))); // NOI18N
+        btnNext.setBorderPainted(false);
+        btnNext.setContentAreaFilled(false);
+        btnNext.setFocusPainted(false);
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
@@ -78,6 +97,8 @@ public class nextLVL3 extends javax.swing.JPanel {
         jPanel1.add(jPanel6);
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        jPanel3.setOpaque(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -92,7 +113,12 @@ public class nextLVL3 extends javax.swing.JPanel {
 
         add(jPanel3, java.awt.BorderLayout.PAGE_END);
 
-        playBack.setText("Back");
+        jPanel4.setOpaque(false);
+
+        playBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/flecha-hacia-la-izquierda.png"))); // NOI18N
+        playBack.setBorderPainted(false);
+        playBack.setContentAreaFilled(false);
+        playBack.setFocusPainted(false);
         playBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 playBackActionPerformed(evt);
@@ -104,14 +130,14 @@ public class nextLVL3 extends javax.swing.JPanel {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(playBack)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(playBack, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 742, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(playBack)
-                .addGap(0, 3, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         add(jPanel4, java.awt.BorderLayout.PAGE_START);

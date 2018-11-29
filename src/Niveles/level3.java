@@ -8,7 +8,11 @@ package Niveles;
 import static GUI.main.paneMain;
 import GUI.menuGame;
 import GUI.pLevel;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.net.URL;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -22,7 +26,13 @@ public class level3 extends javax.swing.JPanel {
     public level3() {
         initComponents();
     }
-
+private URL url = getClass().getResource("/img/Working.png");
+    Image image = new ImageIcon(url).getImage();
+    public void paint(Graphics g){
+        g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+        setOpaque(false);
+        super.paint(g);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,7 +41,6 @@ public class level3 extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -40,11 +49,18 @@ public class level3 extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
 
+        setOpaque(false);
         setLayout(new java.awt.GridLayout(1, 0));
 
+        jPanel1.setOpaque(false);
         jPanel1.setLayout(new java.awt.GridLayout(3, 0));
 
-        playBack.setText("Back");
+        jPanel2.setOpaque(false);
+
+        playBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/flecha-hacia-la-izquierda.png"))); // NOI18N
+        playBack.setBorderPainted(false);
+        playBack.setContentAreaFilled(false);
+        playBack.setFocusPainted(false);
         playBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 playBackActionPerformed(evt);
@@ -56,33 +72,28 @@ public class level3 extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(playBack)
-                .addGap(0, 450, Short.MAX_VALUE))
+                .addComponent(playBack, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 754, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(playBack)
-                .addGap(0, 83, Short.MAX_VALUE))
+                .addGap(0, 66, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2);
 
+        jPanel3.setOpaque(false);
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setText("En desarrollo");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 14;
-        gridBagConstraints.ipady = 60;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 117, 0, 117);
-        jPanel3.add(jLabel1, gridBagConstraints);
+        jLabel1.setText("We're working for this ");
+        jPanel3.add(jLabel1, new java.awt.GridBagConstraints());
 
         jPanel1.add(jPanel3);
 
+        jPanel4.setOpaque(false);
         jPanel4.setLayout(new java.awt.GridBagLayout());
         jPanel1.add(jPanel4);
 

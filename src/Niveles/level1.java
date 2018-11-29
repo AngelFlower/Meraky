@@ -21,6 +21,8 @@ public class level1 extends javax.swing.JPanel {
     int i=0,p=0,e=0;int PreguntasUSE[];
     public static Random rm = new Random();
     String vPreguntas[],mRespuestas[][];
+    String  mensaje_cong = "!Great¡ correct asnwer";
+    String mensaje_wrong = "!Upss¡ wrong answer";
     
     /**
      * Creates new form level1
@@ -113,7 +115,12 @@ public class level1 extends javax.swing.JPanel {
         pTop.setOpaque(false);
         pTop.setLayout(new java.awt.GridLayout(1, 2));
 
-        playBack.setText("Back");
+        jPanel7.setOpaque(false);
+
+        playBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/flecha-hacia-la-izquierda.png"))); // NOI18N
+        playBack.setBorderPainted(false);
+        playBack.setContentAreaFilled(false);
+        playBack.setFocusPainted(false);
         playBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 playBackActionPerformed(evt);
@@ -125,17 +132,19 @@ public class level1 extends javax.swing.JPanel {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addComponent(playBack)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(playBack, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 234, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(playBack)
-                .addGap(0, 3, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pTop.add(jPanel7);
+
+        jPanel9.setOpaque(false);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -145,7 +154,7 @@ public class level1 extends javax.swing.JPanel {
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 34, Short.MAX_VALUE)
+            .addGap(0, 42, Short.MAX_VALUE)
         );
 
         pTop.add(jPanel9);
@@ -155,27 +164,36 @@ public class level1 extends javax.swing.JPanel {
         pDown.setOpaque(false);
         pDown.setLayout(new java.awt.GridLayout(1, 2));
 
+        jPanel5.setOpaque(false);
+
         RP1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        RP1.setForeground(new java.awt.Color(247, 247, 247));
         RP1.setText("1");
         jPanel5.add(RP1);
 
         RP2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        RP2.setForeground(new java.awt.Color(247, 247, 247));
         RP2.setText("2");
         jPanel5.add(RP2);
 
         RP3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        RP3.setForeground(new java.awt.Color(247, 247, 247));
         RP3.setText("3");
         jPanel5.add(RP3);
 
         RP4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        RP4.setForeground(new java.awt.Color(247, 247, 247));
         RP4.setText("4");
         jPanel5.add(RP4);
 
         RP5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        RP5.setForeground(new java.awt.Color(247, 247, 247));
         RP5.setText("5");
         jPanel5.add(RP5);
 
         pDown.add(jPanel5);
+
+        jPanel6.setOpaque(false);
 
         btnOk.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         btnOk.setText("Check");
@@ -193,15 +211,19 @@ public class level1 extends javax.swing.JPanel {
         pCenter.setOpaque(false);
         pCenter.setLayout(new java.awt.GridLayout(3, 1));
 
+        jPanel1.setOpaque(false);
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         etiPregunta.setFont(new java.awt.Font("Comic Sans MS", 1, 20)); // NOI18N
+        etiPregunta.setForeground(new java.awt.Color(248, 248, 248));
         jPanel1.add(etiPregunta, new java.awt.GridBagConstraints());
 
         pCenter.add(jPanel1);
 
         jPanel2.setOpaque(false);
         jPanel2.setLayout(new java.awt.GridLayout(1, 5));
+
+        jPanel4.setOpaque(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -216,32 +238,43 @@ public class level1 extends javax.swing.JPanel {
 
         jPanel2.add(jPanel4);
 
+        pImg1.setOpaque(false);
         pImg1.setLayout(new java.awt.GridBagLayout());
 
         btns.add(btn1);
         btn1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btn1.setForeground(new java.awt.Color(247, 247, 247));
         btn1.setText("Green");
+        btn1.setOpaque(false);
         pImg1.add(btn1, new java.awt.GridBagConstraints());
 
         jPanel2.add(pImg1);
 
+        pImg2.setOpaque(false);
         pImg2.setLayout(new java.awt.GridBagLayout());
 
         btns.add(btn2);
         btn2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btn2.setForeground(new java.awt.Color(247, 247, 247));
         btn2.setText("Blue");
+        btn2.setOpaque(false);
         pImg2.add(btn2, new java.awt.GridBagConstraints());
 
         jPanel2.add(pImg2);
 
+        pImg3.setOpaque(false);
         pImg3.setLayout(new java.awt.GridBagLayout());
 
         btns.add(btn3);
         btn3.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btn3.setForeground(new java.awt.Color(247, 247, 247));
         btn3.setText("Red");
+        btn3.setOpaque(false);
         pImg3.add(btn3, new java.awt.GridBagConstraints());
 
         jPanel2.add(pImg3);
+
+        jPanel8.setOpaque(false);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -258,9 +291,11 @@ public class level1 extends javax.swing.JPanel {
 
         pCenter.add(jPanel2);
 
+        jPanel3.setOpaque(false);
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
         etiResultado.setFont(new java.awt.Font("Comic Sans MS", 1, 20)); // NOI18N
+        etiResultado.setForeground(new java.awt.Color(248, 248, 248));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -348,13 +383,13 @@ public class level1 extends javax.swing.JPanel {
         switch(btnS){
             case '3':
                 btnRC();
-                etiResultado.setText("¡Genial!... Respuesta correcta");
+                etiResultado.setText(mensaje_cong);
                 p1 = true;
                 //RP1.setOpaque(true);
                 i++;
                 break;
             default:
-                etiResultado.setText("Ups!... Respuesta incorrecta, intentalo de nuevo");
+                etiResultado.setText(mensaje_wrong );
                 btns.clearSelection();
                 e+=1;
                 break;
@@ -379,11 +414,11 @@ public class level1 extends javax.swing.JPanel {
             switch(btnS){
                 case '2':
                     btnRC();
-                    etiResultado.setText("¡Genial!... Respuesta correcta");
+                    etiResultado.setText(mensaje_cong);
                     p2 =true;
                     break;
                 default:
-                    etiResultado.setText("Ups!... Respuesta incorrecta, intentalo de nuevo");
+                    etiResultado.setText(mensaje_wrong );
                     btns.clearSelection();
                     e+=1;
             }
@@ -407,11 +442,11 @@ public class level1 extends javax.swing.JPanel {
             switch(btnS){
                 case '3':
                     btnRC();
-                    etiResultado.setText("¡Genial!... Respuesta correcta");
+                    etiResultado.setText(mensaje_cong);
                     p3 =true;
                     break;
                 default:
-                    etiResultado.setText("Ups!... Respuesta incorrecta, intentalo de nuevo");
+                    etiResultado.setText(mensaje_wrong );
                     btns.clearSelection();
                     e+=1;
                     
@@ -435,11 +470,11 @@ public class level1 extends javax.swing.JPanel {
             switch(btnS){
                 case '1':
                     btnRC();
-                    etiResultado.setText("¡Genial!... Respuesta correcta");
+                    etiResultado.setText(mensaje_cong);
                     p4 =true;
                     break;
                 default:
-                    etiResultado.setText("Ups!... Respuesta incorrecta, intentalo de nuevo");
+                    etiResultado.setText(mensaje_wrong );
                     btns.clearSelection();
                     e+=1;
                     
@@ -463,11 +498,11 @@ public class level1 extends javax.swing.JPanel {
             switch(btnS){
                 case '3':
                     btnRC();
-                    etiResultado.setText("¡Genial!... Respuesta correcta");
+                    etiResultado.setText(mensaje_cong);
                     p5 =true;
                     break;
                 default:
-                    etiResultado.setText("Ups!... Respuesta incorrecta, intentalo de nuevo");
+                    etiResultado.setText(mensaje_wrong );
                     btns.clearSelection();
                     e+=1;
                     

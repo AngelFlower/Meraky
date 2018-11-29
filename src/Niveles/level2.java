@@ -9,17 +9,22 @@ import static GUI.main.paneMain;
 import GUI.menuGame;
 import GUI.pLevel;
 import com.sun.glass.events.KeyEvent;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 /**
- *Hector 
+ * Hector
+ *
  * @author angel
  */
 public class level2 extends javax.swing.JPanel {
+
     public ImageIcon imgs[];
     public JButton btns[];
     public String msgs[];
@@ -30,22 +35,30 @@ public class level2 extends javax.swing.JPanel {
     /**
      * Creates new form level2
      */
+    private URL url = getClass().getResource("/img/568.jpg");
+    Image image = new ImageIcon(url).getImage();
+
+    public void paint(Graphics g) {
+        g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+        setOpaque(false);
+        super.paint(g);
+    }
+
     public level2() {
         initComponents();
-        con=0;
+        con = 0;
         imgs = new ImageIcon[6];
         btns = new JButton[27];
         msgs = new String[20];
-        //imagenes del joven ahorcado lol
-        imgs[0] = new ImageIcon(getClass().getResource("/img/img1.png"));
-        imgs[1] = new ImageIcon(getClass().getResource("/img/img2.png"));
-        imgs[2] = new ImageIcon(getClass().getResource("/img/img3.png"));
-        imgs[3] = new ImageIcon(getClass().getResource("/img/img4.png"));
-        imgs[4] = new ImageIcon(getClass().getResource("/img/img5.png"));
-        imgs[5] = new ImageIcon(getClass().getResource("/img/img6.png"));
+        //imagenes del joven ahorcado xD.
+        imgs[0] = new ImageIcon(getClass().getResource("/img/h0.png"));
+        imgs[1] = new ImageIcon(getClass().getResource("/img/h1.png"));
+        imgs[2] = new ImageIcon(getClass().getResource("/img/h2.png"));
+        imgs[3] = new ImageIcon(getClass().getResource("/img/h3.png"));
+        imgs[4] = new ImageIcon(getClass().getResource("/img/h4.png"));
+        imgs[5] = new ImageIcon(getClass().getResource("/img/h5.jpg"));
 
         //botones para las letras
-       
         btns[1] = jButton2;
         btns[2] = jButton3;
         btns[3] = jButton4;
@@ -74,7 +87,6 @@ public class level2 extends javax.swing.JPanel {
         btns[26] = jButton27;
 
         //
-
         //palabras por advinar, para agregar una nueva palabra sera necesario declararla al inicio
         msgs[0] = "BROTHER".toUpperCase();
         msgs[1] = "FATHER".toUpperCase();
@@ -96,7 +108,6 @@ public class level2 extends javax.swing.JPanel {
         msgs[17] = "BEDROOM".toUpperCase();
         msgs[18] = "PINK".toUpperCase();
         msgs[19] = "ORANGE".toUpperCase();
-        
 
         //se asigna un evento a cada letra para comprobar que exista en la palabra a adivinar
         for (int i = 1; i < 27; i++) {
@@ -108,9 +119,10 @@ public class level2 extends javax.swing.JPanel {
         }
         iniciar();
     }
-     public void iniciar() {
+
+    public void iniciar() {
         //ERRORES EN 0
-        
+
         err = 0;
         jButton1.setIcon(imgs[0]);
         jTextPane1.setText("");
@@ -163,7 +175,7 @@ public class level2 extends javax.swing.JPanel {
                         }
                     }
                     //hace una comprobacion de las letras restantes y faltantes, en caso de que ya no haya letras sera ganador :Df
-                    
+
                     boolean gano = true;
                     for (String re : res) {
                         if (re.equals("_")) {
@@ -174,22 +186,22 @@ public class level2 extends javax.swing.JPanel {
                     //al ser correcta se muestra un mensaje y se reinicia el juego
                     if (gano) {
                         con++;
-                        numPalabra.setText(con +"/3");
-                        if(con== 3)
-                            {
+                        numPalabra.setText(con + "/3");
+                        if (con == 3) {
                             //Msg.setText("CONGRATULATIONS YOU RAISE THE LEVEL");
                             nextLVL3 level = new nextLVL3();
                             level.setLocation(0, 0);
                             paneMain.removeAll();
-                            paneMain.add(level,GridLayout.class);
+                            paneMain.add(level, GridLayout.class);
                             paneMain.revalidate();
-                            paneMain.repaint(); 
-                            }
-                        else iniciar();
-                        
+                            paneMain.repaint();
+                        } else {
+                            iniciar();
+                        }
+
                         return;
-                     }
-                        
+                    }
+
                     //SI LA LETRA NO ESTA EN EL MENSAGE, SE INCREMENTA EL ERROR Y SE CAMBIA LA IMAGEN
                 } else {
                     jButton1.setIcon(imgs[++err]);
@@ -199,7 +211,7 @@ public class level2 extends javax.swing.JPanel {
                         Msg.setText("YOU LOST TRY AGAIN THE WORD IS \n" + msgs[ran]);
                         all.setVisible(false);*/
                         iniciar();
-                        
+
                         return;
                     }
                 }
@@ -210,6 +222,7 @@ public class level2 extends javax.swing.JPanel {
         }
 
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -264,7 +277,7 @@ public class level2 extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setOpaque(false);
-        setLayout(new java.awt.GridLayout());
+        setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -279,7 +292,7 @@ public class level2 extends javax.swing.JPanel {
         all.setOpaque(false);
         all.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img1.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/h0.png"))); // NOI18N
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setFocusPainted(false);
@@ -292,6 +305,7 @@ public class level2 extends javax.swing.JPanel {
         all.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 258, 260));
 
         jTextPane1.setEditable(false);
+        jTextPane1.setBackground(new java.awt.Color(250, 250, 250));
         jTextPane1.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         jScrollPane1.setViewportView(jTextPane1);
 
@@ -429,24 +443,30 @@ public class level2 extends javax.swing.JPanel {
         all.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, -1, -1));
 
         jButton28.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        jButton28.setText("Other word");
+        jButton28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/otherWord.png"))); // NOI18N
+        jButton28.setBorderPainted(false);
+        jButton28.setContentAreaFilled(false);
+        jButton28.setFocusable(false);
         jButton28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton28ActionPerformed(evt);
             }
         });
-        all.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 177, 45));
+        all.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 265, 250, 80));
 
         jLabel3.setText(" ");
         all.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(781, 86, -1, -1));
 
+        jLabel1.setForeground(new java.awt.Color(247, 247, 247));
         jLabel1.setText("HANGED   ");
         all.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
         numPalabra.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        numPalabra.setForeground(new java.awt.Color(250, 250, 250));
         numPalabra.setText("0/3");
         all.add(numPalabra, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, -1, -1));
 
+        jLabel4.setForeground(new java.awt.Color(247, 247, 247));
         jLabel4.setText(" THE PARTS OF THE HOUSE, COLORS, AND FAMILY MEMBERS.");
         all.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
 
@@ -465,7 +485,10 @@ public class level2 extends javax.swing.JPanel {
 
         jPanel3.setOpaque(false);
 
-        btnBack.setText("Back");
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/flecha-hacia-la-izquierda.png"))); // NOI18N
+        btnBack.setBorderPainted(false);
+        btnBack.setContentAreaFilled(false);
+        btnBack.setFocusPainted(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -477,8 +500,8 @@ public class level2 extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(btnBack)
-                .addGap(0, 876, Short.MAX_VALUE))
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 925, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -506,7 +529,7 @@ public class level2 extends javax.swing.JPanel {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 943, Short.MAX_VALUE)
+            .addGap(0, 975, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -522,7 +545,7 @@ public class level2 extends javax.swing.JPanel {
         menuGame level = new menuGame();
         level.setLocation(0, 0);
         paneMain.removeAll();
-        paneMain.add(level,GridLayout.class);
+        paneMain.add(level, GridLayout.class);
         paneMain.revalidate();
         paneMain.repaint();        // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed

@@ -12,7 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class FondoL1 extends JPanel{
-    private URL url = getClass().getResource("/img/fondoInicio.jpg");
+    private URL url = getClass().getResource("/img/fondo.png");
     Image image = new ImageIcon(url).getImage();
     public void paint(Graphics g){
         g.drawImage(image, 0, 0, getWidth(), getHeight(), this);

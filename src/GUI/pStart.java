@@ -22,7 +22,7 @@ public class  pStart extends javax.swing.JPanel {
     /**
      * Creates new form pStart
      */
-    private URL url = getClass().getResource("/img/fondoInicio.jpg");
+    private URL url = getClass().getResource("/img/wallpaper.png");
     Image image = new ImageIcon(url).getImage();
     public void paint(Graphics g){
         g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
@@ -76,7 +76,7 @@ public class  pStart extends javax.swing.JPanel {
         pTitle.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logoMeraky.png"))); // NOI18N
         pTitle.add(jLabel1);
 
         CENTER.add(pTitle);
@@ -94,11 +94,10 @@ public class  pStart extends javax.swing.JPanel {
         pStart.setOpaque(false);
         pStart.setLayout(new java.awt.GridBagLayout());
 
-        btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnPlay.png"))); // NOI18N
+        btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Play.png"))); // NOI18N
+        btnStart.setToolTipText("");
         btnStart.setBorderPainted(false);
         btnStart.setContentAreaFilled(false);
-        btnStart.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        btnStart.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         btnStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStartActionPerformed(evt);
@@ -111,7 +110,10 @@ public class  pStart extends javax.swing.JPanel {
         pSettings.setOpaque(false);
         pSettings.setLayout(new java.awt.GridBagLayout());
 
-        btnSettings.setText("Settings");
+        btnSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/settings.png"))); // NOI18N
+        btnSettings.setBorderPainted(false);
+        btnSettings.setContentAreaFilled(false);
+        btnSettings.setFocusPainted(false);
         btnSettings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSettingsActionPerformed(evt);
@@ -129,7 +131,10 @@ public class  pStart extends javax.swing.JPanel {
         pInfo.setOpaque(false);
         pInfo.setLayout(new java.awt.GridBagLayout());
 
-        btnExit.setText("Exit");
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/exit.png"))); // NOI18N
+        btnExit.setBorderPainted(false);
+        btnExit.setContentAreaFilled(false);
+        btnExit.setFocusPainted(false);
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
@@ -189,7 +194,7 @@ public class  pStart extends javax.swing.JPanel {
         );
         RIGHTLayout.setVerticalGroup(
             RIGHTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 722, Short.MAX_VALUE)
+            .addGap(0, 860, Short.MAX_VALUE)
         );
 
         pAll_Start.add(RIGHT, java.awt.BorderLayout.LINE_END);
@@ -204,7 +209,7 @@ public class  pStart extends javax.swing.JPanel {
         );
         LEFTLayout.setVerticalGroup(
             LEFTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 722, Short.MAX_VALUE)
+            .addGap(0, 860, Short.MAX_VALUE)
         );
 
         pAll_Start.add(LEFT, java.awt.BorderLayout.LINE_START);

@@ -27,7 +27,7 @@ public class pSettings extends javax.swing.JPanel {
     /**
      * Creates new form pSettings
      */
-    private URL url = getClass().getResource("/img/fondoInicio.jpg");
+    private URL url = getClass().getResource("/img/wallpaper.png");
     Image image = new ImageIcon(url).getImage();
     public void paint(Graphics g){
         g.drawImage(image, 0, 0, getWidth(), getHeight(), pAll_Settings);
@@ -49,6 +49,7 @@ public class pSettings extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         pAll_Settings = new javax.swing.JPanel();
         pTop = new javax.swing.JPanel();
@@ -81,31 +82,17 @@ public class pSettings extends javax.swing.JPanel {
         pAll_Settings.setLayout(new java.awt.BorderLayout());
 
         pTop.setOpaque(false);
+        pTop.setLayout(new java.awt.GridBagLayout());
 
-        Title.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
+        Title.setFont(new java.awt.Font("An Unfortunate Event", 1, 36)); // NOI18N
         Title.setForeground(new java.awt.Color(240, 240, 240));
         Title.setText("Settings");
-
-        javax.swing.GroupLayout pTopLayout = new javax.swing.GroupLayout(pTop);
-        pTop.setLayout(pTopLayout);
-        pTopLayout.setHorizontalGroup(
-            pTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 369, Short.MAX_VALUE)
-            .addGroup(pTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pTopLayout.createSequentialGroup()
-                    .addGap(0, 88, Short.MAX_VALUE)
-                    .addComponent(Title)
-                    .addGap(0, 89, Short.MAX_VALUE)))
-        );
-        pTopLayout.setVerticalGroup(
-            pTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-            .addGroup(pTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pTopLayout.createSequentialGroup()
-                    .addGap(0, 6, Short.MAX_VALUE)
-                    .addComponent(Title)
-                    .addGap(0, 7, Short.MAX_VALUE)))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 71, 12, 71);
+        pTop.add(Title, gridBagConstraints);
 
         pAll_Settings.add(pTop, java.awt.BorderLayout.PAGE_START);
 
@@ -115,11 +102,16 @@ public class pSettings extends javax.swing.JPanel {
         jPanel2.setOpaque(false);
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(250, 250, 250));
         jLabel1.setText("Fullscreen       ");
         jPanel2.add(jLabel1, new java.awt.GridBagConstraints());
 
+        wPrevious.setBackground(new java.awt.Color(40, 82, 185));
+        wPrevious.setForeground(new java.awt.Color(250, 250, 250));
         wPrevious.setText("<");
+        wPrevious.setBorderPainted(false);
+        wPrevious.setFocusPainted(false);
         wPrevious.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wPreviousActionPerformed(evt);
@@ -127,11 +119,15 @@ public class pSettings extends javax.swing.JPanel {
         });
         jPanel2.add(wPrevious, new java.awt.GridBagConstraints());
 
+        etiWindow.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         etiWindow.setForeground(new java.awt.Color(250, 250, 250));
-        etiWindow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(etiWindow, new java.awt.GridBagConstraints());
 
+        wNext.setBackground(new java.awt.Color(40, 82, 185));
+        wNext.setForeground(new java.awt.Color(250, 250, 250));
         wNext.setText(">");
+        wNext.setBorderPainted(false);
+        wNext.setFocusPainted(false);
         wNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wNextActionPerformed(evt);
@@ -144,11 +140,16 @@ public class pSettings extends javax.swing.JPanel {
         jPanel3.setOpaque(false);
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(250, 250, 250));
-        jLabel2.setText("Sound              ");
+        jLabel2.setText("Music               ");
         jPanel3.add(jLabel2, new java.awt.GridBagConstraints());
 
+        sPrevious.setBackground(new java.awt.Color(28, 64, 194));
+        sPrevious.setForeground(new java.awt.Color(251, 251, 251));
         sPrevious.setText("<");
+        sPrevious.setBorderPainted(false);
+        sPrevious.setFocusPainted(false);
         sPrevious.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sPreviousActionPerformed(evt);
@@ -156,11 +157,15 @@ public class pSettings extends javax.swing.JPanel {
         });
         jPanel3.add(sPrevious, new java.awt.GridBagConstraints());
 
+        etiSound.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         etiSound.setForeground(new java.awt.Color(250, 250, 250));
-        etiSound.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.add(etiSound, new java.awt.GridBagConstraints());
 
+        sNext.setBackground(new java.awt.Color(28, 64, 194));
+        sNext.setForeground(new java.awt.Color(251, 251, 251));
         sNext.setText(">");
+        sNext.setBorderPainted(false);
+        sNext.setFocusPainted(false);
         sNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sNextActionPerformed(evt);
@@ -176,11 +181,11 @@ public class pSettings extends javax.swing.JPanel {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 169, Short.MAX_VALUE)
+            .addGap(0, 520, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGap(0, 45, Short.MAX_VALUE)
         );
 
         pCenter.add(jPanel5);
@@ -196,7 +201,7 @@ public class pSettings extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 92, Short.MAX_VALUE)
+            .addGap(0, 180, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,7 +213,10 @@ public class pSettings extends javax.swing.JPanel {
         pCancel.setOpaque(false);
         pCancel.setLayout(new java.awt.GridBagLayout());
 
-        btnCancel.setText("Back");
+        btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Back.png"))); // NOI18N
+        btnCancel.setBorderPainted(false);
+        btnCancel.setContentAreaFilled(false);
+        btnCancel.setFocusPainted(false);
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelActionPerformed(evt);
@@ -221,7 +229,10 @@ public class pSettings extends javax.swing.JPanel {
         pOK.setOpaque(false);
         pOK.setLayout(new java.awt.GridBagLayout());
 
-        bntOK.setText("Accept");
+        bntOK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/accept.png"))); // NOI18N
+        bntOK.setBorderPainted(false);
+        bntOK.setContentAreaFilled(false);
+        bntOK.setFocusPainted(false);
         bntOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntOKActionPerformed(evt);
@@ -237,7 +248,7 @@ public class pSettings extends javax.swing.JPanel {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 92, Short.MAX_VALUE)
+            .addGap(0, 180, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,7 +269,7 @@ public class pSettings extends javax.swing.JPanel {
         );
         pRightLayout.setVerticalGroup(
             pRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
+            .addGap(0, 137, Short.MAX_VALUE)
         );
 
         pAll_Settings.add(pRight, java.awt.BorderLayout.LINE_END);
@@ -273,7 +284,7 @@ public class pSettings extends javax.swing.JPanel {
         );
         pLeftLayout.setVerticalGroup(
             pLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
+            .addGap(0, 137, Short.MAX_VALUE)
         );
 
         pAll_Settings.add(pLeft, java.awt.BorderLayout.LINE_START);

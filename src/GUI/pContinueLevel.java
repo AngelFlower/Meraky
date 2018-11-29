@@ -7,8 +7,13 @@ package GUI;
 
 import static GUI.main.paneMain;
 import Niveles.level2;
+import Niveles.level3;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.net.URL;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -20,6 +25,13 @@ public class pContinueLevel extends javax.swing.JPanel {
     /**
      * Creates new form pContinueLevel
      */
+    private URL url = getClass().getResource("/img/wallpaper.png");
+    Image image = new ImageIcon(url).getImage();
+    public void paint(Graphics g){
+        g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+        setOpaque(false);
+        super.paint(g);
+    }
     public pContinueLevel() {
         initComponents();
         valuesInit();
@@ -91,7 +103,10 @@ public class pContinueLevel extends javax.swing.JPanel {
         });
         Centro.add(txtCode, new java.awt.GridBagConstraints());
 
-        btnCheck.setText("Check");
+        btnCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/check.png"))); // NOI18N
+        btnCheck.setBorderPainted(false);
+        btnCheck.setContentAreaFilled(false);
+        btnCheck.setFocusPainted(false);
         btnCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCheckActionPerformed(evt);
@@ -104,7 +119,12 @@ public class pContinueLevel extends javax.swing.JPanel {
         Arriba.setOpaque(false);
         Arriba.setLayout(new java.awt.GridLayout(1, 3));
 
-        btnBack.setText("Back");
+        jPanel1.setOpaque(false);
+
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/flecha-hacia-la-izquierda.png"))); // NOI18N
+        btnBack.setBorderPainted(false);
+        btnBack.setContentAreaFilled(false);
+        btnBack.setFocusPainted(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -116,25 +136,29 @@ public class pContinueLevel extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(btnBack)
-                .addGap(0, 251, Short.MAX_VALUE))
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 268, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(btnBack)
-                .addGap(0, 222, Short.MAX_VALUE))
+                .addGap(0, 237, Short.MAX_VALUE))
         );
 
         Arriba.add(jPanel1);
 
+        jPanel2.setOpaque(false);
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(251, 251, 251));
         jLabel1.setText("Type your code");
         jPanel2.add(jLabel1, new java.awt.GridBagConstraints());
 
         Arriba.add(jPanel2);
+
+        jPanel3.setOpaque(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -144,7 +168,7 @@ public class pContinueLevel extends javax.swing.JPanel {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 247, Short.MAX_VALUE)
+            .addGap(0, 279, Short.MAX_VALUE)
         );
 
         Arriba.add(jPanel3);
@@ -152,7 +176,9 @@ public class pContinueLevel extends javax.swing.JPanel {
         Contenedor.add(Arriba, java.awt.BorderLayout.PAGE_START);
 
         Abajo.setOpaque(false);
-        Abajo.setLayout(new java.awt.GridLayout());
+        Abajo.setLayout(new java.awt.GridLayout(1, 0));
+
+        jPanel4.setOpaque(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -167,13 +193,17 @@ public class pContinueLevel extends javax.swing.JPanel {
 
         Abajo.add(jPanel4);
 
+        jPanel5.setOpaque(false);
         jPanel5.setLayout(new java.awt.GridBagLayout());
 
         msgCode.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        msgCode.setForeground(new java.awt.Color(251, 251, 251));
         msgCode.setText("Code is no correct");
         jPanel5.add(msgCode, new java.awt.GridBagConstraints());
 
         Abajo.add(jPanel5);
+
+        jPanel6.setOpaque(false);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -244,6 +274,13 @@ public class pContinueLevel extends javax.swing.JPanel {
                 paneMain.revalidate();
                 paneMain.repaint();
                 break;
+            case "LVB37C" :
+                level3 nivel3 = new level3();
+                nivel3.setLocation(0, 0);
+                paneMain.removeAll();
+                paneMain.add(nivel3,GridLayout.class);
+                paneMain.revalidate();
+                paneMain.repaint();
             default:
                 msgCode.setVisible(true);
         }

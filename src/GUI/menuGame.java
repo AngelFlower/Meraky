@@ -26,7 +26,7 @@ public class menuGame extends javax.swing.JPanel {
     /**
      * Creates new form menuGame
      */
-    private URL url = getClass().getResource("/img/fondoInicio.jpg");
+    private URL url = getClass().getResource("/img/wallpaper.png");
     Image image = new ImageIcon(url).getImage();
     public void paint(Graphics g){
         g.drawImage(image, 0, 0, getWidth(), getHeight(), pAll_Settings);
@@ -82,7 +82,10 @@ public class menuGame extends javax.swing.JPanel {
 
         jPanel6.setOpaque(false);
 
-        btnBack.setText("Back");
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/flecha-hacia-la-izquierda.png"))); // NOI18N
+        btnBack.setBorderPainted(false);
+        btnBack.setContentAreaFilled(false);
+        btnBack.setFocusPainted(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -94,14 +97,14 @@ public class menuGame extends javax.swing.JPanel {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(btnBack)
-                .addGap(0, 312, Short.MAX_VALUE))
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 329, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addComponent(btnBack)
-                .addGap(0, 75, Short.MAX_VALUE))
+                .addGap(0, 90, Short.MAX_VALUE))
         );
 
         pTop.add(jPanel6);
@@ -109,7 +112,7 @@ public class menuGame extends javax.swing.JPanel {
         jPanel7.setOpaque(false);
         jPanel7.setLayout(new java.awt.GridBagLayout());
 
-        Title.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        Title.setFont(new java.awt.Font("An Unfortunate Event", 1, 24)); // NOI18N
         Title.setForeground(new java.awt.Color(246, 246, 246));
         Title.setText("Game modes");
         jPanel7.add(Title, new java.awt.GridBagConstraints());
@@ -126,7 +129,7 @@ public class menuGame extends javax.swing.JPanel {
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 132, Short.MAX_VALUE)
         );
 
         pTop.add(jPanel8);
@@ -139,7 +142,10 @@ public class menuGame extends javax.swing.JPanel {
         jPanel2.setOpaque(false);
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        btnNewGame.setText("New game");
+        btnNewGame.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/newGame.png"))); // NOI18N
+        btnNewGame.setBorderPainted(false);
+        btnNewGame.setContentAreaFilled(false);
+        btnNewGame.setFocusPainted(false);
         btnNewGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewGameActionPerformed(evt);
@@ -152,7 +158,10 @@ public class menuGame extends javax.swing.JPanel {
         jPanel3.setOpaque(false);
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
-        btnContinue.setText("Continue");
+        btnContinue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/continue.png"))); // NOI18N
+        btnContinue.setBorderPainted(false);
+        btnContinue.setContentAreaFilled(false);
+        btnContinue.setFocusPainted(false);
         btnContinue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnContinueActionPerformed(evt);
@@ -221,7 +230,7 @@ public class menuGame extends javax.swing.JPanel {
         );
         pRightLayout.setVerticalGroup(
             pRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 237, Short.MAX_VALUE)
+            .addGap(0, 205, Short.MAX_VALUE)
         );
 
         pAll_Settings.add(pRight, java.awt.BorderLayout.LINE_END);
@@ -236,7 +245,7 @@ public class menuGame extends javax.swing.JPanel {
         );
         pLeftLayout.setVerticalGroup(
             pLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 237, Short.MAX_VALUE)
+            .addGap(0, 205, Short.MAX_VALUE)
         );
 
         pAll_Settings.add(pLeft, java.awt.BorderLayout.LINE_START);
