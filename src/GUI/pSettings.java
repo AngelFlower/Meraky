@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import static GUI.main.clic;
 import Herramientas.Config;
 import Herramientas.PropStore;
 import static GUI.main.musica;
@@ -294,15 +295,18 @@ public class pSettings extends javax.swing.JPanel {
 
     private void wPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wPreviousActionPerformed
         if(etiWindow.getText()=="No") etiWindow.setText("Yes");
-        else etiWindow.setText("No");        // TODO add your handling code here:
+        else etiWindow.setText("No");
+        clic.reproducir();        // TODO add your handling code here:
     }//GEN-LAST:event_wPreviousActionPerformed
 
     private void wNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wNextActionPerformed
         if(etiWindow.getText()=="No") etiWindow.setText("Yes");
         else etiWindow.setText("No");
+        clic.reproducir();
     }//GEN-LAST:event_wNextActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        clic.reproducir();
         pStart start = new pStart();
         start.setLocation(0, 0);
         paneMain.removeAll();
@@ -313,6 +317,7 @@ public class pSettings extends javax.swing.JPanel {
 
     private void bntOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntOKActionPerformed
         getAndSetConfigs();
+        clic.reproducir();
         //Cierra el frame
         main frame = (main) SwingUtilities.getWindowAncestor(this);
         frame.dispose();
@@ -330,11 +335,13 @@ public class pSettings extends javax.swing.JPanel {
     private void sPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sPreviousActionPerformed
         if(etiSound.getText()=="No") etiSound.setText("Yes");
         else etiSound.setText("No");
+        clic.reproducir();
     }//GEN-LAST:event_sPreviousActionPerformed
 
     private void sNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sNextActionPerformed
         if(etiSound.getText()=="No") etiSound.setText("Yes");
         else etiSound.setText("No");
+        clic.reproducir();
     }//GEN-LAST:event_sNextActionPerformed
     public void Configs(){
         

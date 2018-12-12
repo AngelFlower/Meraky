@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import static GUI.main.clic;
 import static GUI.main.paneMain;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -218,6 +219,7 @@ public class  pStart extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
+        clic.reproducir();
         menuGame level = new menuGame();
         level.setLocation(0, 0);
         paneMain.removeAll();
@@ -228,6 +230,7 @@ public class  pStart extends javax.swing.JPanel {
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingsActionPerformed
+        clic.reproducir();
         pSettings settings = new pSettings();
         settings.setLocation(0, 0);
         paneMain.removeAll();
@@ -237,6 +240,7 @@ public class  pStart extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSettingsActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        clic.reproducir();
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
 

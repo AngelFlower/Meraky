@@ -5,7 +5,10 @@
  */
 package Niveles;
 
+import static GUI.main.clic;
+import static GUI.main.musica;
 import static GUI.main.paneMain;
+import static GUI.main.sonido;
 import GUI.menuGame;
 import GUI.pLevel;
 import java.awt.Graphics;
@@ -88,7 +91,7 @@ private URL url = getClass().getResource("/img/Working.png");
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setText("We're working for this ");
+        jLabel1.setText("we're working in this level");
         jPanel3.add(jLabel1, new java.awt.GridBagConstraints());
 
         jPanel1.add(jPanel3);
@@ -101,6 +104,11 @@ private URL url = getClass().getResource("/img/Working.png");
     }// </editor-fold>//GEN-END:initComponents
 
     private void playBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playBackActionPerformed
+        clic.reproducir();
+        if(sonido){
+        menuGame.musicaaa.stop();
+        musica.repetir();
+        }
         menuGame level = new menuGame();
         level.setLocation(0, 0);
         paneMain.removeAll();

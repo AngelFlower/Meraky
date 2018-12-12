@@ -5,9 +5,13 @@
  */
 package Niveles;
 
+import static GUI.main.clic;
+import static GUI.main.musica;
 import static GUI.main.paneMain;
+import static GUI.main.sonido;
 import GUI.menuGame;
 import GUI.pLevel;
+import Herramientas.Sound;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 import java.util.Random;
@@ -23,6 +27,8 @@ public class level1 extends javax.swing.JPanel {
     String vPreguntas[],mRespuestas[][];
     String  mensaje_cong = "!Great¡ correct asnwer";
     String mensaje_wrong = "!Upss¡ wrong answer";
+    public static Sound correct = new Sound("/Sonidos/correct.wav");
+    public static Sound incorrect = new Sound("/Sonidos/incorrect.wav");
     
     /**
      * Creates new form level1
@@ -30,6 +36,7 @@ public class level1 extends javax.swing.JPanel {
     public level1() {
         initComponents();
         Inicial();
+        
     }
     public void Inicial(){
         mRespuestas = new String[7][3];
@@ -385,6 +392,7 @@ public class level1 extends javax.swing.JPanel {
                 btnRC();
                 etiResultado.setText(mensaje_cong);
                 p1 = true;
+                correct.reproducir();
                 //RP1.setOpaque(true);
                 i++;
                 break;
@@ -392,6 +400,7 @@ public class level1 extends javax.swing.JPanel {
                 etiResultado.setText(mensaje_wrong );
                 btns.clearSelection();
                 e+=1;
+                incorrect.reproducir();
                 break;
         }
        
@@ -416,11 +425,13 @@ public class level1 extends javax.swing.JPanel {
                     btnRC();
                     etiResultado.setText(mensaje_cong);
                     p2 =true;
+                    correct.reproducir();
                     break;
                 default:
                     etiResultado.setText(mensaje_wrong );
                     btns.clearSelection();
                     e+=1;
+                    incorrect.reproducir();
             }
         }
     }
@@ -444,11 +455,13 @@ public class level1 extends javax.swing.JPanel {
                     btnRC();
                     etiResultado.setText(mensaje_cong);
                     p3 =true;
+                    correct.reproducir();
                     break;
                 default:
                     etiResultado.setText(mensaje_wrong );
                     btns.clearSelection();
                     e+=1;
+                    incorrect.reproducir();
                     
             }
         }
@@ -472,12 +485,13 @@ public class level1 extends javax.swing.JPanel {
                     btnRC();
                     etiResultado.setText(mensaje_cong);
                     p4 =true;
+                    correct.reproducir();
                     break;
                 default:
                     etiResultado.setText(mensaje_wrong );
                     btns.clearSelection();
                     e+=1;
-                    
+                    incorrect.reproducir();
             }
         }
     }
@@ -500,16 +514,22 @@ public class level1 extends javax.swing.JPanel {
                     btnRC();
                     etiResultado.setText(mensaje_cong);
                     p5 =true;
+                    correct.reproducir();
                     break;
                 default:
                     etiResultado.setText(mensaje_wrong );
                     btns.clearSelection();
                     e+=1;
-                    
+                    incorrect.reproducir();
             }
         }
     }
     private void playBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playBackActionPerformed
+        clic.reproducir();
+        if(sonido){
+        menuGame.musicaaa.stop();
+        musica.repetir();
+        }
         menuGame level = new menuGame();
         level.setLocation(0, 0);
         paneMain.removeAll();
@@ -525,8 +545,8 @@ public class level1 extends javax.swing.JPanel {
     }//GEN-LAST:event_formKeyPressed
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
+        clic.reproducir();
         if(btn1.isSelected()||btn2.isSelected()||btn3.isSelected()){
-            
             System.out.println(""+e);
             if(!p1) preg1();
             else if(!p2) preg2();
@@ -540,6 +560,10 @@ public class level1 extends javax.swing.JPanel {
             paneMain.revalidate();
             paneMain.repaint();
             }
+        }
+        else{
+            etiResultado.setText("Please select a option");
+            incorrect.reproducir();
         }
     }//GEN-LAST:event_btnOkActionPerformed
     

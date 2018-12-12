@@ -30,7 +30,9 @@ import javax.swing.ImageIcon;
  * @author Angel Flores
  */
 public class main extends javax.swing.JFrame {
-    public static Sound musica = new Sound("/Sonidos/musica.wav");
+    public static Sound musica = new Sound("/Sonidos/fondo_menu_game.wav");
+    public static Sound clic = new Sound("/Sonidos/click.wav");
+    public static boolean sonido;
     private Cursor cursor;
     private Point posicion;
     public int ladoCursor;
@@ -60,9 +62,13 @@ public class main extends javax.swing.JFrame {
         pStart1 = new GUI.pStart();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Soul Dead");
         setMinimumSize(new java.awt.Dimension(819, 619));
         setPreferredSize(preferredSize());
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         paneMain.setMinimumSize(new java.awt.Dimension(0, 0));
@@ -76,6 +82,10 @@ public class main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        
+    }//GEN-LAST:event_formMouseClicked
     public void mousePersonalizado(){
         Toolkit configuracion = Toolkit.getDefaultToolkit();
 		final BufferedImage iconoCargado = CargadorDeRecursos
@@ -88,13 +98,13 @@ public class main extends javax.swing.JFrame {
     }
     public static void setMouse(){}
     public void Configuraciones(){
-        this.setTitle("");
+        this.setTitle("Meraky");
         //Toolkit tk = Toolkit.getDefaultToolkit();
         //Dimension d= tk.getScreenSize();
         //this.setSize(d);
         Config cfg = new Config();
         boolean fullscreen = Boolean.parseBoolean(cfg.getProperty("fullscreen"));
-        boolean sonido = Boolean.parseBoolean(cfg.getProperty("sound"));
+        sonido = Boolean.parseBoolean(cfg.getProperty("sound"));
         System.out.println(fullscreen);
         if(fullscreen){
             try {

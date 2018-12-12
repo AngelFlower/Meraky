@@ -5,10 +5,14 @@
  */
 package GUI;
 
+import static GUI.main.clic;
+import static GUI.main.musica;
 import Niveles.level1;
 import Niveles.pDetermination;
 import static GUI.main.paneMain;
+import static GUI.main.sonido;
 import Herramientas.Constantes;
+import Herramientas.Sound;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -22,7 +26,7 @@ import javax.swing.SwingUtilities;
  * @author Angel Flores
  */
 public class menuGame extends javax.swing.JPanel {
-
+    public static Sound musicaaa = new Sound("/Sonidos/fondo_in_game.wav");
     /**
      * Creates new form menuGame
      */
@@ -35,6 +39,7 @@ public class menuGame extends javax.swing.JPanel {
     }
     public menuGame() {
         initComponents();
+        ;
     }
 
     /**
@@ -262,6 +267,7 @@ public class menuGame extends javax.swing.JPanel {
         paneMain.repaint();
     }
     private void btnNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewGameActionPerformed
+        clic.reproducir();
         level1 start = new level1();
         start.setLocation(0, 0);
         //Constantes.RUTA_ICONO_RATON  = "/img/IconoCursorLevel.png";
@@ -271,14 +277,20 @@ public class menuGame extends javax.swing.JPanel {
         paneMain.add(start,GridLayout.class);
         paneMain.revalidate();
         paneMain.repaint();
+        if(sonido){
+        musica.stop();
+        musicaaa.repetir();
+        }
         //start.requestFocusInWindow();
     }//GEN-LAST:event_btnNewGameActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         btnBackAction();
+        clic.reproducir();
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinueActionPerformed
+        clic.reproducir();
         pContinueLevel ContLevel = new pContinueLevel();
         ContLevel.setLocation(0, 0);
         paneMain.removeAll();

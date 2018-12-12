@@ -5,9 +5,14 @@
  */
 package Niveles;
 
+import static GUI.main.clic;
+import static GUI.main.musica;
 import static GUI.main.paneMain;
+import static GUI.main.sonido;
 import GUI.menuGame;
 import GUI.pLevel;
+import static Niveles.level1.correct;
+import static Niveles.level1.incorrect;
 import com.sun.glass.events.KeyEvent;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -86,8 +91,9 @@ public class level2 extends javax.swing.JPanel {
         btns[25] = jButton26;
         btns[26] = jButton27;
 
-        //
-        //palabras por advinar, para agregar una nueva palabra sera necesario declararla al inicio
+        /*
+        Palabras
+         */
         msgs[0] = "BROTHER".toUpperCase();
         msgs[1] = "FATHER".toUpperCase();
         msgs[2] = "MOTHER".toUpperCase();
@@ -130,13 +136,13 @@ public class level2 extends javax.swing.JPanel {
         for (int i = 1; i < 27; i++) {
             btns[i].setEnabled(true);
         }
-        //para generar una palabra aleatoriamente xD
+        //Palabra aleatoriamente 
         ran = (int) 0 + (int) (Math.random() * ((msgs.length - 1) + 1));
         //SEPARA EL MENSAJE POR PALABRAS
         String pal[] = msgs[ran].split(" ");
         res = new String[msgs[ran].length() + 1];
         int j = 0;
-        // seran los guiones que van debajo de las letras como una separacion_
+        // seran los guiones 
         for (String pal1 : pal) {
             for (int i = 0; i < pal1.length(); i++) {
                 jTextPane1.setText(jTextPane1.getText() + "_ ");
@@ -187,6 +193,7 @@ public class level2 extends javax.swing.JPanel {
                     if (gano) {
                         con++;
                         numPalabra.setText(con + "/3");
+                        //correct.reproducir();
                         if (con == 3) {
                             //Msg.setText("CONGRATULATIONS YOU RAISE THE LEVEL");
                             nextLVL3 level = new nextLVL3();
@@ -196,20 +203,24 @@ public class level2 extends javax.swing.JPanel {
                             paneMain.revalidate();
                             paneMain.repaint();
                         } else {
-                            iniciar();
-                        }
 
+                            iniciar();
+
+                        }
+                        correct.reproducir();
                         return;
                     }
 
                     //SI LA LETRA NO ESTA EN EL MENSAGE, SE INCREMENTA EL ERROR Y SE CAMBIA LA IMAGEN
                 } else {
                     jButton1.setIcon(imgs[++err]);
-                    //SI SE LLEGA A LOS 5 ERRORES ENTONCES SE PIERDE EL JUEGO Y SE MANDA EL MENSAGE DE:
+                    System.out.println("------\n Error número "+err);
+                    //SI SE LLEGA A LOS 5 ERRORES ENTONCES SE PIERDE Y REINICIA
                     if (err == 5) {
                         /*aviso.setVisible(true);
                         Msg.setText("YOU LOST TRY AGAIN THE WORD IS \n" + msgs[ran]);
                         all.setVisible(false);*/
+                        incorrect.reproducir();
                         iniciar();
 
                         return;
@@ -542,6 +553,11 @@ public class level2 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        clic.reproducir();
+        if (sonido) {
+            menuGame.musicaaa.stop();
+            musica.repetir();
+        }
         menuGame level = new menuGame();
         level.setLocation(0, 0);
         paneMain.removeAll();
@@ -551,7 +567,8 @@ public class level2 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
-        iniciar();        // TODO add your handling code here:
+        iniciar();
+        clic.reproducir();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

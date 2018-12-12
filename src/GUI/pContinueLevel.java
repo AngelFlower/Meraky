@@ -5,7 +5,11 @@
  */
 package GUI;
 
+import static GUI.main.clic;
+import static GUI.main.musica;
 import static GUI.main.paneMain;
+import static GUI.main.sonido;
+import static GUI.menuGame.musicaaa;
 import Niveles.level2;
 import Niveles.level3;
 import java.awt.Graphics;
@@ -80,6 +84,7 @@ public class pContinueLevel extends javax.swing.JPanel {
 
         txtCode.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtCode.setText("Typed here           ");
+        txtCode.setOpaque(false);
         txtCode.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtCodeFocusGained(evt);
@@ -257,15 +262,12 @@ public class pContinueLevel extends javax.swing.JPanel {
         int i,a = 0;
         msgCode.setVisible(false);
         for(i=0; i<codes.length;i++){
-            a = i;
+            
             if(txtCode.getText().equals(codes[i])){
                 System.out.println("Codigo Correspondiente");
                 exist = true;
-                break;
-            }
-        }
-        //
-        switch (codes[a]) {
+                a = i;
+                switch (codes[a]) {
             case "LVA783":
                 level2 nivel2 = new level2();
                 nivel2.setLocation(0, 0);
@@ -273,6 +275,10 @@ public class pContinueLevel extends javax.swing.JPanel {
                 paneMain.add(nivel2,GridLayout.class);
                 paneMain.revalidate();
                 paneMain.repaint();
+                if(sonido){
+                musica.stop();
+                musicaaa.repetir();
+                }
                 break;
             case "LVB37C" :
                 level3 nivel3 = new level3();
@@ -281,14 +287,28 @@ public class pContinueLevel extends javax.swing.JPanel {
                 paneMain.add(nivel3,GridLayout.class);
                 paneMain.revalidate();
                 paneMain.repaint();
+                if(sonido){
+                musica.stop();
+                musicaaa.repetir();
+                }
+                break;
             default:
                 msgCode.setVisible(true);
         }
+                break;
+            }
+            else
+                msgCode.setVisible(true);
+        }
+        //
+        
+        
         txtCode.setText("Typed here           ");
         btnCheck.requestFocus();
         //txtCode.requestFocus();
     }
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        clic.reproducir();
         menuGame menu = new menuGame();
         menu.setLocation(0, 0);
         paneMain.removeAll();
@@ -308,6 +328,7 @@ public class pContinueLevel extends javax.swing.JPanel {
 
     private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
         checkCode();
+        clic.reproducir();
     }//GEN-LAST:event_btnCheckActionPerformed
 
     private void txtCodeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCodeMouseClicked
