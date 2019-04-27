@@ -8,7 +8,6 @@ package GUI;
 import Herramientas.Config;
 import Herramientas.CargaAvance;
 import Herramientas.CargadorDeRecursos;
-import Herramientas.Constantes;
 import static Herramientas.Constantes.RUTA_ICONO_RATON;
 import Herramientas.GuardaAvance;
 import Herramientas.PropStore;
@@ -41,8 +40,6 @@ public class main extends javax.swing.JFrame {
      */
     public main(){ 
         mousePersonalizado();
-        Image icon = new ImageIcon(getClass().getResource("/img/icon.png")).getImage();
-        setIconImage(icon);
         Configuraciones();  //Verifica las configuraciones y asigna
         initComponents();
         Win();
@@ -62,7 +59,7 @@ public class main extends javax.swing.JFrame {
         pStart1 = new GUI.pStart();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(819, 619));
+        setMinimumSize(new java.awt.Dimension(1019, 619));
         setPreferredSize(preferredSize());
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -86,7 +83,7 @@ public class main extends javax.swing.JFrame {
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         
     }//GEN-LAST:event_formMouseClicked
-    public void mousePersonalizado(){
+    private void mousePersonalizado(){
         Toolkit configuracion = Toolkit.getDefaultToolkit();
 		final BufferedImage iconoCargado = CargadorDeRecursos
 				.cargarImagenCompatibleTranslucida(RUTA_ICONO_RATON);
@@ -96,8 +93,9 @@ public class main extends javax.swing.JFrame {
 		this.cursor = configuracion.createCustomCursor(icono, punta, "Cursor por defecto");
                 this.setCursor(cursor);
     }
-    public static void setMouse(){}
-    public void Configuraciones(){
+    private void Configuraciones(){
+        Image icon = new ImageIcon(getClass().getResource("/img/icon.png")).getImage();
+        setIconImage(icon);
         this.setTitle("Meraky");
         //Toolkit tk = Toolkit.getDefaultToolkit();
         //Dimension d= tk.getScreenSize();
@@ -124,12 +122,12 @@ public class main extends javax.swing.JFrame {
             }
         }
         else{
-            this.setSize(new Dimension(819,619));
+            this.setSize(new Dimension(1019,619));
         }
         if(sonido) musica.repetir();
     }
     
-    public void Win(){
+    private void Win(){
         Config cfg = new Config();
         boolean fullscreen = Boolean.parseBoolean(cfg.getProperty("fullscreen"));
         if(!fullscreen){

@@ -1,6 +1,15 @@
 # Meraky
 
-Aprende ingles mientras juegas
+Un videojuego desarrollado como proyecto de inglés
+
+## Capturas de pantalla
+![Error](screenshots/Captura1.png?raw=true "Inicio")
+![Error](screenshots/Captura2.png?raw=true "Configuraciones")
+![Error](screenshots/Captura3.png?raw=true "Modos de juego")
+![Error](screenshots/Captura4.png?raw=true "Nivel 1")
+![Error](screenshots/Captura5.png?raw=true "Siguiente Nivel")
+![Error](screenshots/Captura6.png?raw=true "Nivel 2")
+![Error](screenshots/Captura7.png?raw=true "Continuar")
 
 ## Cómo empezar
 

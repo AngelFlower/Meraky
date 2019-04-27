@@ -10,7 +10,6 @@ import static GUI.main.musica;
 import static GUI.main.paneMain;
 import static GUI.main.sonido;
 import GUI.menuGame;
-import GUI.pLevel;
 import Herramientas.Sound;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;

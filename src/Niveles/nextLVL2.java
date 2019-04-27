@@ -7,7 +7,6 @@ package Niveles;
 
 import static GUI.main.paneMain;
 import GUI.menuGame;
-import GUI.pLevel;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.net.URL;

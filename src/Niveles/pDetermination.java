@@ -59,11 +59,12 @@ public void Avanzar_niveles(){
         level1 abrir1 = new level1();
         level2 abrir2 = new level2();
         level3 abrir3= new level3();
-     level4 abrir4 = new level4();
+     //level4 abrir4 = new level4();
+     
         
         switch(nivel_op){
             
-            case 1: abrir4.setVisible(true);
+            case 1: //sabrir4.setVisible(true);
                     this.setVisible(false);;
             break;
             case 2: abrir3.setVisible(true);
